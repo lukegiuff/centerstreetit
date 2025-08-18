@@ -18,7 +18,7 @@ interface FooterProps {
 
 export function Footer({ siteTitle, social }: FooterProps) {
   const getIcon = (iconName: string) => {
-    const IconComponent = (LucideIcons as any)[iconName];
+    const IconComponent = (LucideIcons as never)[iconName];
     return IconComponent ? IconComponent : LucideIcons.Link;
   };
 
@@ -44,7 +44,7 @@ export function Footer({ siteTitle, social }: FooterProps) {
               />
             </div>
             <p className="text-gray-400 mb-6 max-w-md">
-              At Center Street IT, we're proud to offer IT Support Management Infrastructure and Consulting that delivers truly transformative results. Unlike the traditional Managed Services model which only addresses surface-level issues, we tackle the root cause of your challenges to provide a permanent solution. Say goodbye to recurring problems and hello to a seamless experience!
+                                 At Center Street IT, we&apos;re proud to offer IT Support Management Infrastructure and Consulting that delivers truly transformative results. Unlike the traditional Managed Services model which only addresses surface-level issues, we tackle the root cause of your challenges to provide a permanent solution. Say goodbye to recurring problems and hello to a seamless experience!
             </p>
             <div className="flex space-x-4">
               {social.map((link, index) => {
@@ -57,8 +57,8 @@ export function Footer({ siteTitle, social }: FooterProps) {
                     rel="noopener noreferrer"
                     className="w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-200"
                     style={{ backgroundColor: '#1f2937' }}
-                    onMouseEnter={(e) => e.target.style.backgroundColor = '#b78842'}
-                    onMouseLeave={(e) => e.target.style.backgroundColor = '#1f2937'}
+                                               onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#b78842')}
+                           onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#1f2937')}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
                     initial={{ opacity: 0, scale: 0 }}

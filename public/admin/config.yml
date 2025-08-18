@@ -87,5 +87,10 @@ collections:
       - { label: "Author", name: "author", widget: "string" }
       - { label: "Featured Image", name: "featured_image", widget: "image", required: false }
       - { label: "Excerpt", name: "excerpt", widget: "text" }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+        buttons: ["bold", "italic", "code", "link", "heading-two", "heading-three", "heading-four", "quote", "bulleted-list", "numbered-list"]
+        editor_components: ["image", "code-block"]
+        modes: ["rich_text", "raw"]
       - { label: "Tags", name: "tags", widget: "list", default: ["general"] }

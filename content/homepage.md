@@ -26,8 +26,8 @@ features:
 stats:
   - number: "100%"
     label: "Satisfaction Focused"
-  - number: "0"
-    label: "Contracts Required"
+  - number: "100+"
+    label: "Contracts Acquired"
   - number: "24/7"
     label: "Support Available"
   - number: "15+"

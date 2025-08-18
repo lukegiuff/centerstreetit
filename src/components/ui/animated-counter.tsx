@@ -16,7 +16,6 @@ export function AnimatedCounter({ value, className = '', delay = 0 }: AnimatedCo
     const numericMatch = value.match(/(\d+\.?\d*)/);
     if (!numericMatch) return value;
     
-    const targetNumber = parseFloat(numericMatch[1]);
     const currentNumber = Math.round(latest);
     
     if (currentNumber === 0) return value.replace(numericMatch[1], '0');

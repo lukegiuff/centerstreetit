@@ -17,7 +17,7 @@ interface FeaturesSectionProps {
 
 export function FeaturesSection({ features }: FeaturesSectionProps) {
   const getIcon = (iconName: string) => {
-    const IconComponent = (LucideIcons as any)[iconName];
+    const IconComponent = (LucideIcons as never)[iconName];
     return IconComponent ? IconComponent : LucideIcons.Star;
   };
 

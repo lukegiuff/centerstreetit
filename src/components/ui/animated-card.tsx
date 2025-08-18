@@ -8,13 +8,15 @@ interface AnimatedCardProps {
   className?: string;
   delay?: number;
   hover?: boolean;
+  style?: React.CSSProperties;
 }
 
 export function AnimatedCard({ 
   children, 
   className = '', 
   delay = 0, 
-  hover = true 
+  hover = true,
+  style 
 }: AnimatedCardProps) {
   return (
     <motion.div
@@ -23,7 +25,7 @@ export function AnimatedCard({
       transition={{ 
         duration: 0.6, 
         delay,
-        ease: [0.25, 0.46, 0.45, 0.94] 
+        ease: "easeOut" 
       }}
       whileHover={hover ? { 
         y: -8, 
@@ -31,7 +33,7 @@ export function AnimatedCard({
         transition: { duration: 0.2 }
       } : undefined}
       className={`bg-white/90 backdrop-blur-lg border rounded-xl p-6 shadow-xl ${className}`}
-      style={{ borderColor: 'rgba(183, 136, 66, 0.2)' }}
+      style={{ borderColor: 'rgba(183, 136, 66, 0.2)', ...style }}
     >
       {children}
     </motion.div>

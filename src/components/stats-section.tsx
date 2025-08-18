@@ -44,7 +44,7 @@ export function StatsSection({ stats }: StatsSectionProps) {
               Trusted by Industry Leaders
             </h2>
             <p className="text-xl max-w-2xl mx-auto" style={{ color: '#b78842' }}>
-              Our track record speaks for itself. Here's what we've achieved together with our clients.
+                                   Our track record speaks for itself. Here&apos;s what we&apos;ve achieved together with our clients.
             </p>
           </div>
         </AnimatedText>

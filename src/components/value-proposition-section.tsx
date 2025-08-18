@@ -54,7 +54,7 @@ export function ValuePropositionSection() {
               Why Center Street IT is Different
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We don't just fix problems - we prevent them. Our unique approach focuses on long-term solutions and your complete satisfaction.
+              We don&apos;t just fix problems - we prevent them. Our unique approach focuses on long-term solutions and your complete satisfaction.
             </p>
           </div>
         </AnimatedText>
@@ -105,7 +105,7 @@ export function ValuePropositionSection() {
               Innovative Leasing Programs
             </h3>
             <p className="text-gray-600 leading-relaxed max-w-3xl mx-auto">
-              Through partnerships with leading financial services firms to provide the equipment you need along with a payment that won't break the bank. Often times we can outfit/refresh your entire office for what you currently pay for just copiers.
+              Through partnerships with leading financial services firms to provide the equipment you need along with a payment that won&apos;t break the bank. Often times we can outfit/refresh your entire office for what you currently pay for just copiers.
             </p>
           </div>
         </AnimatedCard>

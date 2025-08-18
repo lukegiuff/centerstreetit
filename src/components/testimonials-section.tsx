@@ -54,7 +54,7 @@ export function TestimonialsSection({ testimonials }: TestimonialsSectionProps) 
               What Our Clients Say
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Don't just take our word for it. Here's what industry leaders have to say about working with us.
+              Don&apos;t just take our word for it. Here&apos;s what industry leaders have to say about working with us.
             </p>
           </div>
         </AnimatedText>
@@ -100,7 +100,7 @@ export function TestimonialsSection({ testimonials }: TestimonialsSectionProps) 
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 + index * 0.1 }}
               >
-                "{testimonial.quote}"
+                &quot;{testimonial.quote}&quot;
               </motion.blockquote>
 
               {/* Author info */}

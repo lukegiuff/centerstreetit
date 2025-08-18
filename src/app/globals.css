@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 :root {
   --background: #ffffff;
@@ -19,6 +20,147 @@
   --font-heading: var(--font-cinzel);
 }
 
+/* Custom Prose Styling */
+.prose {
+  --tw-prose-body: theme(colors.gray.700);
+  --tw-prose-headings: theme(colors.gray.900);
+  --tw-prose-lead: theme(colors.gray.600);
+  --tw-prose-links: var(--brand-gold);
+  --tw-prose-bold: theme(colors.gray.900);
+  --tw-prose-counters: theme(colors.gray.500);
+  --tw-prose-bullets: var(--brand-gold);
+  --tw-prose-hr: theme(colors.gray.300);
+  --tw-prose-quotes: theme(colors.gray.900);
+  --tw-prose-quote-borders: var(--brand-gold);
+  --tw-prose-captions: theme(colors.gray.700);
+  --tw-prose-code: theme(colors.gray.900);
+  --tw-prose-pre-code: theme(colors.gray.100);
+  --tw-prose-pre-bg: theme(colors.gray.900);
+  --tw-prose-th-borders: theme(colors.gray.300);
+  --tw-prose-td-borders: theme(colors.gray.200);
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  font-family: var(--font-heading);
+}
+
+.prose h1 {
+  font-size: 2rem;
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.prose h2 {
+  font-size: 1.75rem;
+  line-height: 1.3;
+  margin-top: 2.5rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 2px solid var(--brand-gold);
+  padding-bottom: 0.5rem;
+}
+
+.prose h3 {
+  font-size: 1.5rem;
+  line-height: 1.4;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: var(--brand-gold);
+}
+
+.prose h4 {
+  font-size: 1.25rem;
+  line-height: 1.4;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.prose ul,
+.prose ol {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.prose li {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.prose a:hover {
+  color: var(--brand-teal);
+}
+
+.prose blockquote {
+  background: linear-gradient(to right, theme(colors.gray.50), theme(colors.white));
+  border-radius: 0 0.75rem 0.75rem 0;
+  box-shadow: theme(boxShadow.sm);
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding: 1.25rem 1.5rem;
+}
+
+.prose pre {
+  box-shadow: theme(boxShadow.lg);
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.prose img {
+  border-radius: 0.5rem;
+  box-shadow: theme(boxShadow.lg);
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.prose table {
+  box-shadow: theme(boxShadow.lg);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.prose thead {
+  background-color: var(--brand-gold);
+}
+
+.prose thead th {
+  color: white;
+  padding: 1rem 1.25rem;
+  font-weight: 600;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+.prose tbody td {
+  padding: 1.25rem 1.25rem;
+  border-bottom: 1px solid theme(colors.gray.200);
+  vertical-align: top;
+  line-height: 1.6;
+}
+
+.prose tbody tr:nth-child(even) {
+  background-color: theme(colors.gray.50);
+}
+
+.prose tbody tr:hover {
+  background-color: rgba(183, 136, 66, 0.05);
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -30,4 +172,62 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Enhanced Blog Content Styles */
+.info-box {
+  background: linear-gradient(135deg, #dbeafe 0%, #e0f2fe 100%);
+  border-left: 4px solid #3b82f6;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  border-radius: 0 12px 12px 0;
+  box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.1);
+}
+
+.warning-box {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  border-left: 4px solid #f59e0b;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  border-radius: 0 12px 12px 0;
+  box-shadow: 0 4px 6px -1px rgba(245, 158, 11, 0.1);
+}
+
+.important-box {
+  background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+  border-left: 4px solid #ef4444;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  border-radius: 0 12px 12px 0;
+  box-shadow: 0 4px 6px -1px rgba(239, 68, 68, 0.1);
+}
+
+.tip-box {
+  background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+  border-left: 4px solid #10b981;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  border-radius: 0 12px 12px 0;
+  box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.1);
+}
+
+.reading-time {
+  background: linear-gradient(135deg, #b78842 0%, #d4a574 100%);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  display: inline-block;
+  margin: 0.5rem 0 1rem 0;
+  box-shadow: 0 2px 4px rgba(183, 136, 66, 0.2);
+}
+
+.info-box strong,
+.warning-box strong,
+.important-box strong,
+.tip-box strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
 }
