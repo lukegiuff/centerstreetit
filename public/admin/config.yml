@@ -1,0 +1,91 @@
+backend:
+  name: git-gateway
+  branch: master
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - label: "Homepage"
+        name: "homepage"
+        file: "content/homepage.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Subtitle", name: "subtitle", widget: "string" }
+          - { label: "Hero Text", name: "hero_text", widget: "text" }
+          - { label: "CTA Button Text", name: "cta_text", widget: "string" }
+          - { label: "CTA Button Link", name: "cta_link", widget: "string" }
+          - label: "Features"
+            name: "features"
+            widget: "list"
+            fields:
+              - { label: "Icon", name: "icon", widget: "string", hint: "Lucide icon name" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+          - label: "Stats"
+            name: "stats"
+            widget: "list"
+            fields:
+              - { label: "Number", name: "number", widget: "string" }
+              - { label: "Label", name: "label", widget: "string" }
+          - label: "Testimonials"
+            name: "testimonials"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Role", name: "role", widget: "string" }
+              - { label: "Quote", name: "quote", widget: "text" }
+              - { label: "Avatar", name: "avatar", widget: "image", required: false }
+
+  - name: "service_pages"
+    label: "Service Pages"
+    folder: "content/pages"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Hero Title", name: "hero_title", widget: "string" }
+      - { label: "Hero Subtitle", name: "hero_subtitle", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - label: "Global Settings"
+        name: "global"
+        file: "content/settings.md"
+        fields:
+          - { label: "Site Title", name: "site_title", widget: "string" }
+          - { label: "Site Description", name: "site_description", widget: "text" }
+          - { label: "Logo", name: "logo", widget: "image", required: false }
+          - label: "Navigation"
+            name: "navigation"
+            widget: "list"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Link", name: "link", widget: "string" }
+          - label: "Social Media"
+            name: "social"
+            widget: "list"
+            fields:
+              - { label: "Platform", name: "platform", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+              - { label: "Icon", name: "icon", widget: "string", hint: "Lucide icon name" }
+
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "content/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Author", name: "author", widget: "string" }
+      - { label: "Featured Image", name: "featured_image", widget: "image", required: false }
+      - { label: "Excerpt", name: "excerpt", widget: "text" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Tags", name: "tags", widget: "list", default: ["general"] }
