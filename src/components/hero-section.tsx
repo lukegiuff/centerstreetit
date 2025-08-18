@@ -5,7 +5,7 @@ import { ArrowRight } from 'lucide-react';
 import { AnimatedText } from './ui/animated-text';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+
 
 interface HeroSectionProps {
   title: string;
@@ -16,20 +16,6 @@ interface HeroSectionProps {
 }
 
 export function HeroSection({ title, subtitle, heroText, ctaText, ctaLink }: HeroSectionProps) {
-  const [dimensions, setDimensions] = useState({ width: 1200, height: 800 });
-
-  useEffect(() => {
-    const updateDimensions = () => {
-      setDimensions({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
-    };
-
-    updateDimensions();
-    window.addEventListener('resize', updateDimensions);
-    return () => window.removeEventListener('resize', updateDimensions);
-  }, []);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">

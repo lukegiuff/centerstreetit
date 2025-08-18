@@ -3,14 +3,10 @@ import path from 'path';
 import matter from 'gray-matter';
 import { marked } from 'marked';
 
-// Configure marked to not escape quotes and preserve apostrophes
+// Configure marked
 marked.setOptions({
-  smartypants: false,
   gfm: true,
   breaks: false,
-  pedantic: false,
-  sanitize: false,
-  smartLists: true,
 });
 
 // Function to post-process HTML to decode entities

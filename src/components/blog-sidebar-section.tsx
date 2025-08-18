@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { Calendar, Tag, TrendingUp } from 'lucide-react';
 import { AnimatedCard } from './ui/animated-card';
-import { AnimatedText } from './ui/animated-text';
+
 import Link from 'next/link';
 import { BlogPost } from '@/lib/content';
 

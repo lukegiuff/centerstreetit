@@ -1,7 +1,7 @@
 'use client';
 
 
-import Link from 'next/link';
+
 
 import { QuoteFormSection } from './quote-form-section';
 import { RecentBlogSection } from './recent-blog-section';
@@ -18,7 +18,7 @@ interface ServicePageRendererProps {
 }
 
 function ServicePageRenderer({ content }: ServicePageRendererProps) {
-  const iconMap: { [key: string]: any } = {
+  const iconMap: { [key: string]: React.ComponentType<React.SVGProps<SVGSVGElement>> } = {
     'threat protection': Shield,
     'it consulting': Users,
     'on-site field support': Settings,
@@ -125,7 +125,7 @@ function WhyChooseSection({ title, content }: { title: string; content: string }
           {items.map((item, index) => {
             const cleanContent = item.replace(/<\/?li[^>]*>/g, '');
             const strongMatch = cleanContent.match(/<strong[^>]*>(.*?)<\/strong>/);
-            let benefit = strongMatch ? strongMatch[1] : '';
+            const benefit = strongMatch ? strongMatch[1] : '';
             let description = cleanContent.replace(/<strong[^>]*>.*?<\/strong>:?\s*/, '');
             
             // Clean up any remaining HTML tags and nested paragraphs
@@ -160,6 +160,7 @@ function WhyChooseSection({ title, content }: { title: string; content: string }
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function BenefitsGrid({ content }: { content: string }) {
   // Extract list items from the HTML
   const listMatch = content.match(/<ul[^>]*>(.*?)<\/ul>/s);
@@ -172,7 +173,7 @@ function BenefitsGrid({ content }: { content: string }) {
       {items.map((item, index) => {
         const cleanContent = item.replace(/<\/?li[^>]*>/g, '');
         const strongMatch = cleanContent.match(/<strong[^>]*>(.*?)<\/strong>/);
-        let benefit = strongMatch ? strongMatch[1] : '';
+        const benefit = strongMatch ? strongMatch[1] : '';
         let description = cleanContent.replace(/<strong[^>]*>.*?<\/strong>:?\s*/, '');
         
         // Clean up any remaining HTML tags and nested paragraphs
@@ -202,7 +203,7 @@ function BenefitsGrid({ content }: { content: string }) {
   );
 }
 
-function FeaturesGrid({ content, iconMap }: { content: string; iconMap: any }) {
+function FeaturesGrid({ content, iconMap }: { content: string; iconMap: { [key: string]: React.ComponentType<React.SVGProps<SVGSVGElement>> } }) {
   // Extract H3 sections
   const sections = content.split('<h3>').filter(section => section.trim());
   
@@ -211,8 +212,8 @@ function FeaturesGrid({ content, iconMap }: { content: string; iconMap: any }) {
       {sections.map((section, index) => {
         const sectionContent = '<h3>' + section;
         const titleMatch = sectionContent.match(/<h3[^>]*>(.*?)<\/h3>/);
-        let title = titleMatch ? titleMatch[1] : '';
-        let description = sectionContent.replace(/<h3[^>]*>.*?<\/h3>/, '').replace(/<\/?p[^>]*>/g, '').trim();
+        const title = titleMatch ? titleMatch[1] : '';
+        const description = sectionContent.replace(/<h3[^>]*>.*?<\/h3>/, '').replace(/<\/?p[^>]*>/g, '').trim();
         
         // Get appropriate icon
         const iconKey = title.toLowerCase();
