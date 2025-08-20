@@ -37,7 +37,7 @@ navigation:
     link: "/contact"
 social:
   - platform: "Phone"
-    url: "tel:+15551234567"
+    url: "tel:+18324292940"
     icon: "Phone"
   - platform: "Email"
     url: "mailto:hello@centerstreetit.com"
