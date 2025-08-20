@@ -196,11 +196,11 @@ export function ContactFormSection() {
               >
                 <h4 className="text-lg font-semibold text-gray-900 mb-2">Phone</h4>
                 <a 
-                  href="tel:+15551234567" 
+                  href="tel:+18324292940" 
                   className="text-gray-600 hover:text-gray-900 transition-colors text-lg"
                   style={{ color: '#b78842' }}
                 >
-                  +1 (555) 123-4567
+                  (832) 429-2940
                 </a>
               </motion.div>
 
