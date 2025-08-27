@@ -5,18 +5,18 @@ import Image from 'next/image';
 
 export function TechnologyPartnersSection() {
   const partners = [
-    { name: 'Microsoft', logo: '/logos/microsoft.svg' },
-    { name: 'Google Cloud', logo: '/logos/google-cloud.svg' },
-    { name: 'DELL', logo: '/logos/dell.svg' },
-    { name: 'Cisco', logo: '/logos/cisco.svg' },
-    { name: 'Trend Micro', logo: '/logos/trend-micro.svg' },
-    { name: 'ESET', logo: '/logos/eset.svg' },
-    { name: 'SonicWall', logo: '/logos/sonicwall.svg' },
-    { name: 'QNAP', logo: '/logos/qnap.svg' },
-    { name: 'APC', logo: '/logos/apc.svg' },
-    { name: 'ARRIS', logo: '/logos/arris.svg' },
-    { name: 'Lenovo', logo: '/logos/lenovo.svg' },
-    { name: 'Ergotron', logo: '/logos/ergotron.svg' },
+    { name: 'Microsoft', logo: '/assets/Microsoft.png' },
+    { name: 'Google Cloud', logo: '/assets/GoogleCloud.png' },
+    { name: 'Dell', logo: '/assets/Dell.png' },
+    { name: 'Cisco', logo: '/assets/Cisco.png' },
+    { name: 'Trend Micro', logo: '/assets/Trend_Micro.png' },
+    { name: 'ESET', logo: '/assets/ESET.png' },
+    { name: 'SonicWall', logo: '/assets/SonicWall.png' },
+    { name: 'QNAP', logo: '/assets/QNAP.jpg' },
+    { name: 'APC', logo: '/assets/APC.png' },
+    { name: 'ARRIS', logo: '/assets/ARRIS.png' },
+    { name: 'Lenovo', logo: '/assets/Lenovo.png' },
+    { name: 'Ergotron', logo: '/assets/Ergotron.png' },
   ];
 
   return (
@@ -38,7 +38,7 @@ export function TechnologyPartnersSection() {
         </motion.div>
 
         {/* Scrolling Partners Container */}
-        <div className="relative overflow-hidden">
+        <div className="relative overflow-hidden py-4">
           {/* Left Gradient Fade */}
           <div className="absolute left-0 top-0 w-20 h-full bg-gradient-to-r from-gray-50 to-transparent z-10 pointer-events-none" />
           
@@ -65,18 +65,20 @@ export function TechnologyPartnersSection() {
             {partners.map((partner, index) => (
               <motion.div
                 key={`first-${partner.name}`}
-                className="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow grayscale hover:grayscale-0 transition-all duration-300 min-w-[180px]"
-                whileHover={{ scale: 1.05, grayscale: 0 }}
+                className="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow transition-all duration-300 min-w-[180px]"
+                whileHover={{ scale: 1.05 }}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <div className="w-24 h-12 relative flex items-center justify-center">
-                  {/* Placeholder for partner logos */}
-                  <div className="text-gray-600 text-sm font-medium text-center">
-                    {partner.name}
-                  </div>
+                <div className="w-28 h-10 relative flex items-center justify-center p-2">
+                  <Image
+                    src={partner.logo}
+                    alt={`${partner.name} logo`}
+                    fill
+                    className="object-contain"
+                  />
                 </div>
               </motion.div>
             ))}
@@ -85,14 +87,16 @@ export function TechnologyPartnersSection() {
             {partners.map((partner, index) => (
               <motion.div
                 key={`second-${partner.name}`}
-                className="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow grayscale hover:grayscale-0 transition-all duration-300 min-w-[180px]"
-                whileHover={{ scale: 1.05, grayscale: 0 }}
+                className="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow transition-all duration-300 min-w-[180px]"
+                whileHover={{ scale: 1.05 }}
               >
-                <div className="w-24 h-12 relative flex items-center justify-center">
-                  {/* Placeholder for partner logos */}
-                  <div className="text-gray-600 text-sm font-medium text-center">
-                    {partner.name}
-                  </div>
+                <div className="w-28 h-10 relative flex items-center justify-center p-2">
+                  <Image
+                    src={partner.logo}
+                    alt={`${partner.name} logo`}
+                    fill
+                    className="object-contain"
+                  />
                 </div>
               </motion.div>
             ))}
