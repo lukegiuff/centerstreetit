@@ -31,6 +31,18 @@ benefits:
       ensuring that your business experiences minimal downtime. We offer
       flexible recovery options, allowing you to restore individual files,
       entire systems, or specific applications quickly and efficiently.
+  - title: Scalable Solutions
+    description: As your business grows, so do your data protection needs. Our
+      Managed Backup Services are scalable, allowing you to easily adjust your
+      backup capacity and coverage as your requirements evolve. Whether you're a
+      small business or a large enterprise, we have the right solution to fit
+      your needs.
+  - title: Expert Support
+    description: At Solomon Solutions, we pride ourselves on our exceptional
+      customer service. Our team of experienced professionals is available 24/7
+      to provide support and assistance whenever you need it. From initial setup
+      to ongoing maintenance, we're here to ensure that your backup solution is
+      always running smoothly.
 show_features: false
 features_title: Features
 features:
