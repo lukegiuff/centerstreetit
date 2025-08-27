@@ -41,6 +41,7 @@ export function Header({ siteTitle, navigation }: HeaderProps) {
   };
 
   const handleMouseLeave = () => {
+    // Delay before hiding to allow moving to dropdown
     const timeout = setTimeout(() => {
       setHoveredItem(null);
     }, 200);
@@ -48,6 +49,16 @@ export function Header({ siteTitle, navigation }: HeaderProps) {
   };
 
   const handleDropdownMouseEnter = () => {
+    // Cancel any pending hide timeout when entering dropdown
+    if (hoverTimeout) {
+      clearTimeout(hoverTimeout);
+      setHoverTimeout(null);
+    }
+  };
+
+  const handleDropdownMouseLeave = () => {
+    // Immediate hide when leaving dropdown
+    setHoveredItem(null);
     if (hoverTimeout) {
       clearTimeout(hoverTimeout);
       setHoverTimeout(null);
@@ -95,12 +106,10 @@ export function Header({ siteTitle, navigation }: HeaderProps) {
             {navigation.map((item, index) => (
               <motion.div
                 key={item.label}
-                className="relative px-4 py-4"
+                className="relative"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 + index * 0.1 }}
-                onMouseEnter={() => handleMouseEnter(item.label)}
-                onMouseLeave={handleMouseLeave}
               >
                 {item.label.toLowerCase() === 'contact' ? (
                   <Link
@@ -116,7 +125,9 @@ export function Header({ siteTitle, navigation }: HeaderProps) {
                   <>
                     <Link
                       href={item.link}
-                      className="text-white/90 hover:text-white transition-colors duration-200 font-medium flex items-center gap-1"
+                      className="px-4 py-4 text-white/90 hover:text-white transition-colors duration-200 font-medium flex items-center gap-1"
+                      onMouseEnter={() => handleMouseEnter(item.label)}
+                      onMouseLeave={handleMouseLeave}
                     >
                       {item.label}
                       {item.submenu && (
@@ -124,7 +135,8 @@ export function Header({ siteTitle, navigation }: HeaderProps) {
                           animate={{ 
                             rotate: hoveredItem === item.label ? 180 : 0 
                           }}
-                          transition={{ duration: 0.2 }}
+                          transition={{ duration: 0.15 }}
+                          style={{ pointerEvents: 'none' }}
                         >
                           <ChevronDown className="w-4 h-4" />
                         </motion.div>
@@ -134,15 +146,15 @@ export function Header({ siteTitle, navigation }: HeaderProps) {
                     {/* Dropdown Menu */}
                     {item.submenu && hoveredItem === item.label && (
                       <motion.div
-                        className="absolute top-full left-0 w-80 bg-black/95 backdrop-blur-lg border border-gray-700 rounded-lg shadow-xl z-50"
-                        initial={{ opacity: 0, y: -10 }}
+                        className="absolute top-full left-0 w-80 bg-black/95 backdrop-blur-lg border border-gray-700 rounded-lg shadow-xl z-[60]"
+                        initial={{ opacity: 0, y: -5 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.2 }}
+                        transition={{ duration: 0.15 }}
                         onMouseEnter={handleDropdownMouseEnter}
-                        onMouseLeave={handleMouseLeave}
+                        onMouseLeave={handleDropdownMouseLeave}
                         style={{
-                          marginTop: '0px',
-                          marginLeft: '-16px',
+                          marginTop: '4px',
+                          marginLeft: '0px',
                         }}
                       >
                         <div className="p-6">
