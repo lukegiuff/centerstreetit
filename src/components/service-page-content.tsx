@@ -1,6 +1,6 @@
 'use client';
 
-import { ServicePageContent } from '@/lib/content';
+import type { ServicePageContent } from '@/lib/content';
 import { ServiceBenefitsSection } from './service-benefits-section';
 import { RecentBlogSection } from './recent-blog-section';
 import { CallToActionSection } from './call-to-action-section';
