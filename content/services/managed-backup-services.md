@@ -10,6 +10,7 @@ hero_description: In today's digital age, data is the lifeblood of any business.
   your valuable information. Our Managed Backup Services are designed to provide
   you with peace of mind, knowing that your data is protected, secure, and
   always accessible when you need it.
+hero_image: /images/1526.jpg
 show_benefits: true
 benefits_title: "Benefits of Center Street IT's Services:"
 benefits:
