@@ -8,6 +8,7 @@ hero_subtitle: Eliminate IT Issues with Premier Managed IT Services
 hero_description: Don't let the absence of in-house IT or project management
   resources hinder your crucial IT projects. Our Managed Services will keep you
   running at peak performance so you can focus on growing your business.
+hero_image: /images/122622.jpg
 show_benefits: true
 benefits_title: "Benefits of Center Street IT's Services:"
 benefits:
