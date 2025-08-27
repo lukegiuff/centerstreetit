@@ -49,9 +49,15 @@ features:
   - icon: server
     title: Automated Backups
     description: Set it and forget it with our reliable automated backup schedules.
-  - icon: server
-    title: Automated Backups
-    description: Set it and forget it with our reliable automated backup schedules.
+  - icon: refresh-cw
+    title: Flexible Recovery Options
+    description: Restore data quickly and efficiently, minimizing downtime.
+  - icon: trending-up
+    title: Scalability
+    description: Easily adjust your backup capacity as your business grows.
+  - icon: headphones
+    title: 24/7 Support
+    description: Our expert team is always available to assist you.
 show_additional: false
 additional_sections:
   - two_columns: false
