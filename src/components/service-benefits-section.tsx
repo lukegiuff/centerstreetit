@@ -20,9 +20,9 @@ export function ServiceBenefitsSection({ title, benefits, serviceName }: Service
   return (
     <section className="py-12 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Benefits List */}
-          <div className="lg:col-span-2">
+          <div>
             <AnimatedText variant="slideUp" delay={0.1}>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 font-[family-name:var(--font-cinzel)]">
                 {title}
@@ -58,17 +58,16 @@ export function ServiceBenefitsSection({ title, benefits, serviceName }: Service
           </div>
 
           {/* Contact Form */}
-          <div className="lg:col-span-1">
-            <AnimatedCard delay={0.4} className="h-fit">
-              <div className="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-xl p-8 shadow-sm">
-                <h3 className="text-xl font-bold text-gray-900 mb-4 font-[family-name:var(--font-cinzel)]">
-                  Get Started with {serviceName}
-                </h3>
-                <p className="text-gray-600 mb-6">
-                  Ready to transform your business? Contact us today for a free consultation.
-                </p>
+          <div>
+            <div className="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-xl p-8 shadow-sm">
+              <h3 className="text-xl font-bold text-gray-900 mb-4 font-[family-name:var(--font-cinzel)]">
+                Get Started with {serviceName}
+              </h3>
+              <p className="text-gray-600 mb-6">
+                Ready to transform your business? Contact us today for a free consultation.
+              </p>
 
-                <form className="space-y-4">
+              <form className="space-y-4">
                   <div>
                     <input
                       type="text"
@@ -106,24 +105,23 @@ export function ServiceBenefitsSection({ title, benefits, serviceName }: Service
                   >
                     Request Free Consultation
                   </motion.button>
-                </form>
+              </form>
 
-                <div className="mt-6 pt-6 border-t border-gray-200 space-y-3">
-                  <div className="flex items-center space-x-3 text-sm text-gray-600">
-                    <Phone className="w-4 h-4 text-teal-600" />
-                    <span>(713) 909-8606</span>
-                  </div>
-                  <div className="flex items-center space-x-3 text-sm text-gray-600">
-                    <Mail className="w-4 h-4 text-teal-600" />
-                    <span>info@centerstreetit.com</span>
-                  </div>
-                  <div className="flex items-center space-x-3 text-sm text-gray-600">
-                    <MapPin className="w-4 h-4 text-teal-600" />
-                    <span>Houston, TX</span>
-                  </div>
+              <div className="mt-6 pt-6 border-t border-gray-200 space-y-3">
+                <div className="flex items-center space-x-3 text-sm text-gray-600">
+                  <Phone className="w-4 h-4 text-teal-600" />
+                  <span>(713) 909-8606</span>
+                </div>
+                <div className="flex items-center space-x-3 text-sm text-gray-600">
+                  <Mail className="w-4 h-4 text-teal-600" />
+                  <span>info@centerstreetit.com</span>
+                </div>
+                <div className="flex items-center space-x-3 text-sm text-gray-600">
+                  <MapPin className="w-4 h-4 text-teal-600" />
+                  <span>Houston, TX</span>
                 </div>
               </div>
-            </AnimatedCard>
+            </div>
           </div>
         </div>
       </div>
