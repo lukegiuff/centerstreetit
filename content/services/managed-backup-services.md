@@ -43,10 +43,15 @@ benefits:
       to provide support and assistance whenever you need it. From initial setup
       to ongoing maintenance, we're here to ensure that your backup solution is
       always running smoothly.
-show_features: false
-features_title: Features
+show_features: true
+features_title: Key Features of Our Managed Backup Services
 features:
   - icon: server
+    title: Automated Backups
+    description: Set it and forget it with our reliable automated backup schedules.
+  - icon: server
+    title: Automated Backups
+    description: Set it and forget it with our reliable automated backup schedules.
 show_additional: false
 additional_sections:
   - two_columns: false
