@@ -1,9 +1,15 @@
 ---
-title: "Managed IT Services"
-description: "Eliminate IT Issues with Premier Managed IT Services from Center Street IT. Don't let the absence of in-house IT or project management resources hinder your crucial IT projects."
-hero_title: "Managed IT Services"
-hero_subtitle: "Eliminate IT Issues with Premier Managed IT Services"
-slug: "managed-it-services"
+show_additional: true
+slug: managed-it-services
+title: ASSSSSSSSSSSSSS
+description: Eliminate IT Issues with Premier Managed IT Services from Center
+  Street IT. Don't let the absence of in-house IT or project management
+  resources hinder your crucial IT projects.
+hero_title: Managed IT Services
+hero_subtitle: Eliminate IT Issues with Premier Managed IT Services
+show_benefits: false
+show_features: true
+show_cta: true
 ---
 
 ## Eliminate IT Issues with Premier Managed IT Services
