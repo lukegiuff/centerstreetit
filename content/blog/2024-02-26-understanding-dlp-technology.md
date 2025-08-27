@@ -3,7 +3,7 @@ excerpt: In today's digital landscape, the sheer volume of sensitive data
   generated and stored by organizations is staggering. Learn how DLP technology
   effectively protects confidential information.
 draft: false
-title: TESTER
+title: "Understanding DLP Technology: Protecting Your Confidential Information"
 date: 2024-02-26
 author: Center Street IT Team
 featured_image: ""
