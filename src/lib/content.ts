@@ -436,7 +436,7 @@ export function getAllServicePages(): Array<{slug: string, title: string, descri
 
 export function buildNavigationFromServices() {
   const services = getAllServicePages();
-  const navigationMap: Record<string, { submenu: Array<{ section: string; items: Array<{ label: string; link: string }> }> }> = {};
+  const navigationMap: Record<string, { label: string; link: string; submenu: Record<string, { section: string; items: Array<{ label: string; link: string }> }> }> = {};
 
   // Build navigation structure from service pages
   services.forEach(service => {

@@ -172,7 +172,7 @@ function LegacyServicePageContent({ pageContent }: ServicePageContentProps) {
                     benefits={section.benefits}
                     serviceName={extractServiceName(pageContent.hero_title)}
                   />
-                ) : section.type === 'features' ? (
+                ) : section.type === 'features' && section.features ? (
                   <div>
                     <h2 className="text-3xl font-bold text-gray-900 mb-8 font-[family-name:var(--font-cinzel)]">
                       {section.title}
@@ -197,7 +197,7 @@ function LegacyServicePageContent({ pageContent }: ServicePageContentProps) {
                   </div>
                 ) : (
                   <div className="prose prose-xl max-w-none prose-headings:font-[family-name:var(--font-cinzel)]  prose-headings:text-gray-900  prose-h2:text-3xl  prose-h2:mb-8  prose-p:text-gray-700  prose-p:leading-relaxed  prose-p:text-lg prose-strong:text-gray-900  prose-strong:font-bold">
-                    <div dangerouslySetInnerHTML={{ __html: section.content }} />
+                    <div dangerouslySetInnerHTML={{ __html: section.content || '' }} />
                   </div>
                 )}
               </div>
