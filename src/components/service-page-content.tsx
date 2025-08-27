@@ -10,13 +10,14 @@ import {
   Clock, RefreshCw, TrendingUp, Headphones, Timer, RotateCcw, Scale, MessageCircle,
   Download, HardDrive, Expand, ArrowUpRight, ShieldCheck, CalendarClock, PlayCircle
 } from 'lucide-react';
+import Image from 'next/image';
 
 interface ServicePageContentProps {
   pageContent: ServicePageContent;
 }
 
 // Icon mapping for features
-const iconMap: { [key: string]: any } = {
+const iconMap: { [key: string]: React.ComponentType<{ className?: string }> } = {
   server: Server,
   shield: Shield,
   users: Users,
@@ -223,10 +224,11 @@ function HeroSection({ pageContent }: { pageContent: ServicePageContent }) {
       {/* Background Image */}
       {pageContent.hero_image && (
         <div className="absolute inset-0 z-0">
-          <img
+          <Image
             src={pageContent.hero_image}
             alt={pageContent.hero_title}
-            className="w-full h-full object-cover opacity-30"
+            fill
+            className="object-cover opacity-30"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-black/60" />
         </div>

@@ -84,7 +84,7 @@ export function TechnologyPartnersSection() {
             ))}
             
             {/* Duplicate set for seamless loop */}
-            {partners.map((partner, index) => (
+            {partners.map((partner) => (
               <motion.div
                 key={`second-${partner.name}`}
                 className="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow transition-all duration-300 min-w-[180px]"

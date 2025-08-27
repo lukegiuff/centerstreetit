@@ -60,7 +60,7 @@ export function CallToActionSection() {
               Get Started Today
             </h2>
             <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-              Don't leave your IT infrastructure to chance. Contact Center Street IT today to learn how our comprehensive managed services can transform your business operations, enhance security, and drive growth.
+              Don&apos;t leave your IT infrastructure to chance. Contact Center Street IT today to learn how our comprehensive managed services can transform your business operations, enhance security, and drive growth.
             </p>
             <p className="text-lg text-gray-400 mb-10">
               With our reliable and expert IT solutions, you can focus on what you do best while we handle the technology that powers your success.

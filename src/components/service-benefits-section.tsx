@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Check, Phone, Mail, MapPin } from 'lucide-react';
-import { AnimatedCard } from './ui/animated-card';
+
 import { AnimatedText } from './ui/animated-text';
 
 interface Benefit {

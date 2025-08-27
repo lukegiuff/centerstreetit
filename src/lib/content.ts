@@ -352,7 +352,7 @@ export function getServicePageContent(slug: string): ServicePageContent | null {
     const { data, content } = matter(fileContents);
 
     // Process additional sections content if it exists
-    const processedAdditionalSections = data.additional_sections?.map((section: any) => ({
+    const processedAdditionalSections = data.additional_sections?.map((section: { content?: string; [key: string]: unknown }) => ({
       ...section,
       content: section.content ? decodeHtmlEntities(marked(section.content) as string) : ''
     }));
@@ -436,7 +436,7 @@ export function getAllServicePages(): Array<{slug: string, title: string, descri
 
 export function buildNavigationFromServices() {
   const services = getAllServicePages();
-  const navigationMap: Record<string, any> = {};
+  const navigationMap: Record<string, { submenu: Array<{ section: string; items: Array<{ label: string; link: string }> }> }> = {};
 
   // Build navigation structure from service pages
   services.forEach(service => {
@@ -478,10 +478,10 @@ export function buildNavigationFromServices() {
   });
 
   // Convert to array format expected by navigation
-  const navigation = Object.values(navigationMap).map((section: any) => ({
+  const navigation = Object.values(navigationMap).map((section) => ({
     label: section.label,
     link: section.link,
-    submenu: Object.values(section.submenu).filter((sub: any) => sub.items.length > 0)
+    submenu: Object.values(section.submenu).filter((sub) => sub.items.length > 0)
   }));
 
   return navigation;
