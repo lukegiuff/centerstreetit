@@ -1,6 +1,9 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: lukegiuff/centerstreetit
   branch: master
+  auth_type: implicit
+  app_id: Ov23ixCyluDRCDg0gZ
 
 media_folder: "public/images"
 public_folder: "/images"
@@ -42,15 +45,66 @@ collections:
 
   - name: "service_pages"
     label: "Service Pages"
-    folder: "content/pages"
+    folder: "content/services"
     create: true
     slug: "{{slug}}"
+    slug_encoding: "ascii"
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Description", name: "description", widget: "text" }
+      - { label: "URL Slug", name: "slug", widget: "string", pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'Must be lowercase letters, numbers, and hyphens only'], hint: "Auto-generated from title, but you can customize it. This will be the URL: /services/your-slug" }
+      - { label: "Description", name: "description", widget: "text", required: false }
+      - { label: "Header Dropdown Name", name: "nav_section", widget: "string", hint: "e.g., 'Managed IT', 'Cloud Services', 'Security'" }
+      - { label: "Subheading in Dropdown (optional)", name: "nav_subsection", widget: "string", required: false, hint: "e.g., 'Managed Infrastructure', 'Security Solutions', 'Support Services'" }
       - { label: "Hero Title", name: "hero_title", widget: "string" }
       - { label: "Hero Subtitle", name: "hero_subtitle", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Hero Description", name: "hero_description", widget: "text", required: false }
+      - { label: "Hero Background Image", name: "hero_image", widget: "image", required: false }
+      
+      # Benefits Section
+      - { label: "Show Benefits Section", name: "show_benefits", widget: "boolean", default: false }
+      - { label: "Benefits Section Title", name: "benefits_title", widget: "string", default: "Benefits of Center Street IT's Services:", required: false }
+      - label: "Benefits"
+        name: "benefits"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+      
+      # Features Section
+      - { label: "Show Features Section", name: "show_features", widget: "boolean", default: false }
+      - { label: "Features Section Title", name: "features_title", widget: "string", default: "Features", required: false }
+      - label: "Features"
+        name: "features"
+        widget: "list"
+        required: false
+        minimize_collapsed: true
+        add_to_top: false
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Icon", name: "icon", widget: "string", default: "server", hint: "Lucide icon name" }
+      
+      # Additional Content Sections
+      - { label: "Show Additional Sections", name: "show_additional", widget: "boolean", default: false }
+      - label: "Additional Sections"
+        name: "additional_sections"
+        widget: "list"
+        required: false
+        minimize_collapsed: true
+        add_to_top: false
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Content", name: "content", widget: "markdown" }
+          - { label: "Show as Two Columns", name: "two_columns", widget: "boolean", default: false }
+      
+      # Call to Action Section
+      - { label: "Show CTA Section", name: "show_cta", widget: "boolean", default: false }
+      - { label: "CTA Title", name: "cta_title", widget: "string", default: "Get Started Today", required: false }
+      - { label: "CTA Content", name: "cta_content", widget: "text", required: false }
+      
+      # Legacy support - will be phased out
+      - { label: "Legacy Content (Markdown)", name: "body", widget: "markdown", required: false, hint: "This field is for backward compatibility. Use structured fields above for new content." }
 
   - name: "settings"
     label: "Site Settings"

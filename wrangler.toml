@@ -1,0 +1,18 @@
+# Cloudflare Worker configuration for Decap CMS OAuth
+name = "centerstreetit-cms-oauth"
+main = "cloudflare-worker.js"
+compatibility_date = "2024-01-01"
+
+# Environment variables (secrets will be set via CLI)
+# GITHUB_CLIENT_ID and GITHUB_CLIENT_SECRET will be set as secrets
+
+[vars]
+# Non-sensitive environment variables can go here
+
+# Deployment settings
+workers_dev = true
+
+# Custom domains (optional - can be configured later)
+# routes = [
+#   { pattern = "cms-auth.centerstreetit.com/*", zone_name = "centerstreetit.com" }
+# ]

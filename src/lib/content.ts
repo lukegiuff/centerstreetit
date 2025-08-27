@@ -144,7 +144,20 @@ export function getSiteSettings(): SiteSettings {
   try {
     const fileContents = fs.readFileSync(settingsPath, 'utf8');
     const { data } = matter(fileContents);
-    return data as SiteSettings;
+    
+    // Build dynamic navigation from service pages
+    const serviceNavigation = buildNavigationFromServices();
+    
+    // Merge static navigation with dynamic service navigation
+    const combinedNavigation = [
+      ...serviceNavigation,
+      ...(data.navigation || [])
+    ];
+    
+    return {
+      ...data,
+      navigation: combinedNavigation
+    } as SiteSettings;
   } catch (error) {
     console.error('Error reading site settings:', error);
     // Return default settings if file doesn't exist
@@ -152,8 +165,7 @@ export function getSiteSettings(): SiteSettings {
       site_title: "Center Street IT",
       site_description: "Technology Solutions Provider",
       navigation: [
-        { label: "Home", link: "/" },
-        { label: "About", link: "/about" },
+        { label: "Blog", link: "/blog" },
         { label: "Contact", link: "/contact" }
       ],
       social: []
@@ -278,19 +290,59 @@ export interface ServicePageContent {
   description: string;
   hero_title: string;
   hero_subtitle: string;
+  hero_description?: string;
+  hero_image?: string;
   slug: string;
-  content: string;
+  
+  // Navigation fields
+  nav_section?: string;
+  nav_subsection?: string;
+  
+  // Section visibility flags
+  show_benefits?: boolean;
+  show_features?: boolean;
+  show_additional?: boolean;
+  show_cta?: boolean;
+  
+  // Benefits section
+  benefits_title?: string;
+  benefits?: Array<{
+    title: string;
+    description: string;
+  }>;
+  
+  // Features section
+  features_title?: string;
+  features?: Array<{
+    title: string;
+    description: string;
+    icon?: string;
+  }>;
+  
+  // Additional sections
+  additional_sections?: Array<{
+    title: string;
+    content: string;
+    two_columns?: boolean;
+  }>;
+  
+  // CTA section
+  cta_title?: string;
+  cta_content?: string;
+  
+  // Legacy content (for backward compatibility)
+  content?: string;
 }
 
 export function getServicePageContent(slug: string): ServicePageContent | null {
-  const pagesPath = path.join(process.cwd(), 'content', 'pages');
+  const servicesPath = path.join(process.cwd(), 'content', 'services');
   
   try {
-    if (!fs.existsSync(pagesPath)) {
+    if (!fs.existsSync(servicesPath)) {
       return null;
     }
 
-    const filePath = path.join(pagesPath, `${slug}.md`);
+    const filePath = path.join(servicesPath, `${slug}.md`);
     
     if (!fs.existsSync(filePath)) {
       return null;
@@ -299,18 +351,140 @@ export function getServicePageContent(slug: string): ServicePageContent | null {
     const fileContents = fs.readFileSync(filePath, 'utf8');
     const { data, content } = matter(fileContents);
 
+    // Process additional sections content if it exists
+    const processedAdditionalSections = data.additional_sections?.map((section: any) => ({
+      ...section,
+      content: section.content ? decodeHtmlEntities(marked(section.content) as string) : ''
+    }));
+
     return {
       title: data.title || 'Service Page',
       description: data.description || '',
       hero_title: data.hero_title || data.title || 'Service Page',
       hero_subtitle: data.hero_subtitle || '',
+      hero_description: data.hero_description,
+      hero_image: data.hero_image,
       slug: data.slug || slug,
-      content: decodeHtmlEntities(marked(content) as string)
+      
+      // Navigation fields
+      nav_section: data.nav_section,
+      nav_subsection: data.nav_subsection,
+      
+      // Section visibility flags
+      show_benefits: data.show_benefits !== false, // Default to true
+      show_features: data.show_features !== false, // Default to true
+      show_additional: data.show_additional || false,
+      show_cta: data.show_cta !== false, // Default to true
+      
+      // Benefits section
+      benefits_title: data.benefits_title || 'Benefits of Center Street IT\'s Services:',
+      benefits: data.benefits || [],
+      
+      // Features section
+      features_title: data.features_title || 'Features',
+      features: data.features || [],
+      
+      // Additional sections
+      additional_sections: processedAdditionalSections || [],
+      
+      // CTA section
+      cta_title: data.cta_title || 'Get Started Today',
+      cta_content: data.cta_content,
+      
+      // Legacy content (for backward compatibility)
+      content: content ? decodeHtmlEntities(marked(content) as string) : undefined
     };
   } catch (error) {
     console.error('Error reading service page content:', error);
     return null;
   }
+}
+
+export function getAllServicePages(): Array<{slug: string, title: string, description: string, nav_section?: string, nav_subsection?: string}> {
+  const servicesPath = path.join(process.cwd(), 'content', 'services');
+  
+  try {
+    if (!fs.existsSync(servicesPath)) {
+      return [];
+    }
+
+    const files = fs.readdirSync(servicesPath);
+    const services = files
+      .filter(file => file.endsWith('.md'))
+      .map(file => {
+        const slug = file.replace('.md', '');
+        const filePath = path.join(servicesPath, file);
+        const fileContents = fs.readFileSync(filePath, 'utf8');
+        const { data } = matter(fileContents);
+        
+        return {
+          slug,
+          title: data.title || slug,
+          description: data.description || '',
+          nav_section: data.nav_section,
+          nav_subsection: data.nav_subsection
+        };
+      })
+      .sort((a, b) => a.title.localeCompare(b.title));
+
+    return services;
+  } catch (error) {
+    console.error('Error reading service pages:', error);
+    return [];
+  }
+}
+
+export function buildNavigationFromServices() {
+  const services = getAllServicePages();
+  const navigationMap: Record<string, any> = {};
+
+  // Build navigation structure from service pages
+  services.forEach(service => {
+    if (service.nav_section) {
+      if (!navigationMap[service.nav_section]) {
+        navigationMap[service.nav_section] = {
+          label: service.nav_section,
+          link: '#',
+          submenu: {}
+        };
+      }
+
+      if (service.nav_subsection) {
+        // Add to subsection with subsection as non-clickable heading
+        if (!navigationMap[service.nav_section].submenu[service.nav_subsection]) {
+          navigationMap[service.nav_section].submenu[service.nav_subsection] = {
+            section: service.nav_subsection,
+            items: []
+          };
+        }
+        navigationMap[service.nav_section].submenu[service.nav_subsection].items.push({
+          label: service.title,
+          link: `/${service.slug}`
+        });
+      } else {
+        // Add directly to main section (no subsection heading)
+        if (!navigationMap[service.nav_section].submenu['direct']) {
+          navigationMap[service.nav_section].submenu['direct'] = {
+            section: '',
+            items: []
+          };
+        }
+        navigationMap[service.nav_section].submenu['direct'].items.push({
+          label: service.title,
+          link: `/${service.slug}`
+        });
+      }
+    }
+  });
+
+  // Convert to array format expected by navigation
+  const navigation = Object.values(navigationMap).map((section: any) => ({
+    label: section.label,
+    link: section.link,
+    submenu: Object.values(section.submenu).filter((sub: any) => sub.items.length > 0)
+  }));
+
+  return navigation;
 }
 
 function getDefaultBlogPosts(): BlogPost[] {

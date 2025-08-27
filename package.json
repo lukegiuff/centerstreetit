@@ -15,7 +15,7 @@
     "decap-cms-app": "^3.8.3",
     "framer-motion": "^12.23.12",
     "gray-matter": "^4.0.3",
-    "lucide-react": "^0.539.0",
+    "lucide-react": "^0.542.0",
     "marked": "^16.2.0",
     "next": "15.4.6",
     "react": "19.1.0",
