@@ -1,8 +1,8 @@
 ---
-title: Managed IT
+title: " Managed Disaster Recovery"
 description: ""
-nav_section: Managed Infrastructure
-nav_subsection: Managed IT Services
+nav_section: Managed IT
+nav_subsection: Managed Infrastructure
 hero_title: Managed IT Services
 hero_subtitle: Eliminate IT Issues with Premier Managed IT Services
 hero_description: Don't let the absence of in-house IT or project management
