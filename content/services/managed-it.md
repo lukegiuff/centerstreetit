@@ -1,8 +1,6 @@
 ---
 title: Managed IT
-description: Don't let the absence of in-house IT or project management
-  resources hinder your crucial IT projects. Our Managed Services will keep you
-  running at peak performance so you can focus on growing your business.
+description: ""
 nav_section: Managed Infrastructure
 nav_subsection: Managed IT Services
 hero_title: Managed IT Services
