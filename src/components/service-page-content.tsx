@@ -45,7 +45,7 @@ export function ServicePageContent({ pageContent }: ServicePageContentProps) {
           <div>
             {/* Benefits Section */}
             {pageContent.show_benefits && pageContent.benefits && pageContent.benefits.length > 0 && (
-              <div className="mb-16">
+              <div className="mb-8">
                 <ServiceBenefitsSection
                   title={pageContent.benefits_title || 'Benefits of Center Street IT\'s Services:'}
                   benefits={pageContent.benefits}
