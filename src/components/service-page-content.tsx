@@ -5,7 +5,11 @@ import { ServiceBenefitsSection } from './service-benefits-section';
 import { RecentBlogSection } from './recent-blog-section';
 import { CallToActionSection } from './call-to-action-section';
 import { TechnologyPartnersSection } from './technology-partners-section';
-import { Server, Shield, Users, Zap, Monitor, Cloud, Database, Lock, Settings, Phone } from 'lucide-react';
+import { 
+  Server, Shield, Users, Zap, Monitor, Cloud, Database, Lock, Settings, Phone,
+  Clock, RefreshCw, TrendingUp, Headphones, Timer, RotateCcw, Scale, MessageCircle,
+  Download, HardDrive, Expand, ArrowUpRight, ShieldCheck, CalendarClock, PlayCircle
+} from 'lucide-react';
 
 interface ServicePageContentProps {
   pageContent: ServicePageContent;
@@ -22,7 +26,22 @@ const iconMap: { [key: string]: any } = {
   database: Database,
   lock: Lock,
   settings: Settings,
-  phone: Phone
+  phone: Phone,
+  clock: Clock,
+  'refresh-cw': RefreshCw,
+  'trending-up': TrendingUp,
+  headphones: Headphones,
+  timer: Timer,
+  'rotate-ccw': RotateCcw,
+  scale: Scale,
+  'message-circle': MessageCircle,
+  download: Download,
+  'hard-drive': HardDrive,
+  expand: Expand,
+  'arrow-up-right': ArrowUpRight,
+  'shield-check': ShieldCheck,
+  'calendar-clock': CalendarClock,
+  'play-circle': PlayCircle
 };
 
 export function ServicePageContent({ pageContent }: ServicePageContentProps) {
@@ -42,7 +61,7 @@ export function ServicePageContent({ pageContent }: ServicePageContentProps) {
       {/* Main Content */}
       <section className="pt-24 pb-3 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div>
+      <div>
             {/* Benefits Section */}
             {pageContent.show_benefits && pageContent.benefits && pageContent.benefits.length > 0 && (
               <div className="mb-8">
@@ -57,29 +76,33 @@ export function ServicePageContent({ pageContent }: ServicePageContentProps) {
             {/* Features Section */}
             {pageContent.show_features && pageContent.features && pageContent.features.length > 0 && (
               <div className="mb-16">
-                <h2 className="text-3xl font-bold text-gray-900 mb-8 font-[family-name:var(--font-cinzel)]">
+        <h2 className="text-3xl font-bold text-gray-900 mb-8 font-[family-name:var(--font-cinzel)]">
                   {pageContent.features_title || 'Features'}
-                </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {pageContent.features.map((feature, index) => {
-                    const IconComponent = iconMap[feature.icon || 'server'] || Server;
-                    return (
-                      <div key={index}>
-                        <div className="p-6 bg-white rounded-xl border border-gray-200 h-full">
-                          <div className="w-16 h-16 bg-gradient-to-br from-[#b78842] to-[#00C9AF] rounded-xl flex items-center justify-center mb-6">
-                            <IconComponent className="w-8 h-8 text-white" />
-                          </div>
-                          <h3 className="text-xl font-bold text-gray-900 mb-4 font-[family-name:var(--font-cinzel)]">
-                            {feature.title}
-                          </h3>
-                          <p className="text-gray-600 leading-relaxed">
-                            {feature.description}
-                          </p>
-                        </div>
-                      </div>
-                    );
-                  })}
+        </h2>
+                <div className="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
+                  <div className="divide-y divide-gray-100">
+                    {pageContent.features.map((feature, index) => {
+                      const IconComponent = iconMap[feature.icon || 'server'] || Server;
+            return (
+                        <div key={index} className="p-6 hover:bg-gray-50 transition-colors duration-200">
+                          <div className="flex items-center space-x-4">
+                            <div className="w-12 h-12 bg-gradient-to-br from-[#b78842] to-[#00C9AF] rounded-lg flex items-center justify-center flex-shrink-0">
+                              <IconComponent className="w-6 h-6 text-white" />
+                  </div>
+                            <div className="flex-1 min-w-0">
+                              <h3 className="text-lg font-semibold text-gray-900 mb-1 font-[family-name:var(--font-cinzel)]">
+                                {feature.title}
+                  </h3>
+                              <p className="text-gray-600 leading-relaxed">
+                                {feature.description}
+                  </p>
+                            </div>
                 </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
               </div>
             )}
 
@@ -93,8 +116,8 @@ export function ServicePageContent({ pageContent }: ServicePageContentProps) {
                         <h2>{section.title}</h2>
                         <div dangerouslySetInnerHTML={{ __html: section.content }} />
                       </div>
-                    </div>
-                  </div>
+      </div>
+    </div>
                 ))}
               </>
             )}
@@ -111,7 +134,7 @@ export function ServicePageContent({ pageContent }: ServicePageContentProps) {
               </div>
             )}
           </div>
-        </div>
+    </div>
       </section>
 
       {/* Technology Partners Section */}
@@ -130,7 +153,7 @@ export function ServicePageContent({ pageContent }: ServicePageContentProps) {
 function LegacyServicePageContent({ pageContent }: ServicePageContentProps) {
   // Parse the content for different sections
   const sections = parseContent(pageContent.content || '');
-
+  
   return (
     <>
       {/* Hero Section */}
@@ -153,20 +176,20 @@ function LegacyServicePageContent({ pageContent }: ServicePageContentProps) {
                     <h2 className="text-3xl font-bold text-gray-900 mb-8 font-[family-name:var(--font-cinzel)]">
                       {section.title}
                     </h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                       {section.features.map((feature, featureIndex) => (
                         <div key={featureIndex}>
-                          <div className="p-6 bg-white rounded-xl border border-gray-200 h-full">
-                            <div className="w-16 h-16 bg-gradient-to-br from-[#b78842] to-[#00C9AF] rounded-xl flex items-center justify-center mb-6">
+            <div className="p-6 bg-white rounded-xl border border-gray-200 h-full">
+              <div className="w-16 h-16 bg-gradient-to-br from-[#b78842] to-[#00C9AF] rounded-xl flex items-center justify-center mb-6">
                               <Server className="w-8 h-8 text-white" />
-                            </div>
-                            <h3 className="text-xl font-bold text-gray-900 mb-4 font-[family-name:var(--font-cinzel)]">
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4 font-[family-name:var(--font-cinzel)]">
                               {feature.title}
-                            </h3>
-                            <p className="text-gray-600 leading-relaxed">
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
                               {feature.description}
-                            </p>
-                          </div>
+              </p>
+            </div>
                         </div>
                       ))}
                     </div>
@@ -179,7 +202,7 @@ function LegacyServicePageContent({ pageContent }: ServicePageContentProps) {
               </div>
             ))}
           </div>
-        </div>
+    </div>
       </section>
 
       {/* Technology Partners Section */}
@@ -196,7 +219,7 @@ function LegacyServicePageContent({ pageContent }: ServicePageContentProps) {
 
 function HeroSection({ pageContent }: { pageContent: ServicePageContent }) {
   return (
-    <section className="relative min-h-[65vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-brand-black via-gray-900 to-slate-800 text-white pt-16 pb-16">
+    <section className="relative min-h-[65vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-brand-black via-gray-900 to-slate-800 text-white pt-20 pb-16">
       {/* Background Image */}
       {pageContent.hero_image && (
         <div className="absolute inset-0 z-0">
@@ -233,28 +256,28 @@ function HeroSection({ pageContent }: { pageContent: ServicePageContent }) {
         />
         {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-black/10" />
-      </div>
+        </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-12">
-        <div>
+          <div>
           <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight font-[family-name:var(--font-cinzel)]">
-            {pageContent.hero_title}
-          </h1>
-        </div>
+              {pageContent.hero_title}
+            </h1>
+          </div>
 
-        <div>
+          <div>
           <p className="text-xl md:text-2xl mb-10 font-light text-gray-200">
-            {pageContent.hero_subtitle}
-          </p>
-        </div>
+              {pageContent.hero_subtitle}
+            </p>
+          </div>
 
-        <div>
+          <div>
           <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
             {pageContent.hero_description || pageContent.description}
-          </p>
+            </p>
         </div>
-      </div>
-    </section>
+        </div>
+      </section>
   );
 }
 
@@ -356,9 +379,22 @@ function extractFeatures(content: string) {
 
 function extractServiceName(heroTitle: string): string {
   // Extract service name from hero title for the quote form
-  if (heroTitle.toLowerCase().includes('backup')) return 'Backup Services';
-  if (heroTitle.toLowerCase().includes('disaster') || heroTitle.toLowerCase().includes('recovery')) return 'Disaster Recovery';
-  if (heroTitle.toLowerCase().includes('it services')) return 'IT Services';
-  return 'Services';
+  const title = heroTitle.trim();
+  
+  // If the title starts with "Managed", extract everything after "Managed "
+  if (title.toLowerCase().startsWith('managed ')) {
+    return title.substring(8); // Remove "Managed " prefix
+  }
+  
+  // If it contains "Services", try to extract the service type
+  if (title.toLowerCase().includes(' services')) {
+    const parts = title.split(' Services');
+    if (parts[0]) {
+      return parts[0] + ' Services';
+    }
+  }
+  
+  // Fallback: return the full title or "Services"
+  return title || 'Services';
 }
 

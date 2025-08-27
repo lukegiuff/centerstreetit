@@ -102,9 +102,7 @@ collections:
       - { label: "Show CTA Section", name: "show_cta", widget: "boolean", default: false }
       - { label: "CTA Title", name: "cta_title", widget: "string", default: "Get Started Today", required: false }
       - { label: "CTA Content", name: "cta_content", widget: "text", required: false }
-      
-      # Legacy support - will be phased out
-      - { label: "Legacy Content (Markdown)", name: "body", widget: "markdown", required: false, hint: "This field is for backward compatibility. Use structured fields above for new content." }
+
 
   - name: "settings"
     label: "Site Settings"
