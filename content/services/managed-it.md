@@ -1,5 +1,6 @@
 ---
-title: " Managed Disaster Recovery"
+title: Managed Disaster Recovery
+slug: managed-disaster-recovery
 description: ""
 nav_section: Managed IT
 nav_subsection: Managed Infrastructure
