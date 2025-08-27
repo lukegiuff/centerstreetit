@@ -166,7 +166,7 @@ function LegacyServicePageContent({ pageContent }: ServicePageContentProps) {
           <div>
             {sections.map((section, index) => (
               <div key={index} className="mb-16">
-                {section.type === 'benefits' ? (
+                {section.type === 'benefits' && section.benefits ? (
                   <ServiceBenefitsSection
                     title={section.title}
                     benefits={section.benefits}
