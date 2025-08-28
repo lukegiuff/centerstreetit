@@ -8,6 +8,7 @@ export function TechnologyPartnersSection() {
     { name: 'Microsoft', logo: '/assets/Microsoft.png' },
     { name: 'Google Cloud', logo: '/assets/GoogleCloud.png' },
     { name: 'Dell', logo: '/assets/Dell.png' },
+    { name: 'HP', logo: '/assets/HP.png' },
     { name: 'Cisco', logo: '/assets/Cisco.png' },
     { name: 'Trend Micro', logo: '/assets/Trend_Micro.png' },
     { name: 'ESET', logo: '/assets/ESET.png' },
