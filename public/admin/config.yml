@@ -2,9 +2,10 @@ backend:
   name: github
   repo: lukegiuff/centerstreetit
   branch: master
-  auth_type: implicit
+  auth_type: pkce
   app_id: Ov23ixCyluDRCDg0gZ
   base_url: "https://centerstreetit.com"
+  auth_endpoint: "auth"
 
 media_folder: "public/images"
 public_folder: "/images"
