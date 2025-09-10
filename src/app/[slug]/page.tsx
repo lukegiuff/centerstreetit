@@ -22,6 +22,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
   const { slug } = await params;
   const siteSettings = getSiteSettings();
   const pageContent = getServicePageContent(slug);
+  const servicePages = getAllServicePages();
 
   if (!pageContent) {
     notFound();
@@ -37,6 +38,8 @@ export default async function ServicePage({ params }: ServicePageProps) {
       <Footer
         siteTitle={siteSettings.site_title}
         social={siteSettings.social}
+        navigation={siteSettings.navigation}
+        servicePages={servicePages}
       />
     </main>
   );

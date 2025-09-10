@@ -1,4 +1,4 @@
-import { getHomepageContent, getSiteSettings } from '@/lib/content';
+import { getHomepageContent, getSiteSettings, getAllServicePages } from '@/lib/content';
 import { Header } from '@/components/header';
 import { HeroSection } from '@/components/hero-section';
 import { FeaturesSection } from '@/components/features-section';
@@ -10,6 +10,7 @@ import { Footer } from '@/components/footer';
 export default function Home() {
   const homepageContent = getHomepageContent();
   const siteSettings = getSiteSettings();
+  const servicePages = getAllServicePages();
 
   return (
     <main className="min-h-screen">
@@ -37,6 +38,8 @@ export default function Home() {
       <Footer 
         siteTitle={siteSettings.site_title}
         social={siteSettings.social}
+        navigation={siteSettings.navigation}
+        servicePages={servicePages}
       />
     </main>
   );

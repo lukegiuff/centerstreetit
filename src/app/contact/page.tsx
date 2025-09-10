@@ -1,4 +1,4 @@
-import { getContactContent, getSiteSettings } from '@/lib/content';
+import { getContactContent, getSiteSettings, getAllServicePages } from '@/lib/content';
 import { Header } from '@/components/header';
 import { ContactHeroSection } from '@/components/contact-hero-section';
 import { ContactFormSection } from '@/components/contact-form-section';
@@ -10,6 +10,7 @@ import { Footer } from '@/components/footer';
 export default function ContactPage() {
   const contactContent = getContactContent();
   const siteSettings = getSiteSettings();
+  const servicePages = getAllServicePages();
 
   return (
     <main className="min-h-screen">
@@ -38,6 +39,8 @@ export default function ContactPage() {
       <Footer 
         siteTitle={siteSettings.site_title}
         social={siteSettings.social}
+        navigation={siteSettings.navigation}
+        servicePages={servicePages}
       />
     </main>
   );

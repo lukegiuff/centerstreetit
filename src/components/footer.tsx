@@ -11,12 +11,32 @@ interface SocialLink {
   icon: string;
 }
 
+interface NavigationItem {
+  label: string;
+  link: string;
+  submenu?: Array<{
+    section: string;
+    items: Array<{
+      label: string;
+      link: string;
+    }>;
+  }>;
+}
+
+interface ServicePage {
+  slug: string;
+  title: string;
+  description: string;
+}
+
 interface FooterProps {
   siteTitle: string;
   social: SocialLink[];
+  navigation: NavigationItem[];
+  servicePages: ServicePage[];
 }
 
-export function Footer({ siteTitle, social }: FooterProps) {
+export function Footer({ siteTitle, social, navigation, servicePages }: FooterProps) {
   const getIcon = (iconName: string) => {
     const IconComponent = (LucideIcons as never)[iconName];
     return IconComponent ? IconComponent : LucideIcons.Link;
@@ -82,19 +102,53 @@ export function Footer({ siteTitle, social }: FooterProps) {
           >
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
-              {['Home', 'Managed IT', 'Service & Onsite', 'Cloud Services', 'Security', 'Contact'].map((link, index) => (
+              {/* Always show Home first */}
+              <motion.li
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.3 }}
+                viewport={{ once: true }}
+              >
+                <Link 
+                  href="/"
+                  className="text-gray-400 hover:text-white transition-colors duration-200"
+                >
+                  Home
+                </Link>
+              </motion.li>
+              
+              {/* Show individual service pages */}
+              {servicePages.map((service, index) => (
                 <motion.li
-                  key={link}
+                  key={service.slug}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.3 + index * 0.05 }}
+                  transition={{ delay: 0.3 + (index + 1) * 0.05 }}
                   viewport={{ once: true }}
                 >
                   <Link 
-                    href={`/${link.toLowerCase() === 'home' ? '' : link.toLowerCase().replace(' & ', '-').replace(' ', '-')}`}
+                    href={`/${service.slug}`}
                     className="text-gray-400 hover:text-white transition-colors duration-200"
                   >
-                    {link}
+                    {service.title}
+                  </Link>
+                </motion.li>
+              ))}
+              
+              {/* Show static navigation items (Blog, Contact, etc.) */}
+              {navigation.filter(item => !item.submenu).map((item, index) => (
+                <motion.li
+                  key={item.label}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.3 + (servicePages.length + index + 1) * 0.05 }}
+                  viewport={{ once: true }}
+                >
+                  <Link 
+                    href={item.link}
+                    className="text-gray-400 hover:text-white transition-colors duration-200"
+                  >
+                    {item.label}
                   </Link>
                 </motion.li>
               ))}

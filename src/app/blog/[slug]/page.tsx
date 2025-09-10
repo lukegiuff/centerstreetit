@@ -1,4 +1,4 @@
-import { getBlogPost, getBlogPosts, getSiteSettings } from '@/lib/content';
+import { getBlogPost, getBlogPosts, getSiteSettings, getAllServicePages } from '@/lib/content';
 import { Header } from '@/components/header';
 import { BlogPostHero } from '@/components/blog-post-hero';
 import { BlogPostContent } from '@/components/blog-post-content';
@@ -26,6 +26,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const post = getBlogPost(slug);
   const allPosts = getBlogPosts();
   const siteSettings = getSiteSettings();
+  const servicePages = getAllServicePages();
 
   if (!post) {
     notFound();
@@ -84,6 +85,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       <Footer 
         siteTitle={siteSettings.site_title}
         social={siteSettings.social}
+        navigation={siteSettings.navigation}
+        servicePages={servicePages}
       />
     </main>
   );

@@ -1,4 +1,4 @@
-import { getBlogPosts, getSiteSettings } from '@/lib/content';
+import { getBlogPosts, getSiteSettings, getAllServicePages } from '@/lib/content';
 import { Header } from '@/components/header';
 import { BlogHeroSection } from '@/components/blog-hero-section';
 import { BlogListingSection } from '@/components/blog-listing-section';
@@ -8,6 +8,7 @@ import { Footer } from '@/components/footer';
 export default function BlogPage() {
   const blogPosts = getBlogPosts();
   const siteSettings = getSiteSettings();
+  const servicePages = getAllServicePages();
 
   return (
     <main className="min-h-screen">
@@ -39,6 +40,8 @@ export default function BlogPage() {
       <Footer 
         siteTitle={siteSettings.site_title}
         social={siteSettings.social}
+        navigation={siteSettings.navigation}
+        servicePages={servicePages}
       />
     </main>
   );
