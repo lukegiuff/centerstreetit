@@ -5,7 +5,7 @@ backend:
   auth_type: pkce
   app_id: Ov23ixCyluDRCDg0gZ
   base_url: "https://centerstreetit.com"
-  auth_endpoint: "auth"
+  auth_endpoint: "https://centerstreetit-cms-oauth.giuffrida.workers.dev/callback"
 
 media_folder: "public/images"
 public_folder: "/images"
