@@ -2,7 +2,7 @@ import { getSiteSettings, getServicePageContent, getAllServicePages } from '@/li
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { ServicePageContent } from '@/components/service-page-content';
-import { notFound, redirect } from 'next/navigation';
+import { notFound } from 'next/navigation';
 
 interface ServicePageProps {
   params: Promise<{
@@ -13,23 +13,13 @@ interface ServicePageProps {
 export function generateStaticParams() {
   const servicePages = getAllServicePages();
   
-  return [
-    ...servicePages.map((page) => ({
-      slug: page.slug,
-    })),
-    // Add admin to prevent build error, but handle it specially
-    { slug: 'admin' }
-  ];
+  return servicePages.map((page) => ({
+    slug: page.slug,
+  }));
 }
 
 export default async function ServicePage({ params }: ServicePageProps) {
   const { slug } = await params;
-  
-  // Handle admin route specially - redirect to static admin
-  if (slug === 'admin') {
-    redirect('/admin/index.html');
-  }
-  
   const siteSettings = getSiteSettings();
   const pageContent = getServicePageContent(slug);
   const servicePages = getAllServicePages();
