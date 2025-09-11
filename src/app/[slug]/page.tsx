@@ -2,7 +2,7 @@ import { getSiteSettings, getServicePageContent, getAllServicePages } from '@/li
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { ServicePageContent } from '@/components/service-page-content';
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 
 interface ServicePageProps {
   params: Promise<{
@@ -27,20 +27,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
   
   // Handle admin route specially - redirect to static admin
   if (slug === 'admin') {
-    return (
-      <html>
-        <head>
-          <meta httpEquiv="refresh" content="0; url=/admin/index.html" />
-          <title>Redirecting to Admin...</title>
-        </head>
-        <body>
-          <p>Redirecting to admin panel...</p>
-          <script dangerouslySetInnerHTML={{
-            __html: "window.location.replace('/admin/index.html');"
-          }} />
-        </body>
-      </html>
-    );
+    redirect('/admin/index.html');
   }
   
   const siteSettings = getSiteSettings();
