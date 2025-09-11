@@ -13,13 +13,34 @@ interface ServicePageProps {
 export function generateStaticParams() {
   const servicePages = getAllServicePages();
   
-  return servicePages.map((page) => ({
-    slug: page.slug,
-  }));
+  return [
+    ...servicePages.map((page) => ({
+      slug: page.slug,
+    })),
+    // Add admin to prevent build error, but handle it specially
+    { slug: 'admin' }
+  ];
 }
 
 export default async function ServicePage({ params }: ServicePageProps) {
   const { slug } = await params;
+  
+  // Handle admin route specially - redirect to static admin
+  if (slug === 'admin') {
+    return (
+      <html>
+        <head>
+          <meta httpEquiv="refresh" content="0; url=/admin/index.html" />
+          <title>Redirecting to Admin...</title>
+        </head>
+        <body>
+          <p>Redirecting to admin panel...</p>
+          <script>window.location.replace('/admin/index.html');</script>
+        </body>
+      </html>
+    );
+  }
+  
   const siteSettings = getSiteSettings();
   const pageContent = getServicePageContent(slug);
   const servicePages = getAllServicePages();
