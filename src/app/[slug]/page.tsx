@@ -35,7 +35,9 @@ export default async function ServicePage({ params }: ServicePageProps) {
         </head>
         <body>
           <p>Redirecting to admin panel...</p>
-          <script>window.location.replace('/admin/index.html');</script>
+          <script dangerouslySetInnerHTML={{
+            __html: "window.location.replace('/admin/index.html');"
+          }} />
         </body>
       </html>
     );
