@@ -42,7 +42,7 @@ echo "$GITHUB_CLIENT_SECRET" | wrangler secret put GITHUB_CLIENT_SECRET
 
 # Deploy the worker
 echo "🚀 Deploying worker..."
-wrangler deploy
+wrangler deploy cloudflare-worker-centerstreetit.js
 
 # Get the worker URL
 WORKER_URL=$(wrangler subdomain get 2>/dev/null | grep -o "https://.*\.workers\.dev" | head -1)
@@ -63,9 +63,9 @@ echo "1. Update your GitHub OAuth App settings:"
 echo "   - Authorization callback URL: $WORKER_URL/callback"
 echo "   - Homepage URL: https://your-domain.com"
 echo ""
-echo "2. Update your CMS config (public/admin/config.yml):"
-echo "   - repo: your-username/your-repo-name"
-echo "   - app_id: $GITHUB_CLIENT_ID"
+echo "2. Your CMS config has already been updated!"
+echo "   - Using OAuth proxy at: decap-proxy-centerstreetit.giuffa88.workers.dev"
+echo "   - Repository: lukegiuff/centerstreetit"
 echo ""
 echo "3. Test the CMS at: https://your-domain.com/admin/"
 echo ""

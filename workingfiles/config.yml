@@ -1,0 +1,173 @@
+backend:
+  name: github
+  repo: lukegiuff/DrBulelaniJili
+  branch: master
+  base_url: https://decap-proxy-bulelanijili.giuffa88.workers.dev
+  auth_endpoint: /auth
+
+# Enable local backend for development  
+local_backend: false
+
+# Site configuration
+site_url: "https://bulelanijili.com"
+display_url: "https://bulelanijili.com"
+
+media_folder: "public/assets/images"
+public_folder: "/assets/images"
+
+collections:
+  # Hero Section
+  - name: "hero"
+    label: "Hero Section"
+    files:
+      - file: "content/hero.md"
+        label: "Hero Section"
+        name: "hero"
+        fields:
+          - {label: "Title Line 1", name: "title1", widget: "string", default: "EXPERT."}
+          - {label: "Title Line 2", name: "title2", widget: "string", default: "SCHOLAR."}
+          - {label: "Title Line 3", name: "title3", widget: "string", default: "PROFESSOR."}
+          - {label: "Primary Description", name: "description1", widget: "text"}
+          - {label: "Secondary Description", name: "description2", widget: "text"}
+          - {label: "Primary Button Text", name: "primaryButton", widget: "string", default: "ABOUT DR. JILI"}
+          - {label: "Secondary Button Text", name: "secondaryButton", widget: "string", default: "GET IN TOUCH"}
+          - {label: "Recent Recognition Text", name: "recognitionText", widget: "string", default: "Recent Recognition"}
+          - {label: "Recognition Items", name: "recognition", widget: "list", fields: [
+              {label: "Item", name: "item", widget: "string"}
+            ]}
+
+  # About Page
+  - name: "about"
+    label: "About Page"
+    files:
+      - file: "content/about.md"
+        label: "About Page"
+        name: "about"
+        fields:
+          - {label: "Page Title", name: "title", widget: "string", default: "About Dr. Bulelani Jili"}
+          - {label: "Meta Description", name: "description", widget: "text"}
+          - {label: "Keywords", name: "keywords", widget: "string"}
+          - {label: "Hero Quote", name: "heroQuote", widget: "text"}
+          - {label: "Quote Attribution", name: "quoteAttribution", widget: "string"}
+          - {label: "Main Bio Content", name: "body", widget: "markdown"}
+          - {label: "Research Areas", name: "researchAreas", widget: "list", fields: [
+              {label: "Area", name: "area", widget: "string"}
+            ]}
+          - {label: "Education", name: "education", widget: "list", fields: [
+              {label: "Degree", name: "degree", widget: "string"},
+              {label: "Institution", name: "institution", widget: "string"},
+              {label: "Description", name: "description", widget: "string", required: false}
+            ]}
+          - {label: "Recent Awards", name: "awards", widget: "list", fields: [
+              {label: "Year", name: "year", widget: "string"},
+              {label: "Award", name: "award", widget: "string"}
+            ]}
+
+  # Publications
+  - name: "publications"
+    label: "Publications"
+    folder: "content/publications"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publication Date", name: "date", widget: "datetime"}
+      - {label: "Publication Venue", name: "venue", widget: "string"}
+      - {label: "Authors", name: "authors", widget: "list", field: {label: "Author", name: "author", widget: "string"}}
+      - {label: "Abstract", name: "abstract", widget: "text"}
+      - {label: "Link", name: "link", widget: "string", required: false}
+      - {label: "PDF", name: "pdf", widget: "file", required: false}
+      - {label: "Category", name: "category", widget: "select", options: ["Journal Article", "Book Chapter", "Report", "Working Paper", "Other"]}
+      - {label: "Tags", name: "tags", widget: "list", field: {label: "Tag", name: "tag", widget: "string"}}
+      - {label: "Featured", name: "featured", widget: "boolean", default: false}
+      - {label: "Content", name: "body", widget: "markdown", required: false}
+
+  # News & Updates
+  - name: "news"
+    label: "News & Updates"
+    folder: "content/news"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "Summary", name: "summary", widget: "text"}
+      - {label: "Featured Image", name: "image", widget: "image", required: false}
+      - {label: "External Link", name: "link", widget: "string", required: false}
+      - {label: "Category", name: "category", widget: "select", options: ["News", "Media Appearance", "Award", "Publication", "Event", "Other"]}
+      - {label: "Tags", name: "tags", widget: "list", field: {label: "Tag", name: "tag", widget: "string"}}
+      - {label: "Featured", name: "featured", widget: "boolean", default: false}
+      - {label: "Content", name: "body", widget: "markdown"}
+
+  # Events
+  - name: "events"
+    label: "Events"
+    folder: "content/events"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "End Date", name: "endDate", widget: "datetime", required: false}
+      - {label: "Location", name: "location", widget: "string"}
+      - {label: "Event Type", name: "type", widget: "select", options: ["Conference", "Workshop", "Lecture", "Panel", "Interview", "Other"]}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Link", name: "link", widget: "string", required: false}
+      - {label: "Registration Link", name: "registrationLink", widget: "string", required: false}
+      - {label: "Featured", name: "featured", widget: "boolean", default: false}
+      - {label: "Past Event", name: "past", widget: "boolean", default: false}
+      - {label: "Content", name: "body", widget: "markdown", required: false}
+
+  # Contact Information
+  - name: "contact"
+    label: "Contact Information"
+    files:
+      - file: "content/contact.md"
+        label: "Contact Information"
+        name: "contact"
+        fields:
+          - {label: "Page Title", name: "title", widget: "string", default: "Contact"}
+          - {label: "Email", name: "email", widget: "string"}
+          - {label: "Phone", name: "phone", widget: "string", required: false}
+          - {label: "Office Address", name: "office", widget: "text"}
+          - {label: "Office Hours", name: "officeHours", widget: "string", required: false}
+          - {label: "Social Media", name: "social", widget: "list", fields: [
+              {label: "Platform", name: "platform", widget: "string"},
+              {label: "URL", name: "url", widget: "string"},
+              {label: "Handle", name: "handle", widget: "string", required: false}
+            ]}
+          - {label: "Contact Form Instructions", name: "formInstructions", widget: "text"}
+          - {label: "Additional Information", name: "body", widget: "markdown", required: false}
+
+  # Site Settings
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - file: "content/settings/site.md"
+        label: "General Site Settings"
+        name: "site"
+        fields:
+          - {label: "Site Title", name: "title", widget: "string"}
+          - {label: "Site Description", name: "description", widget: "text"}
+          - {label: "Site URL", name: "url", widget: "string"}
+          - {label: "Author Name", name: "author", widget: "string"}
+          - {label: "Footer Text", name: "footer", widget: "text"}
+          - {label: "Navigation Items", name: "navigation", widget: "list", fields: [
+              {label: "Label", name: "label", widget: "string"},
+              {label: "URL", name: "url", widget: "string"}
+            ]}
+
+  # Recent Highlights (for homepage)
+  - name: "highlights"
+    label: "Recent Highlights"
+    folder: "content/highlights"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Link Text", name: "linkText", widget: "string"}
+      - {label: "Link URL", name: "linkUrl", widget: "string"}
+      - {label: "Order", name: "order", widget: "number", default: 1}
+      - {label: "Active", name: "active", widget: "boolean", default: true} 

@@ -1,6 +1,6 @@
 # Cloudflare Worker configuration for Decap CMS OAuth
-name = "centerstreetit-cms-oauth"
-main = "cloudflare-worker.js"
+name = "decap-proxy-centerstreetit"
+main = "cloudflare-worker-centerstreetit.js"
 compatibility_date = "2024-01-01"
 
 # Environment variables (secrets will be set via CLI)

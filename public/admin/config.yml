@@ -2,8 +2,15 @@ backend:
   name: github
   repo: lukegiuff/centerstreetit
   branch: master
-  auth_type: implicit
-  app_id: Ov23ixCyluDRCDg0gZ
+  base_url: https://decap-proxy-centerstreetit.giuffa88.workers.dev
+  auth_endpoint: /auth
+
+# Enable local backend for development  
+local_backend: false
+
+# Site configuration
+site_url: "https://centerstreetit.com"
+display_url: "https://centerstreetit.com"
 
 media_folder: "public/images"
 public_folder: "/images"
