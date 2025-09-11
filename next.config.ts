@@ -8,6 +8,9 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+  // Ensure static files are properly exported
+  assetPrefix: '',
+  basePath: '',
 };
 
 export default nextConfig;

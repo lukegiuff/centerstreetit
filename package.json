@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
+    "build": "npm run build-next && npm run copy-admin",
+    "build-next": "next build",
+    "copy-admin": "if not exist \"out\\admin\" mkdir \"out\\admin\" && xcopy \"public\\admin\" \"out\\admin\\\" /E /I /Y",
     "start": "next start",
     "lint": "next lint"
   },

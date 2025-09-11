@@ -149,15 +149,27 @@ async function handleCallback(request, env) {
     <script>
         // Post message to parent window (for Decap CMS)
         if (window.opener) {
-            const content = {
+            // Send message to Decap CMS - try multiple formats for compatibility
+            const authData = {
                 token: '${tokenData.access_token}',
                 provider: 'github'
             };
+            
+            // Standard Decap CMS format
             window.opener.postMessage(
-                'authorization:github:success:' + JSON.stringify(content),
+                'authorization:github:success:' + JSON.stringify(authData),
                 window.opener.location.origin
             );
-            window.close();
+            
+            // Fallback format
+            window.opener.postMessage({
+                type: 'authorization_success',
+                provider: 'github',
+                token: '${tokenData.access_token}'
+            }, window.opener.location.origin);
+            
+            // Close popup after short delay to ensure messages are sent
+            setTimeout(() => window.close(), 100);
         }
     </script>
 </body>
