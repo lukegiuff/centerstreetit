@@ -147,29 +147,93 @@ async function handleCallback(request, env) {
     </div>
     
     <script>
-        // Post message to parent window (for Decap CMS)
+        // Robust postMessage authentication for Decap CMS
         if (window.opener) {
-            // Send message to Decap CMS - try multiple formats for compatibility
             const authData = {
                 token: '${tokenData.access_token}',
                 provider: 'github'
             };
             
-            // Standard Decap CMS format
-            window.opener.postMessage(
-                'authorization:github:success:' + JSON.stringify(authData),
-                '*'
-            );
+            console.log('Starting authentication handshake...');
+            console.log('window.opener exists:', !!window.opener);
             
-            // Fallback format
-            window.opener.postMessage({
-                type: 'authorization_success',
-                provider: 'github',
-                token: '${tokenData.access_token}'
-            }, '*');
+            // Get the opener origin safely
+            let openerOrigin = '*';
+            try {
+                openerOrigin = window.opener.origin || window.opener.location.origin || '*';
+                console.log('Opener origin:', openerOrigin);
+            } catch (e) {
+                console.log('Could not get opener origin, using wildcard');
+                openerOrigin = '*';
+            }
             
-            // Close popup after delay to ensure messages are sent
-            setTimeout(() => window.close(), 1000);
+            // Function to send messages safely
+            const sendMessage = (message, origin = openerOrigin) => {
+                try {
+                    console.log('Sending message:', message, 'to origin:', origin);
+                    window.opener.postMessage(message, origin);
+                    return true;
+                } catch (e) {
+                    console.error('Error sending message:', e);
+                    return false;
+                }
+            };
+            
+            // Try multiple message formats for maximum compatibility
+            const sendAuthSuccess = () => {
+                console.log('Sending authentication success...');
+                
+                // Format 1: Standard Decap CMS format
+                sendMessage(\`authorization:github:success:\${JSON.stringify(authData)}\`);
+                
+                // Format 2: Object format
+                sendMessage({
+                    type: 'authorization_success',
+                    provider: 'github',
+                    token: '${tokenData.access_token}'
+                });
+                
+                // Format 3: Simple string format
+                sendMessage('authorization:github:success:' + '${tokenData.access_token}');
+                
+                console.log('All message formats sent, closing popup...');
+                setTimeout(() => {
+                    try {
+                        window.close();
+                    } catch (e) {
+                        console.log('Could not close popup automatically');
+                    }
+                }, 1000);
+            };
+            
+            // Step 1: Try handshake approach first
+            console.log('Attempting handshake approach...');
+            sendMessage("authorizing:github");
+            
+            // Step 2: Listen for acknowledgment
+            const receiveMessage = (message) => {
+                console.log('Received message:', message.data);
+                
+                if (message.data === "authorization:github:acknowledged") {
+                    console.log('CMS acknowledged, sending token via handshake...');
+                    sendMessage(\`authorization:github:success:\${JSON.stringify(authData)}\`);
+                    window.removeEventListener("message", receiveMessage);
+                    setTimeout(() => window.close(), 500);
+                }
+            };
+            
+            window.addEventListener("message", receiveMessage, false);
+            
+            // Step 3: Fallback after 2 seconds - send directly
+            setTimeout(() => {
+                console.log('No handshake response, sending directly...');
+                window.removeEventListener("message", receiveMessage);
+                sendAuthSuccess();
+            }, 2000);
+            
+        } else {
+            console.error('No window.opener available');
+            setTimeout(() => window.close(), 3000);
         }
     </script>
 </body>
