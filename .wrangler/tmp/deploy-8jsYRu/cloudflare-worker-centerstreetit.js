@@ -1,107 +1,82 @@
-// Cloudflare Worker for Decap CMS OAuth with GitHub
-// Deploy this to: decap-proxy-centerstreetit.giuffa88.workers.dev
-// This worker handles the OAuth flow between Decap CMS and GitHub
+var __defProp = Object.defineProperty;
+var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
 
-export default {
+// cloudflare-worker-centerstreetit.js
+var cloudflare_worker_centerstreetit_default = {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
-    
-    // Handle CORS preflight requests
-    if (request.method === 'OPTIONS') {
+    if (request.method === "OPTIONS") {
       return new Response(null, {
         status: 200,
         headers: {
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-          'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-          'Access-Control-Max-Age': '86400',
-        },
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+          "Access-Control-Allow-Headers": "Content-Type, Authorization",
+          "Access-Control-Max-Age": "86400"
+        }
       });
     }
-
-    // OAuth callback handler
-    if (url.pathname === '/callback') {
+    if (url.pathname === "/callback") {
       return handleCallback(request, env);
     }
-
-    // OAuth authorization handler  
-    if (url.pathname === '/auth') {
+    if (url.pathname === "/auth") {
       return handleAuth(request, env);
     }
-
-    // Default response
-    return new Response('Decap CMS OAuth Worker for Center Street IT', {
+    return new Response("Decap CMS OAuth Worker for Center Street IT", {
       status: 200,
       headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Content-Type': 'text/plain',
-      },
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "text/plain"
+      }
     });
-  },
+  }
 };
-
 async function handleAuth(request, env) {
   const url = new URL(request.url);
-  const provider = url.searchParams.get('provider');
-  
-  if (provider !== 'github') {
-    return new Response('Only GitHub provider is supported', { status: 400 });
+  const provider = url.searchParams.get("provider");
+  if (provider !== "github") {
+    return new Response("Only GitHub provider is supported", { status: 400 });
   }
-
-  // Generate a random state parameter for security
   const state = crypto.randomUUID();
-  
-  // GitHub OAuth authorization URL
-  const authUrl = new URL('https://github.com/login/oauth/authorize');
-  authUrl.searchParams.set('client_id', env.GITHUB_CLIENT_ID);
-  authUrl.searchParams.set('redirect_uri', `${url.origin}/callback`);
-  authUrl.searchParams.set('scope', 'repo,user');
-  authUrl.searchParams.set('state', state);
-
+  const authUrl = new URL("https://github.com/login/oauth/authorize");
+  authUrl.searchParams.set("client_id", env.GITHUB_CLIENT_ID);
+  authUrl.searchParams.set("redirect_uri", `${url.origin}/callback`);
+  authUrl.searchParams.set("scope", "repo,user");
+  authUrl.searchParams.set("state", state);
   return Response.redirect(authUrl.toString(), 302);
 }
-
+__name(handleAuth, "handleAuth");
 async function handleCallback(request, env) {
   const url = new URL(request.url);
-  const code = url.searchParams.get('code');
-  const state = url.searchParams.get('state');
-
+  const code = url.searchParams.get("code");
+  const state = url.searchParams.get("state");
   if (!code) {
-    return new Response('Authorization code missing', { status: 400 });
+    return new Response("Authorization code missing", { status: 400 });
   }
-
   try {
-    // Exchange code for access token
-    const tokenResponse = await fetch('https://github.com/login/oauth/access_token', {
-      method: 'POST',
+    const tokenResponse = await fetch("https://github.com/login/oauth/access_token", {
+      method: "POST",
       headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
+        "Accept": "application/json",
+        "Content-Type": "application/json"
       },
       body: JSON.stringify({
         client_id: env.GITHUB_CLIENT_ID,
         client_secret: env.GITHUB_CLIENT_SECRET,
-        code: code,
-      }),
+        code
+      })
     });
-
     const tokenData = await tokenResponse.json();
-
     if (tokenData.error) {
       throw new Error(tokenData.error_description || tokenData.error);
     }
-
-    // Get user information
-    const userResponse = await fetch('https://api.github.com/user', {
+    const userResponse = await fetch("https://api.github.com/user", {
       headers: {
-        'Authorization': `token ${tokenData.access_token}`,
-        'User-Agent': 'Decap-CMS-OAuth-Worker',
-      },
+        "Authorization": `token ${tokenData.access_token}`,
+        "User-Agent": "Decap-CMS-OAuth-Worker"
+      }
     });
-
     const userData = await userResponse.json();
-
-    // Return success page with the token for Decap CMS to use
     const html = `
 <!DOCTYPE html>
 <html>
@@ -139,7 +114,7 @@ async function handleCallback(request, env) {
 </head>
 <body>
     <div class="container">
-        <div class="success">✅ Authorization Successful!</div>
+        <div class="success">\u2705 Authorization Successful!</div>
         <div class="user-info">
             Welcome, <strong>${userData.name || userData.login}</strong>
         </div>
@@ -171,21 +146,18 @@ async function handleCallback(request, env) {
             // Close popup after delay to ensure messages are sent
             setTimeout(() => window.close(), 1000);
         }
-    </script>
+    <\/script>
 </body>
 </html>`;
-
     return new Response(html, {
       status: 200,
       headers: {
-        'Content-Type': 'text/html',
-        'Access-Control-Allow-Origin': '*',
-      },
+        "Content-Type": "text/html",
+        "Access-Control-Allow-Origin": "*"
+      }
     });
-
   } catch (error) {
-    console.error('OAuth error:', error);
-    
+    console.error("OAuth error:", error);
     const errorHtml = `
 <!DOCTYPE html>
 <html>
@@ -219,19 +191,23 @@ async function handleCallback(request, env) {
 </head>
 <body>
     <div class="container">
-        <div class="error">❌ Authorization Failed</div>
+        <div class="error">\u274C Authorization Failed</div>
         <p>Error: ${error.message}</p>
         <p>Please try again or contact support.</p>
     </div>
 </body>
 </html>`;
-
     return new Response(errorHtml, {
       status: 500,
       headers: {
-        'Content-Type': 'text/html',
-        'Access-Control-Allow-Origin': '*',
-      },
+        "Content-Type": "text/html",
+        "Access-Control-Allow-Origin": "*"
+      }
     });
   }
 }
+__name(handleCallback, "handleCallback");
+export {
+  cloudflare_worker_centerstreetit_default as default
+};
+//# sourceMappingURL=cloudflare-worker-centerstreetit.js.map

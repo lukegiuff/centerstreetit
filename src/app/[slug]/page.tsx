@@ -13,13 +13,25 @@ interface ServicePageProps {
 export function generateStaticParams() {
   const servicePages = getAllServicePages();
   
-  return servicePages.map((page) => ({
+  // Include admin as a valid param to prevent build errors
+  const params = servicePages.map((page) => ({
     slug: page.slug,
   }));
+  
+  // Add admin as a valid param (will be handled specially in component)
+  params.push({ slug: 'admin' });
+  
+  return params;
 }
 
 export default async function ServicePage({ params }: ServicePageProps) {
   const { slug } = await params;
+  
+  // Handle admin specially - return 404 to let static files take over
+  if (slug === 'admin') {
+    notFound();
+  }
+  
   const siteSettings = getSiteSettings();
   const pageContent = getServicePageContent(slug);
   const servicePages = getAllServicePages();

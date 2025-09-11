@@ -1,173 +1,114 @@
 backend:
   name: github
-  repo: lukegiuff/DrBulelaniJili
-  branch: master
-  base_url: https://decap-proxy-bulelanijili.giuffa88.workers.dev
+  repo: lukegiuff/kinoora  # Your GitHub repository
+  branch: main
+  base_url: https://decap-proxy-kinoora.giuffa88.workers.dev  # Your deployed worker URL
   auth_endpoint: /auth
 
-# Enable local backend for development  
 local_backend: false
-
-# Site configuration
-site_url: "https://bulelanijili.com"
-display_url: "https://bulelanijili.com"
-
+site_url: "https://kinoora.com"  # UPDATE: Replace with your domain
+display_url: "https://kinoora.com"  # UPDATE: Replace with your domain
 media_folder: "public/assets/images"
 public_folder: "/assets/images"
 
 collections:
-  # Hero Section
-  - name: "hero"
-    label: "Hero Section"
+  - name: "config"
+    label: "Site Configuration"
     files:
-      - file: "content/hero.md"
-        label: "Hero Section"
-        name: "hero"
-        fields:
-          - {label: "Title Line 1", name: "title1", widget: "string", default: "EXPERT."}
-          - {label: "Title Line 2", name: "title2", widget: "string", default: "SCHOLAR."}
-          - {label: "Title Line 3", name: "title3", widget: "string", default: "PROFESSOR."}
-          - {label: "Primary Description", name: "description1", widget: "text"}
-          - {label: "Secondary Description", name: "description2", widget: "text"}
-          - {label: "Primary Button Text", name: "primaryButton", widget: "string", default: "ABOUT DR. JILI"}
-          - {label: "Secondary Button Text", name: "secondaryButton", widget: "string", default: "GET IN TOUCH"}
-          - {label: "Recent Recognition Text", name: "recognitionText", widget: "string", default: "Recent Recognition"}
-          - {label: "Recognition Items", name: "recognition", widget: "list", fields: [
-              {label: "Item", name: "item", widget: "string"}
-            ]}
-
-  # About Page
-  - name: "about"
-    label: "About Page"
-    files:
-      - file: "content/about.md"
-        label: "About Page"
-        name: "about"
-        fields:
-          - {label: "Page Title", name: "title", widget: "string", default: "About Dr. Bulelani Jili"}
-          - {label: "Meta Description", name: "description", widget: "text"}
-          - {label: "Keywords", name: "keywords", widget: "string"}
-          - {label: "Hero Quote", name: "heroQuote", widget: "text"}
-          - {label: "Quote Attribution", name: "quoteAttribution", widget: "string"}
-          - {label: "Main Bio Content", name: "body", widget: "markdown"}
-          - {label: "Research Areas", name: "researchAreas", widget: "list", fields: [
-              {label: "Area", name: "area", widget: "string"}
-            ]}
-          - {label: "Education", name: "education", widget: "list", fields: [
-              {label: "Degree", name: "degree", widget: "string"},
-              {label: "Institution", name: "institution", widget: "string"},
-              {label: "Description", name: "description", widget: "string", required: false}
-            ]}
-          - {label: "Recent Awards", name: "awards", widget: "list", fields: [
-              {label: "Year", name: "year", widget: "string"},
-              {label: "Award", name: "award", widget: "string"}
-            ]}
-
-  # Publications
-  - name: "publications"
-    label: "Publications"
-    folder: "content/publications"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publication Date", name: "date", widget: "datetime"}
-      - {label: "Publication Venue", name: "venue", widget: "string"}
-      - {label: "Authors", name: "authors", widget: "list", field: {label: "Author", name: "author", widget: "string"}}
-      - {label: "Abstract", name: "abstract", widget: "text"}
-      - {label: "Link", name: "link", widget: "string", required: false}
-      - {label: "PDF", name: "pdf", widget: "file", required: false}
-      - {label: "Category", name: "category", widget: "select", options: ["Journal Article", "Book Chapter", "Report", "Working Paper", "Other"]}
-      - {label: "Tags", name: "tags", widget: "list", field: {label: "Tag", name: "tag", widget: "string"}}
-      - {label: "Featured", name: "featured", widget: "boolean", default: false}
-      - {label: "Content", name: "body", widget: "markdown", required: false}
-
-  # News & Updates
-  - name: "news"
-    label: "News & Updates"
-    folder: "content/news"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Date", name: "date", widget: "datetime"}
-      - {label: "Summary", name: "summary", widget: "text"}
-      - {label: "Featured Image", name: "image", widget: "image", required: false}
-      - {label: "External Link", name: "link", widget: "string", required: false}
-      - {label: "Category", name: "category", widget: "select", options: ["News", "Media Appearance", "Award", "Publication", "Event", "Other"]}
-      - {label: "Tags", name: "tags", widget: "list", field: {label: "Tag", name: "tag", widget: "string"}}
-      - {label: "Featured", name: "featured", widget: "boolean", default: false}
-      - {label: "Content", name: "body", widget: "markdown"}
-
-  # Events
-  - name: "events"
-    label: "Events"
-    folder: "content/events"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Date", name: "date", widget: "datetime"}
-      - {label: "End Date", name: "endDate", widget: "datetime", required: false}
-      - {label: "Location", name: "location", widget: "string"}
-      - {label: "Event Type", name: "type", widget: "select", options: ["Conference", "Workshop", "Lecture", "Panel", "Interview", "Other"]}
-      - {label: "Description", name: "description", widget: "text"}
-      - {label: "Link", name: "link", widget: "string", required: false}
-      - {label: "Registration Link", name: "registrationLink", widget: "string", required: false}
-      - {label: "Featured", name: "featured", widget: "boolean", default: false}
-      - {label: "Past Event", name: "past", widget: "boolean", default: false}
-      - {label: "Content", name: "body", widget: "markdown", required: false}
-
-  # Contact Information
-  - name: "contact"
-    label: "Contact Information"
-    files:
-      - file: "content/contact.md"
-        label: "Contact Information"
-        name: "contact"
-        fields:
-          - {label: "Page Title", name: "title", widget: "string", default: "Contact"}
-          - {label: "Email", name: "email", widget: "string"}
-          - {label: "Phone", name: "phone", widget: "string", required: false}
-          - {label: "Office Address", name: "office", widget: "text"}
-          - {label: "Office Hours", name: "officeHours", widget: "string", required: false}
-          - {label: "Social Media", name: "social", widget: "list", fields: [
-              {label: "Platform", name: "platform", widget: "string"},
-              {label: "URL", name: "url", widget: "string"},
-              {label: "Handle", name: "handle", widget: "string", required: false}
-            ]}
-          - {label: "Contact Form Instructions", name: "formInstructions", widget: "text"}
-          - {label: "Additional Information", name: "body", widget: "markdown", required: false}
-
-  # Site Settings
-  - name: "settings"
-    label: "Site Settings"
-    files:
-      - file: "content/settings/site.md"
-        label: "General Site Settings"
+      - file: "content/config/site.json"
+        label: "Site Settings"
         name: "site"
         fields:
-          - {label: "Site Title", name: "title", widget: "string"}
+          - {label: "Site Title", name: "title", widget: "string", default: "kinoora"}
           - {label: "Site Description", name: "description", widget: "text"}
           - {label: "Site URL", name: "url", widget: "string"}
-          - {label: "Author Name", name: "author", widget: "string"}
-          - {label: "Footer Text", name: "footer", widget: "text"}
-          - {label: "Navigation Items", name: "navigation", widget: "list", fields: [
-              {label: "Label", name: "label", widget: "string"},
-              {label: "URL", name: "url", widget: "string"}
-            ]}
+          - {label: "Logo", name: "logo", widget: "image", required: false}
+          - label: "Images"
+            name: "images"
+            widget: "object"
+            fields:
+              - {label: "Hero Background Image", name: "heroImage", widget: "image", default: "/assets/images/hero_image.png", hint: "Main hero section background image displayed on homepage"}
+              - {label: "Founder Photo", name: "founderPhoto", widget: "image", default: "/assets/images/Daniel.jpg", hint: "Photo of the founder displayed on the About page"}
+          - label: "Footer"
+            name: "footer"
+            widget: "object"
+            fields:
+              - {label: "Footer Logo", name: "logo", widget: "image", default: "/assets/images/Kinoora_Logo_White.png", hint: "Logo displayed in footer (white version recommended)"}
+              - {label: "Company Description", name: "description", widget: "text", default: "Redefining how independent films, series, and shorts are made, shared, and discovered."}
+              - {label: "Launch Timeline", name: "launchTimeline", widget: "string", default: "Launching Q4 2025 in the EU and UK"}
+              - {label: "Copyright Text", name: "copyright", widget: "string", default: "© 2025 kinoora. Empowering independent creators."}
+              - label: "Section Headings"
+                name: "sectionHeadings"
+                widget: "object"
+                fields:
+                  - {label: "Creators Section Heading", name: "creators", widget: "string", default: "For Creators"}
+                  - {label: "Viewers Section Heading", name: "viewers", widget: "string", default: "For Viewers"}
+                  - {label: "Connected Section Heading", name: "connected", widget: "string", default: "Stay Connected"}
+                  - {label: "Legal Section Heading", name: "legal", widget: "string", default: "Legal Notice"}
+              - label: "Social Media"
+                name: "socialMedia"
+                widget: "object"
+                fields:
+                  - {label: "Twitter/X URL", name: "twitter", widget: "string", required: false, default: "#"}
+                  - {label: "Instagram URL", name: "instagram", widget: "string", required: false, default: "#"}
+                  - {label: "LinkedIn URL", name: "linkedin", widget: "string", required: false, default: "#"}
+                  - {label: "YouTube URL", name: "youtube", widget: "string", required: false, default: "#"}
+                  - {label: "Facebook URL", name: "facebook", widget: "string", required: false, default: "#"}
+              - label: "Company Information"
+                name: "companyInfo"
+                widget: "object"
+                fields:
+                  - {label: "Company Name", name: "name", widget: "string", default: "kinoora GmbH"}
+                  - {label: "Address", name: "address", widget: "string", default: "Orsoyer Str. 3, 40474 Düsseldorf"}
+                  - {label: "Email", name: "email", widget: "string", default: "hello@kinoora.com"}
+                  - {label: "Managing Director", name: "director", widget: "string", default: "Daniel Breuer"}
+                  - {label: "Registration", name: "registration", widget: "string", default: "HRB 109481 Amtsgericht Düsseldorf"}
+              - label: "Footer Navigation"
+                name: "navigation"
+                widget: "object"
+                fields:
+                  - label: "For Creators"
+                    name: "creators"
+                    widget: "list"
+                    fields:
+                      - {label: "Label", name: "label", widget: "string"}
+                      - {label: "URL", name: "url", widget: "string"}
+                    default: 
+                      - {label: "Founding Filmmaker Program", url: "/filmmakers#founding-program"}
+                      - {label: "Why Choose Kinoora", url: "/filmmakers#why-choose-kinoora"}
+                  - label: "For Viewers"
+                    name: "viewers"
+                    widget: "list"
+                    fields:
+                      - {label: "Label", name: "label", widget: "string"}
+                      - {label: "URL", name: "url", widget: "string"}
+                    default:
+                      - {label: "Join Waitlist", url: "/viewers#early-adopter"}
+                      - {label: "Early Adopter Perks", url: "/viewers#early-adopter"}
+                  - label: "Stay Connected"
+                    name: "connected"
+                    widget: "list"
+                    fields:
+                      - {label: "Label", name: "label", widget: "string"}
+                      - {label: "URL", name: "url", widget: "string"}
+                    default:
+                      - {label: "Sign up for our Newsletter", url: "/#newsletter"}
 
-  # Recent Highlights (for homepage)
-  - name: "highlights"
-    label: "Recent Highlights"
-    folder: "content/highlights"
+  - name: "pages"
+    label: "Pages"
+    folder: "content/pages"
     create: true
     slug: "{{slug}}"
+    identifier_field: "slug"
+    summary: "{{slug | upper}} - {{title}}"
     fields:
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Date", name: "date", widget: "string"}
-      - {label: "Description", name: "description", widget: "text"}
-      - {label: "Link Text", name: "linkText", widget: "string"}
-      - {label: "Link URL", name: "linkUrl", widget: "string"}
-      - {label: "Order", name: "order", widget: "number", default: 1}
-      - {label: "Active", name: "active", widget: "boolean", default: true} 
+      - {label: "Slug", name: "slug", widget: "string"}
+      - {label: "Description", name: "description", widget: "text", required: false}
+      - {label: "Featured Image", name: "image", widget: "image", required: false}
+      - {label: "Published", name: "published", widget: "boolean", default: true}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+
+
+ 
