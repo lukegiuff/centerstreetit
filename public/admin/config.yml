@@ -31,7 +31,8 @@ collections:
             name: "features"
             widget: "list"
             fields:
-              - {label: "Icon", name: "icon", widget: "string", hint: "Lucide icon name"}
+              - {label: "Icon", name: "icon", widget: "string", 
+                 hint: "Lucide icon name (e.g., Shield, Server, Users, Settings, Brain, Heart, Cloud, Monitor, Database, Lock). Browse all icons at lucide.dev"}
               - {label: "Title", name: "title", widget: "string"}
               - {label: "Description", name: "description", widget: "text"}
           
@@ -87,6 +88,20 @@ collections:
         widget: "list"
         required: false
         fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "text"}
+      
+      # Features Section
+      - {label: "Show Features Section", name: "show_features", widget: "boolean", default: false}
+      - {label: "Features Section Title", name: "features_title", widget: "string", 
+         default: "Key Features", required: false}
+      - label: "Features"
+        name: "features"
+        widget: "list"
+        required: false
+        fields:
+          - {label: "Icon", name: "icon", widget: "string", 
+             hint: "Lucide icon name (e.g., server, shield, users, settings, cloud, monitor, database, lock, phone, headphones, refresh-cw, trending-up). Browse all icons at lucide.dev"}
           - {label: "Title", name: "title", widget: "string"}
           - {label: "Description", name: "description", widget: "text"}
 
