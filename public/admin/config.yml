@@ -12,7 +12,7 @@ media_folder: "public/images"
 public_folder: "/images"
 
 collections:
-  # Homepage
+  # Homepage with Full Features
   - name: "pages"
     label: "Site Pages"
     files:
@@ -25,19 +25,70 @@ collections:
           - {label: "Hero Text", name: "hero_text", widget: "text"}
           - {label: "CTA Button Text", name: "cta_text", widget: "string"}
           - {label: "CTA Button Link", name: "cta_link", widget: "string"}
+          
+          # Features Section
+          - label: "Features"
+            name: "features"
+            widget: "list"
+            fields:
+              - {label: "Icon", name: "icon", widget: "string", hint: "Lucide icon name"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+          
+          # Stats Section  
+          - label: "Stats"
+            name: "stats"
+            widget: "list"
+            fields:
+              - {label: "Number", name: "number", widget: "string"}
+              - {label: "Label", name: "label", widget: "string"}
+          
+          # Testimonials Section
+          - label: "Testimonials"
+            name: "testimonials"
+            widget: "list"
+            fields:
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Role", name: "role", widget: "string"}
+              - {label: "Quote", name: "quote", widget: "text"}
+              - {label: "Avatar", name: "avatar", widget: "image", required: false}
 
-  # Service Pages
+  # Service Pages with Full Configuration
   - name: "service_pages"
     label: "Service Pages"
     folder: "content/services"
     create: true
     slug: "{{slug}}"
+    summary: "{{title}} ({{slug}})"
     fields:
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Description", name: "description", widget: "text", required: false}
+      - {label: "Page URL Slug", name: "slug", widget: "string", 
+         pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'Must be lowercase with hyphens only'],
+         hint: "URL: https://centerstreetit.com/{{slug}}"}
+      
+      # Navigation Settings
+      - {label: "Header Menu Section", name: "nav_section", widget: "string",
+         hint: "e.g., 'Managed IT', 'Cloud Services', 'Security'"}
+      - {label: "Menu Subsection", name: "nav_subsection", widget: "string", required: false,
+         hint: "Optional submenu grouping"}
+      
+      # Hero Section
       - {label: "Hero Title", name: "hero_title", widget: "string"}
       - {label: "Hero Subtitle", name: "hero_subtitle", widget: "string"}
-      - {label: "Content", name: "body", widget: "markdown"}
+      - {label: "Hero Description", name: "hero_description", widget: "text", required: false}
+      - {label: "Hero Image", name: "hero_image", widget: "image", required: false}
+      
+      # Benefits Section
+      - {label: "Show Benefits Section", name: "show_benefits", widget: "boolean", default: false}
+      - {label: "Benefits Section Title", name: "benefits_title", widget: "string", 
+         default: "Benefits of Center Street IT's Services:", required: false}
+      - label: "Benefits"
+        name: "benefits"
+        widget: "list"
+        required: false
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "text"}
 
   # Blog Posts  
   - name: "blog"
@@ -45,14 +96,17 @@ collections:
     folder: "content/blog"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{title}} ({{date}})"
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Date", name: "date", widget: "datetime"}
-      - {label: "Author", name: "author", widget: "string"}
+      - {label: "Author", name: "author", widget: "string", default: "Center Street IT Team"}
+      - {label: "Featured Image", name: "featured_image", widget: "image", required: false}
       - {label: "Excerpt", name: "excerpt", widget: "text"}
       - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Tags", name: "tags", widget: "list", default: ["general"]}
 
-  # Site Settings
+  # Site Settings with Full Configuration
   - name: "settings"
     label: "Site Settings"
     files:
@@ -62,3 +116,21 @@ collections:
         fields:
           - {label: "Site Title", name: "site_title", widget: "string"}
           - {label: "Site Description", name: "site_description", widget: "text"}
+          - {label: "Logo", name: "logo", widget: "image", required: false}
+          
+          # Navigation
+          - label: "Main Navigation"
+            name: "navigation"
+            widget: "list"
+            fields:
+              - {label: "Label", name: "label", widget: "string"}
+              - {label: "Link", name: "link", widget: "string"}
+          
+          # Social Media
+          - label: "Social Media"
+            name: "social"
+            widget: "list"
+            fields:
+              - {label: "Platform", name: "platform", widget: "string"}
+              - {label: "URL", name: "url", widget: "string"}
+              - {label: "Icon", name: "icon", widget: "string", hint: "Lucide icon name"}
