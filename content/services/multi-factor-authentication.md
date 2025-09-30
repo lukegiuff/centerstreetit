@@ -24,6 +24,22 @@ benefits:
       allowing for seamless integration into everyday workflows. Users can
       authenticate their identity with minimal disruption to their routine,
       fostering a secure environment without introducing excessive friction
+  - title: Compliance and Risk Management
+    description: Many industries face strict regulatory requirements related to data
+      protection. By implementing MFA, organizations not only enhance their
+      security but also align themselves with compliance mandates, reducing
+      potential legal and financial risks associated with data breaches.
+  - title: Cost-Effective Prevention
+    description: The costs associated with a data breach can be staggering,
+      encompassing fines, recovery efforts, and reputational damage. Investing
+      in multifactor authentication is a cost-effective measure that can prevent
+      breaches before they occur, safeguarding both financial assets and
+      organizational reputation.
+  - title: Adaptability
+    description: Multifactor authentication solutions can be tailored to suit the
+      unique needs of your organization. Whether it's a small business or a
+      large enterprise, these solutions can scale according to user orientation,
+      adding additional security measures as the organization grows.
 show_features: true
 features_title: "Multifactor authentication can be implemented using various methods:"
 features:
@@ -38,5 +54,16 @@ features:
       network.
     title: Mobile Authentication Apps
     icon: tablet-smartphone
+  - description: These are physical devices that generate authentication codes.
+      Users must have the token in their possession to authenticate. While very
+      secure, they can be inconvenient if lost or misplaced.
+    title: Hardware Tokens
+    icon: star
+  - description: Utilizing biological traits such as fingerprints, facial
+      recognition, or iris scans, this method offers a high level of security.
+      It is user-friendly as it requires no additional effort beyond the
+      biometric scan.
+    title: Biometric Verification
+    icon: fingerprint
 ---
 Body Content
