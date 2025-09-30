@@ -11,7 +11,7 @@ hero_description: In today's fast-paced digital world, ensuring your network is
   potential vulnerabilities, optimize performance, and ensure your IT
   infrastructure is robust and future-ready.
 show_benefits: true
-benefits_title: Why Choose Solomon Solutions for Network Assessments?
+benefits_title: Why Choose Center Street I.T. for Network Assessments?
 benefits:
   - description: Our team of certified network professionals brings years of
       experience and expertise to the table. We conduct thorough assessments to
