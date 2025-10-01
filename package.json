@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build && npm run copy-admin",
-    "copy-admin": "cp -r public/admin out/",
+    "copy-admin": "cp -r public/admin out/ || true",
     "copy-admin-windows": "if not exist \"out\\admin\" mkdir \"out\\admin\" && xcopy \"public\\admin\" \"out\\admin\\\" /E /I /Y",
     "start": "next start",
     "lint": "next lint"
