@@ -94,7 +94,7 @@ export function ContactFormSection() {
               >
                 <CheckCircle className="w-5 h-5 text-green-600" />
                 <p className="text-green-800">
-                  Thank you! Your message has been sent successfully. We'll get back to you soon.
+                  Thank you! Your message has been sent successfully. We&apos;ll get back to you soon.
                 </p>
               </motion.div>
             )}

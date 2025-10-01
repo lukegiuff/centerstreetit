@@ -1,6 +1,20 @@
+interface ArticleData {
+  title: string;
+  excerpt: string;
+  featured_image?: string;
+  author: string;
+  date: string;
+  slug: string;
+}
+
+interface ServiceData {
+  title: string;
+  description: string;
+}
+
 interface StructuredDataProps {
   type: 'organization' | 'localBusiness' | 'article' | 'service';
-  data: any;
+  data?: ArticleData | ServiceData;
 }
 
 export function StructuredData({ type, data }: StructuredDataProps) {
@@ -91,15 +105,17 @@ export function StructuredData({ type, data }: StructuredDataProps) {
       break;
 
     case 'article':
+      if (!data || !('author' in data)) return null;
+      const articleData = data as ArticleData;
       structuredData = {
         "@context": "https://schema.org",
         "@type": "Article",
-        "headline": data.title,
-        "description": data.excerpt,
-        "image": data.featured_image || "https://centerstreetit.com/assets/Logo-WhiteText.png",
+        "headline": articleData.title,
+        "description": articleData.excerpt,
+        "image": articleData.featured_image || "https://centerstreetit.com/assets/Logo-WhiteText.png",
         "author": {
           "@type": "Person",
-          "name": data.author
+          "name": articleData.author
         },
         "publisher": {
           "@type": "Organization",
@@ -109,21 +125,23 @@ export function StructuredData({ type, data }: StructuredDataProps) {
             "url": "https://centerstreetit.com/assets/Logo-WhiteText.png"
           }
         },
-        "datePublished": data.date,
-        "dateModified": data.date,
+        "datePublished": articleData.date,
+        "dateModified": articleData.date,
         "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": `https://centerstreetit.com/blog/${data.slug}`
+          "@id": `https://centerstreetit.com/blog/${articleData.slug}`
         }
       };
       break;
 
     case 'service':
+      if (!data || !('title' in data)) return null;
+      const serviceData = data as ServiceData;
       structuredData = {
         "@context": "https://schema.org",
         "@type": "Service",
-        "name": data.title,
-        "description": data.description,
+        "name": serviceData.title,
+        "description": serviceData.description,
         "provider": {
           "@type": "LocalBusiness",
           "name": "Center Street IT",
