@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 interface NavigationSubItem {
   label: string;
@@ -31,36 +31,141 @@ export function Header({ siteTitle, navigation }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const [hoverTimeout, setHoverTimeout] = useState<NodeJS.Timeout | null>(null);
+  const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Debug: Check if navigation prop is changing between renders
+  const navigationRef = useRef(navigation);
+  useEffect(() => {
+    if (navigationRef.current !== navigation) {
+      console.log(`⚠️ NAVIGATION PROP CHANGED - This could cause re-renders!`, {
+        oldNavigation: navigationRef.current,
+        newNavigation: navigation,
+        timestamp: Date.now()
+      });
+      navigationRef.current = navigation;
+    }
+  }, [navigation]);
+
+  // Debug: Log navigation structure on mount
+  useEffect(() => {
+    console.log(`📋 NAVIGATION STRUCTURE:`, {
+      siteTitle,
+      navigationItems: navigation.map(item => ({
+        label: item.label,
+        link: item.link,
+        hasSubmenu: !!item.submenu,
+        submenuSections: item.submenu?.length || 0,
+        submenuDetails: item.submenu?.map(section => ({
+          section: section.section,
+          itemCount: section.items?.length || 0
+        }))
+      }))
+    });
+  }, []);
+
+  // Debug: Log component re-renders
+  useEffect(() => {
+    console.log(`🔄 HEADER COMPONENT RE-RENDER`, {
+      timestamp: Date.now(),
+      hoveredItem,
+      hasTimeout: !!hoverTimeout,
+      navigationLength: navigation.length
+    });
+  });
+
+  // Debug: Log all state changes
+  useEffect(() => {
+    console.log(`🔄 STATE CHANGE: hoveredItem = "${hoveredItem}"`, {
+      timestamp: Date.now(),
+      hasTimeout: !!hoverTimeout
+    });
+  }, [hoveredItem]);
+
+  useEffect(() => {
+    console.log(`🔄 STATE CHANGE: hoverTimeout = ${hoverTimeout ? 'SET' : 'NULL'}`, {
+      timestamp: Date.now(),
+      hoveredItem
+    });
+  }, [hoverTimeout]);
 
   const handleMouseEnter = (itemLabel: string) => {
-    if (hoverTimeout) {
-      clearTimeout(hoverTimeout);
+    console.log(`🟢 MOUSE ENTER: ${itemLabel}`, {
+      currentHoveredItem: hoveredItem,
+      hasTimeout: !!hoverTimeout,
+      hasTimeoutRef: !!hoverTimeoutRef.current,
+      timestamp: Date.now()
+    });
+    
+    // Clear timeout using ref (immediate) and state (for consistency)
+    if (hoverTimeoutRef.current) {
+      console.log(`🔄 CLEARING TIMEOUT on enter: ${itemLabel}`, { timeoutId: hoverTimeoutRef.current });
+      clearTimeout(hoverTimeoutRef.current);
+      hoverTimeoutRef.current = null;
       setHoverTimeout(null);
     }
     setHoveredItem(itemLabel);
   };
 
   const handleMouseLeave = () => {
-    // Delay before hiding to allow moving to dropdown
+    console.log(`🔴 MOUSE LEAVE: nav item`, {
+      currentHoveredItem: hoveredItem,
+      hasTimeout: !!hoverTimeout,
+      hasTimeoutRef: !!hoverTimeoutRef.current,
+      timestamp: Date.now()
+    });
+    
+    // Increased delay to provide better user experience when moving to dropdown
     const timeout = setTimeout(() => {
+      console.log(`⏰ TIMEOUT EXECUTED: hiding dropdown`, {
+        hoveredItem,
+        timestamp: Date.now()
+      });
       setHoveredItem(null);
-    }, 200);
+      hoverTimeoutRef.current = null;
+      setHoverTimeout(null);
+    }, 300);
+    
+    hoverTimeoutRef.current = timeout;
     setHoverTimeout(timeout);
+    
+    console.log(`⏱️ TIMEOUT SET: 300ms delay`, { timeoutId: timeout });
   };
 
   const handleDropdownMouseEnter = () => {
-    // Cancel any pending hide timeout when entering dropdown
-    if (hoverTimeout) {
-      clearTimeout(hoverTimeout);
+    console.log(`🟢 DROPDOWN ENTER`, {
+      currentHoveredItem: hoveredItem,
+      hasTimeout: !!hoverTimeout,
+      hasTimeoutRef: !!hoverTimeoutRef.current,
+      timeoutId: hoverTimeout,
+      timeoutRefId: hoverTimeoutRef.current,
+      timestamp: Date.now()
+    });
+    
+    // Cancel any pending hide timeout when entering dropdown - use ref for immediate access
+    if (hoverTimeoutRef.current) {
+      console.log(`🔄 CLEARING TIMEOUT on dropdown enter`, { timeoutId: hoverTimeoutRef.current });
+      clearTimeout(hoverTimeoutRef.current);
+      hoverTimeoutRef.current = null;
       setHoverTimeout(null);
+    } else {
+      console.log(`⚠️ NO TIMEOUT TO CLEAR on dropdown enter`);
     }
   };
 
   const handleDropdownMouseLeave = () => {
+    console.log(`🔴 DROPDOWN LEAVE`, {
+      currentHoveredItem: hoveredItem,
+      hasTimeout: !!hoverTimeout,
+      hasTimeoutRef: !!hoverTimeoutRef.current,
+      timestamp: Date.now()
+    });
+    
     // Immediate hide when leaving dropdown
     setHoveredItem(null);
-    if (hoverTimeout) {
-      clearTimeout(hoverTimeout);
+    if (hoverTimeoutRef.current) {
+      console.log(`🔄 CLEARING TIMEOUT on dropdown leave`, { timeoutId: hoverTimeoutRef.current });
+      clearTimeout(hoverTimeoutRef.current);
+      hoverTimeoutRef.current = null;
       setHoverTimeout(null);
     }
   };
@@ -68,11 +173,12 @@ export function Header({ siteTitle, navigation }: HeaderProps) {
   // Cleanup timeout on unmount
   useEffect(() => {
     return () => {
-      if (hoverTimeout) {
-        clearTimeout(hoverTimeout);
+      if (hoverTimeoutRef.current) {
+        clearTimeout(hoverTimeoutRef.current);
+        hoverTimeoutRef.current = null;
       }
     };
-  }, [hoverTimeout]);
+  }, []);
 
   return (
     <motion.header
@@ -123,25 +229,43 @@ export function Header({ siteTitle, navigation }: HeaderProps) {
                   </Link>
                 ) : (
                   <>
-                    <Link
-                      href={item.link}
-                      className="px-4 py-4 text-white/90 hover:text-white transition-colors duration-200 font-medium flex items-center gap-1"
-                      onMouseEnter={() => handleMouseEnter(item.label)}
-                      onMouseLeave={handleMouseLeave}
+                    <div
+                      className="relative"
+                      onMouseEnter={() => {
+                        console.log(`🟢 WRAPPER MOUSE ENTER`, { item: item.label });
+                        handleMouseEnter(item.label);
+                      }}
+                      onMouseLeave={() => {
+                        console.log(`🔴 WRAPPER MOUSE LEAVE`, { item: item.label });
+                        handleMouseLeave();
+                      }}
                     >
-                      {item.label}
-                      {item.submenu && (
-                        <motion.div
-                          animate={{ 
-                            rotate: hoveredItem === item.label ? 180 : 0 
-                          }}
-                          transition={{ duration: 0.15 }}
-                          style={{ pointerEvents: 'none' }}
-                        >
-                          <ChevronDown className="w-4 h-4" />
-                        </motion.div>
+                      <Link
+                        href={item.link}
+                        className="px-4 py-4 text-white/90 hover:text-white transition-colors duration-200 font-medium flex items-center gap-1"
+                      >
+                        {item.label}
+                        {item.submenu && (
+                          <motion.div
+                            animate={{ 
+                              rotate: hoveredItem === item.label ? 180 : 0 
+                            }}
+                            transition={{ duration: 0.15 }}
+                            style={{ pointerEvents: 'none' }}
+                          >
+                            <ChevronDown className="w-4 h-4" />
+                          </motion.div>
+                        )}
+                      </Link>
+                      
+                      {/* Invisible bridge to prevent flickering */}
+                      {item.submenu && hoveredItem === item.label && (
+                        <div 
+                          className="absolute top-full left-0 w-full h-2 bg-transparent z-[59]"
+                          style={{ marginTop: '-1px' }}
+                        />
                       )}
-                    </Link>
+                    </div>
                     
                     {/* Dropdown Menu */}
                     {item.submenu && hoveredItem === item.label && (
@@ -150,10 +274,16 @@ export function Header({ siteTitle, navigation }: HeaderProps) {
                         initial={{ opacity: 0, y: -5 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.15 }}
-                        onMouseEnter={handleDropdownMouseEnter}
-                        onMouseLeave={handleDropdownMouseLeave}
+                        onMouseEnter={() => {
+                          console.log(`🟢 DROPDOWN MOUSE ENTER (direct)`, { item: item.label });
+                          handleDropdownMouseEnter();
+                        }}
+                        onMouseLeave={() => {
+                          console.log(`🔴 DROPDOWN MOUSE LEAVE (direct)`, { item: item.label });
+                          handleDropdownMouseLeave();
+                        }}
                         style={{
-                          marginTop: '4px',
+                          marginTop: '-1px',
                           marginLeft: '0px',
                         }}
                       >
