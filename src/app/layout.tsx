@@ -101,8 +101,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <StructuredData type="organization" data={{}} />
-        <StructuredData type="localBusiness" data={{}} />
+        <StructuredData type="organization" />
+        <StructuredData type="localBusiness" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${cinzel.variable} antialiased`}
