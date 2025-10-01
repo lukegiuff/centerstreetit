@@ -38,7 +38,6 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     description: post.excerpt,
     keywords: post.tags,
     authors: [{ name: post.author }],
-    publishedTime: post.date,
     openGraph: {
       title: post.title,
       description: post.excerpt,
