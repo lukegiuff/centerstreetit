@@ -4,6 +4,30 @@ import { BlogHeroSection } from '@/components/blog-hero-section';
 import { BlogListingSection } from '@/components/blog-listing-section';
 import { BlogSidebarSection } from '@/components/blog-sidebar-section';
 import { Footer } from '@/components/footer';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "IT Blog - Technology Insights & Best Practices",
+  description: "Stay informed with Center Street IT's blog. Expert insights on cybersecurity, cloud computing, IT management, and technology best practices for Houston businesses.",
+  keywords: [
+    "IT blog Houston",
+    "cybersecurity insights", 
+    "cloud computing tips",
+    "IT best practices",
+    "technology updates",
+    "business IT advice",
+    "network security blog"
+  ],
+  openGraph: {
+    title: "Center Street IT Blog - Technology Insights",
+    description: "Expert insights on cybersecurity, cloud computing, and IT management for Houston businesses.",
+    url: 'https://centerstreetit.com/blog',
+    type: 'website',
+  },
+  alternates: {
+    canonical: '/blog',
+  },
+};
 
 export default function BlogPage() {
   const blogPosts = getBlogPosts();

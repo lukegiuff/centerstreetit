@@ -66,6 +66,7 @@ export interface ContactContent {
   contact_info: {
     phone_primary: string;
     phone_secondary: string;
+    fax?: string;
     email: string;
     address: string;
   };
@@ -189,9 +190,9 @@ export function getContactContent(): ContactContent {
       hero_title: "Contact Us",
       hero_subtitle: "Ready to Transform Your IT Infrastructure?",
       contact_info: {
-        phone_primary: "+1 (555) 123-4567",
-        phone_secondary: "+1 (555) 987-6543",
-        email: "hello@centerstreetit.com",
+        phone_primary: "(346) 877-9001",
+        phone_secondary: "(346) 877-9001",
+        email: "MoreInfo@CenterStreetIT.com",
         address: "123 Center Street, Tech City, TC 12345"
       },
       business_hours: {

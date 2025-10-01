@@ -164,9 +164,9 @@ export function Footer({ siteTitle, social, navigation, servicePages }: FooterPr
           >
             <h4 className="text-lg font-semibold mb-4">Contact</h4>
             <div className="space-y-2 text-gray-400">
-              <p>hello@centerstreetit.com</p>
-              <p>(832) 429-2940</p>
-              <p>(346) 877-9002</p>
+              <p>MoreInfo@CenterStreetIT.com</p>
+              <p>(346) 877-9001</p>
+              <p>(346) 877-9001</p>
               <p>8999 Kirby Dr Ste 220<br />Houston, TX 77054</p>
             </div>
           </motion.div>

@@ -110,11 +110,11 @@ export function ServiceBenefitsSection({ title, benefits, serviceName }: Service
               <div className="mt-6 pt-6 border-t border-gray-200 space-y-3">
                 <div className="flex items-center space-x-3 text-sm text-gray-600">
                   <Phone className="w-4 h-4 text-teal-600" />
-                  <span>(713) 909-8606</span>
+                  <span>(346) 877-9001</span>
                 </div>
                 <div className="flex items-center space-x-3 text-sm text-gray-600">
                   <Mail className="w-4 h-4 text-teal-600" />
-                  <span>info@centerstreetit.com</span>
+                  <span>MoreInfo@CenterStreetIT.com</span>
                 </div>
                 <div className="flex items-center space-x-3 text-sm text-gray-600">
                   <MapPin className="w-4 h-4 text-teal-600" />

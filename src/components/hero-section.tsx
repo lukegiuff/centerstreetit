@@ -23,7 +23,7 @@ export function HeroSection({ title, subtitle, heroText, ctaText, ctaLink }: Her
       <div className="absolute inset-0">
         <Image
           src="/assets/HeroBG.png"
-          alt="Hero Background"
+          alt="Center Street IT Houston office - Professional IT support and managed services"
           fill
           priority
           className="object-cover"

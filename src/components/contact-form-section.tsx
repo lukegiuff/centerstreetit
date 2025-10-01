@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Send, MessageSquare } from 'lucide-react';
+import { Send, MessageSquare, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
 import { AnimatedCard } from './ui/animated-card';
 
 import { useState } from 'react';
@@ -14,11 +14,50 @@ export function ContactFormSection() {
     phone: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          phone: formData.phone,
+          message: formData.message,
+          subject: `New Contact Form Submission from ${formData.name}`,
+          from_name: 'Center Street IT Website',
+        }),
+      });
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        setFormData({
+          name: '',
+          email: '',
+          company: '',
+          phone: '',
+          message: ''
+        });
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -45,6 +84,34 @@ export function ContactFormSection() {
                 Send a Message
               </h2>
             </div>
+
+            {/* Success Message */}
+            {submitStatus === 'success' && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-center gap-3"
+              >
+                <CheckCircle className="w-5 h-5 text-green-600" />
+                <p className="text-green-800">
+                  Thank you! Your message has been sent successfully. We'll get back to you soon.
+                </p>
+              </motion.div>
+            )}
+
+            {/* Error Message */}
+            {submitStatus === 'error' && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-center gap-3"
+              >
+                <AlertCircle className="w-5 h-5 text-red-600" />
+                <p className="text-red-800">
+                  Sorry, there was an error sending your message. Please try again or contact us directly.
+                </p>
+              </motion.div>
+            )}
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -159,13 +226,25 @@ export function ContactFormSection() {
               >
                 <motion.button
                   type="submit"
-                  className="w-full px-8 py-4 text-white font-semibold rounded-lg transition-all duration-200 flex items-center justify-center gap-2"
-                  style={{ backgroundColor: '#00C9AF' }}
-                  whileHover={{ scale: 1.02, backgroundColor: '#b78842' }}
-                  whileTap={{ scale: 0.98 }}
+                  disabled={isSubmitting}
+                  className={`w-full px-8 py-4 text-white font-semibold rounded-lg transition-all duration-200 flex items-center justify-center gap-2 ${
+                    isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
+                  }`}
+                  style={{ backgroundColor: isSubmitting ? '#9CA3AF' : '#00C9AF' }}
+                  whileHover={!isSubmitting ? { scale: 1.02, backgroundColor: '#b78842' } : {}}
+                  whileTap={!isSubmitting ? { scale: 0.98 } : {}}
                 >
-                  <Send className="w-5 h-5" />
-                  Submit
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="w-5 h-5 animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-5 h-5" />
+                      Submit
+                    </>
+                  )}
                 </motion.button>
               </motion.div>
             </form>
@@ -195,13 +274,18 @@ export function ContactFormSection() {
                 viewport={{ once: true }}
               >
                 <h4 className="text-lg font-semibold text-gray-900 mb-2">Phone</h4>
-                <a 
-                  href="tel:+18324292940" 
-                  className="text-gray-600 hover:text-gray-900 transition-colors text-lg"
-                  style={{ color: '#b78842' }}
-                >
-                  (832) 429-2940
-                </a>
+                <div className="space-y-1">
+                  <a 
+                    href="tel:+13468779001" 
+                    className="block text-gray-600 hover:text-gray-900 transition-colors text-lg"
+                    style={{ color: '#b78842' }}
+                  >
+                    (346) 877-9001
+                  </a>
+                  <div className="text-lg" style={{ color: '#b78842' }}>
+                    (346) 877-9002 <span className="text-sm text-gray-500">(Fax)</span>
+                  </div>
+                </div>
               </motion.div>
 
               <motion.div
@@ -212,11 +296,11 @@ export function ContactFormSection() {
               >
                 <h4 className="text-lg font-semibold text-gray-900 mb-2">Email</h4>
                 <a 
-                  href="mailto:hello@centerstreetit.com" 
+                  href="mailto:MoreInfo@CenterStreetIT.com" 
                   className="text-gray-600 hover:text-gray-900 transition-colors text-lg"
                   style={{ color: '#b78842' }}
                 >
-                  hello@centerstreetit.com
+                  MoreInfo@CenterStreetIT.com
                 </a>
               </motion.div>
 

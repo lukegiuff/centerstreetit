@@ -69,7 +69,7 @@ export function CallToActionSection() {
             {/* Contact Info */}
             <div className="flex flex-col sm:flex-row gap-6 mb-8">
               <motion.a
-                href="tel:+17139098606"
+                href="tel:+13468779001"
                 className="flex items-center space-x-3 text-white hover:text-brand-gold transition-colors"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -79,12 +79,12 @@ export function CallToActionSection() {
                 </div>
                 <div>
                   <p className="text-sm text-gray-400">Call Us</p>
-                  <p className="text-lg font-semibold">(713) 909-8606</p>
+                  <p className="text-lg font-semibold">(346) 877-9001</p>
                 </div>
               </motion.a>
 
               <motion.a
-                href="mailto:info@centerstreetit.com"
+                href="mailto:MoreInfo@CenterStreetIT.com"
                 className="flex items-center space-x-3 text-white hover:text-brand-gold transition-colors"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -94,7 +94,7 @@ export function CallToActionSection() {
                 </div>
                 <div>
                   <p className="text-sm text-gray-400">Email Us</p>
-                  <p className="text-lg font-semibold">info@centerstreetit.com</p>
+                  <p className="text-lg font-semibold">MoreInfo@CenterStreetIT.com</p>
                 </div>
               </motion.a>
             </div>

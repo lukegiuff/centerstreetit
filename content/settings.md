@@ -10,7 +10,7 @@ navigation:
     link: /contact
 social:
   - platform: Phone
-    url: tel:+18324292940
+    url: tel:+13468779001
     icon: Phone
   - platform: Email
     url: mailto:MoreInfo@CenterStreetIT.com

@@ -9,6 +9,7 @@ interface ContactInfoSectionProps {
   contactInfo: {
     phone_primary: string;
     phone_secondary: string;
+    fax?: string;
     email: string;
     address: string;
   };
@@ -60,13 +61,20 @@ export function ContactInfoSection({ contactInfo, businessHours, contactReasons 
               >
                 {contactInfo.phone_primary}
               </a>
-              <a 
-                href={`tel:${contactInfo.phone_secondary.replace(/\D/g, '')}`}
-                className="block text-lg hover:underline transition-colors"
-                style={{ color: '#b78842' }}
-              >
-                {contactInfo.phone_secondary}
-              </a>
+              {contactInfo.phone_secondary && (
+                <a 
+                  href={`tel:${contactInfo.phone_secondary.replace(/\D/g, '')}`}
+                  className="block text-lg hover:underline transition-colors"
+                  style={{ color: '#b78842' }}
+                >
+                  {contactInfo.phone_secondary}
+                </a>
+              )}
+              {contactInfo.fax && (
+                <div className="text-lg" style={{ color: '#b78842' }}>
+                  {contactInfo.fax} <span className="text-sm text-gray-500">(Fax)</span>
+                </div>
+              )}
             </div>
           </AnimatedCard>
 

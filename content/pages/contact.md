@@ -4,9 +4,10 @@ description: "Get in touch with our IT experts for a consultation and discover h
 hero_title: "Contact Us"
 hero_subtitle: "Ready to Transform Your IT Infrastructure?"
 contact_info:
-  phone_primary: "(832) 429-2940"
-  phone_secondary: "(346) 877-9002"
-  email: "hello@centerstreetit.com"
+  phone_primary: "(346) 877-9001"
+  phone_secondary: ""
+  fax: "(346) 877-9002"
+  email: "MoreInfo@CenterStreetIT.com"
   address: "8999 Kirby Dr Ste 220, Houston, TX 77054"
 business_hours:
   monday_friday: "8:00 AM - 6:00 PM"

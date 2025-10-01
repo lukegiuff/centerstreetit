@@ -3,6 +3,8 @@ import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { ServicePageContent } from '@/components/service-page-content';
 import { notFound } from 'next/navigation';
+import type { Metadata } from 'next';
+import { StructuredData } from '@/components/structured-data';
 
 interface ServicePageProps {
   params: Promise<{
@@ -24,6 +26,61 @@ export function generateStaticParams() {
   return params;
 }
 
+export async function generateMetadata({ params }: ServicePageProps): Promise<Metadata> {
+  const { slug } = await params;
+  
+  // Handle admin specially
+  if (slug === 'admin') {
+    return {
+      title: 'Admin',
+      robots: {
+        index: false,
+        follow: false,
+      },
+    };
+  }
+  
+  const pageContent = getServicePageContent(slug);
+
+  if (!pageContent) {
+    return {
+      title: 'Service Not Found',
+    };
+  }
+
+  const serviceKeywords = [
+    `${pageContent.title} Houston`,
+    'IT services Houston',
+    'managed IT services',
+    'business technology solutions',
+    'Houston IT support',
+    'enterprise IT services'
+  ];
+
+  return {
+    title: `${pageContent.title} - Houston IT Services`,
+    description: pageContent.description || `Expert ${pageContent.title.toLowerCase()} services in Houston, TX. Professional IT solutions from Center Street IT with 24/7 support and contract-free options.`,
+    keywords: serviceKeywords,
+    openGraph: {
+      title: `${pageContent.title} - Center Street IT Houston`,
+      description: pageContent.description || `Professional ${pageContent.title.toLowerCase()} services in Houston, TX.`,
+      url: `https://centerstreetit.com/${slug}`,
+      type: 'website',
+      images: pageContent.hero_image ? [
+        {
+          url: pageContent.hero_image,
+          width: 1200,
+          height: 630,
+          alt: pageContent.title,
+        }
+      ] : undefined,
+    },
+    alternates: {
+      canonical: `/${slug}`,
+    },
+  };
+}
+
 export default async function ServicePage({ params }: ServicePageProps) {
   const { slug } = await params;
   
@@ -42,6 +99,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
 
   return (
     <main className="min-h-screen">
+      <StructuredData type="service" data={pageContent} />
       <Header
         siteTitle={siteSettings.site_title}
         navigation={siteSettings.navigation}
