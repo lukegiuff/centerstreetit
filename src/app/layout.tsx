@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Cinzel } from "next/font/google";
 import "./globals.css";
 import { StructuredData } from "@/components/structured-data";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -99,10 +100,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" style={{ colorScheme: 'light' }}>
       <head>
+        <meta name="color-scheme" content="light" />
         <StructuredData type="organization" />
         <StructuredData type="localBusiness" />
+        <GoogleAnalytics />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${cinzel.variable} antialiased`}
