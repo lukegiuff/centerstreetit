@@ -10,24 +10,15 @@ interface LegalPageContentProps {
 export function LegalPageContentComponent({ pageContent }: LegalPageContentProps) {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-      {/* Hero Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 to-indigo-700">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            {pageContent.title}
-          </h1>
-          <p className="text-xl text-blue-100">
-            {pageContent.description}
-          </p>
-          <p className="text-sm text-blue-200 mt-4">
-            Last Updated: {new Date(pageContent.last_updated).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-          </p>
-        </div>
-      </section>
-
       {/* Content Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            {pageContent.title}
+          </h1>
+          <p className="text-sm text-gray-500 mb-8">
+            Last Updated: {new Date(pageContent.last_updated).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+          </p>
           <div 
             className="prose prose-lg prose-blue max-w-none
               prose-headings:text-gray-900 prose-headings:font-bold

@@ -10,9 +10,9 @@ contact_info:
   email: "MoreInfo@CenterStreetIT.com"
   address: "8999 Kirby Dr Ste 220, Houston, TX 77054"
 business_hours:
-  monday_friday: "8:00 AM - 6:00 PM"
-  saturday: "9:00 AM - 2:00 PM"
-  sunday: "Emergency Support Only"
+  monday_friday: "8:30 AM - 5:00 PM"
+  saturday: "Closed"
+  sunday: "Closed"
   emergency: "24/7 Emergency Support Available"
 contact_reasons:
   - title: "IT Support & Helpdesk"
