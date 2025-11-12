@@ -22,6 +22,7 @@ export function LegalPageContentComponent({ pageContent }: LegalPageContentProps
           <div 
             className="prose prose-lg prose-blue max-w-none
               prose-headings:text-gray-900 prose-headings:font-bold
+              prose-headings:scroll-mt-28
               prose-h1:text-4xl prose-h1:mb-8
               prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-h2:border-b prose-h2:border-gray-200 prose-h2:pb-3
               prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
