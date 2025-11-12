@@ -121,6 +121,30 @@ collections:
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "list", default: ["general"]}
 
+  # Legal Pages
+  - name: "legal_pages"
+    label: "Legal Pages"
+    files:
+      - file: "content/pages/privacy-policy.md"
+        label: "Privacy Policy"
+        name: "privacy_policy"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "text"}
+          - {label: "Page URL Slug", name: "slug", widget: "string", default: "privacy-policy"}
+          - {label: "Last Updated", name: "last_updated", widget: "datetime"}
+          - {label: "Content", name: "body", widget: "markdown"}
+      
+      - file: "content/pages/terms-and-conditions.md"
+        label: "Terms and Conditions"
+        name: "terms_and_conditions"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "text"}
+          - {label: "Page URL Slug", name: "slug", widget: "string", default: "terms-and-conditions"}
+          - {label: "Last Updated", name: "last_updated", widget: "datetime"}
+          - {label: "Content", name: "body", widget: "markdown"}
+
   # Site Settings with Full Configuration
   - name: "settings"
     label: "Site Settings"

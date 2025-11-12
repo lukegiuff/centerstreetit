@@ -29,7 +29,7 @@ export function ContactFormSection() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
+          access_key: '05750a43-833d-4bc9-ab72-ecbadfde67f7',
           name: formData.name,
           email: formData.email,
           company: formData.company,

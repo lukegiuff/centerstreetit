@@ -212,11 +212,11 @@ export function Footer({ siteTitle, social, navigation, servicePages }: FooterPr
             © 2024 {siteTitle}. All rights reserved.
           </p>
           <div className="flex space-x-6 text-sm">
-            <Link href="/privacy" className="text-gray-400 hover:text-white transition-colors">
+            <Link href="/privacy-policy" className="text-gray-400 hover:text-white transition-colors">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="text-gray-400 hover:text-white transition-colors">
-              Terms of Service
+            <Link href="/terms-and-conditions" className="text-gray-400 hover:text-white transition-colors">
+              Terms and Conditions
             </Link>
           </div>
         </motion.div>

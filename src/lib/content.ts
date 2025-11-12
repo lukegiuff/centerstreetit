@@ -104,6 +104,14 @@ export interface ContactContent {
   };
 }
 
+export interface LegalPageContent {
+  title: string;
+  description: string;
+  slug: string;
+  last_updated: string;
+  content: string;
+}
+
 export interface BlogPost {
   slug: string;
   title: string;
@@ -234,6 +242,30 @@ export function getContactContent(): ContactContent {
         description: "Let us provide you with a network assessment."
       }
     };
+  }
+}
+
+export function getLegalPageContent(slug: string): LegalPageContent | null {
+  const legalPath = path.join(process.cwd(), 'content', 'pages', `${slug}.md`);
+  
+  try {
+    if (!fs.existsSync(legalPath)) {
+      return null;
+    }
+
+    const fileContents = fs.readFileSync(legalPath, 'utf8');
+    const { data, content } = matter(fileContents);
+
+    return {
+      title: data.title || 'Legal Page',
+      description: data.description || '',
+      slug: data.slug || slug,
+      last_updated: data.last_updated || new Date().toISOString(),
+      content: decodeHtmlEntities(marked(content) as string)
+    };
+  } catch (error) {
+    console.error('Error reading legal page content:', error);
+    return null;
   }
 }
 
