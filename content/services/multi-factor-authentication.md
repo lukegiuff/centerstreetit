@@ -1,7 +1,7 @@
 ---
 title: Multifactor Authentication
 slug: multifactor-authentication
-nav_section: Managed IT
+nav_section: Cloud Services
 nav_subsection: Cloud Security
 hero_title: Multifactor Authentication
 hero_subtitle: Strengthening Your Security with Multifactor Authentication
