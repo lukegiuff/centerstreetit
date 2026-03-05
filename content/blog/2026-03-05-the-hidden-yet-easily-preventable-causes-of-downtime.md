@@ -2,6 +2,7 @@
 title: The Hidden Yet Easily Preventable Causes of Downtime
 date: 2026-03-05T13:06:00.000-06:00
 author: Center Street IT Team
+featured_image: /images/mmk-backup-and-recovery-blog-1.jpg
 excerpt: When you hear the word downtime, what comes to mind? You might imagine
   a major storm, a power grid failure, a data breach or a sophisticated
   cyberattack. These are dramatic events, and while they do happen, they’re not
