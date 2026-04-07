@@ -1,5 +1,5 @@
 ---
-title: What’s Lurking in Your IT Environment
+title: Whats Lurking in Your IT Environment
 date: 2026-04-07T15:52:00.000-05:00
 author: Center Street IT Team
 featured_image: /images/mmk-spring-cleaning-blog-1.jpg
