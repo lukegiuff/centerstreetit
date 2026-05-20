@@ -1,5 +1,5 @@
 ---
-title: Don’t Automate Disorder - Getting Your Business Ready for AI
+title: Dont Automate Disorder - Getting Your Business Ready for AI
 date: 2026-05-19T10:02:00.000-05:00
 author: Center Street IT Team
 featured_image: /images/mmk-planting-for-success-blog-3.jpg
