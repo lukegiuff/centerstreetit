@@ -11,6 +11,15 @@ display_url: "https://centerstreetit.com"
 media_folder: "public/images"
 public_folder: "/images"
 
+# Strip all symbols, accents, and non-ASCII characters from generated slugs so
+# titles with apostrophes, colons, em-dashes, etc. produce URL- and filesystem-
+# safe filenames (required because slugs flow directly into Next.js static
+# export filenames served by Cloudflare Pages).
+slug:
+  encoding: "ascii"
+  clean_accents: true
+  sanitize_replacement: "-"
+
 collections:
   # Homepage with Full Features
   - name: "pages"
