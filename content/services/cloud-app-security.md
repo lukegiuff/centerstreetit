@@ -4,7 +4,7 @@ slug: cloud-app-security
 nav_section: Managed IT
 nav_subsection: Managed Security
 hero_title: Cloud App Security
-hero_subtitle: Enhance Your Email Security with Trend Micro at Solomon Solutions
+hero_subtitle: Enhance Your Email Security with Trend Micro at Center Street I.T.
 hero_description: In today's digital landscape, securing your cloud applications
   is more critical than ever. At Center Street I.T., we understand the
   importance of protecting your data and ensuring seamless operations. That's
