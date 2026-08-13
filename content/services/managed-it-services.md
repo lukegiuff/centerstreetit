@@ -37,42 +37,42 @@ features_title: Features
 features:
   - icon: shield
     title: Threat Protection
-    description: Safeguard your business with Center Street I.T.'s Threat Protection
+    description: Safeguard your business with Center Street IT's Threat Protection
       services. Our advanced security solutions protect your network from cyber
       threats, ensuring your sensitive data remains secure. From threat
       detection to incident response, we provide comprehensive protection to
       keep your business safe.
   - icon: users
     title: IT Consulting
-    description: Unlock your business's full potential with Center Street I.T.'s IT
+    description: Unlock your business's full potential with Center Street IT's IT
       Consulting services. Our expert consultants provide tailored strategies
       and solutions to streamline your operations, enhance productivity, and
       drive growth. Whether you're looking to optimize your current IT
       infrastructure or plan for future advancements, we've got you covered.
   - icon: wrench
     title: On-Site Field Support
-    description: Experience the convenience and reliability of Center Street I.T.'s
+    description: Experience the convenience and reliability of Center Street IT's
       On-Site Field Support. Our skilled technicians are ready to provide
       hands-on assistance at your location, addressing any IT challenges
       promptly and effectively. Whether it's hardware installation, network
       setup, or emergency repairs, we're here to help.
   - icon: user-check
     title: End-User Support
-    description: Empower your team with Center Street I.T.'s End-User Support. Our
+    description: Empower your team with Center Street IT's End-User Support. Our
       dedicated support team is available around the clock to assist with any
       technical issues, ensuring your employees can work efficiently and without
       interruption. From troubleshooting to training, we provide the support
       your team needs to succeed.
   - icon: cloud
     title: Cloud Services
-    description: Elevate your business to new heights with Center Street I.T.'s
-      Cloud Services. Our comprehensive cloud solutions offer scalability,
+    description: Elevate your business to new heights with Center Street IT's Cloud
+      Services. Our comprehensive cloud solutions offer scalability,
       flexibility, and security, ensuring your data is always accessible and
       protected. From cloud migration to management, we help you harness the
       power of the cloud to stay ahead in today's competitive landscape.
   - icon: monitor
     title: Network Monitoring & Management
-    description: Ensure your network runs smoothly with Center Street I.T.'s Network
+    description: Ensure your network runs smoothly with Center Street IT's Network
       Monitoring & Management services. Our proactive monitoring and management
       solutions identify and resolve issues before they impact your operations.
       With real-time insights and expert management, we keep your network
