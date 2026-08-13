@@ -5,7 +5,7 @@ nav_section: Cloud Services
 nav_subsection: Applications
 hero_title: Microsoft 365
 hero_subtitle: Microsoft 365 to Empower Your Business
-hero_description: At Center Street I.T., we understand the importance of having
+hero_description: At Center Street IT, we understand the importance of having
   the right tools to drive your business forward. That's why we proudly offer
   Microsoft 365, formerly Office 365, a comprehensive suite of productivity
   tools designed to help you achieve more.
