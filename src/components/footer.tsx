@@ -27,6 +27,7 @@ interface ServicePage {
   slug: string;
   title: string;
   description: string;
+  nav_section?: string;
 }
 
 interface ContactBlock {
@@ -66,8 +67,14 @@ export function Footer({ siteTitle, social, navigation, servicePages, contact }:
     'security-awareness-training'
   ];
 
-  const featuredServices = servicePages.filter(service => 
+  const featuredServices = servicePages.filter(service =>
     popularServices.includes(service.slug)
+  );
+
+  // Driven by the page's own "Locations" nav section rather than a hardcoded list,
+  // so a new location page added in the CMS appears here without a code change.
+  const locationPages = servicePages.filter(
+    service => service.nav_section?.toLowerCase() === 'locations'
   );
 
   return (
@@ -199,6 +206,24 @@ export function Footer({ siteTitle, social, navigation, servicePages, contact }:
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
           >
+            {locationPages.length > 0 && (
+              <div className="mb-8">
+                <h4 className="text-lg font-semibold mb-4">Service Areas</h4>
+                <ul className="space-y-2">
+                  {locationPages.map((page) => (
+                    <li key={page.slug}>
+                      <Link
+                        href={`/${page.slug}`}
+                        className="text-gray-400 hover:text-white transition-colors duration-200"
+                      >
+                        {page.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
             <h4 className="text-lg font-semibold mb-4">Contact</h4>
             <div className="space-y-2 text-gray-400">
               <p>

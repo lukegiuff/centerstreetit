@@ -1,5 +1,6 @@
 'use client';
 
+import { formatPostDate } from '@/lib/format-date';
 import { motion } from 'framer-motion';
 import { Calendar, Tag, TrendingUp } from 'lucide-react';
 import { AnimatedCard } from './ui/animated-card';
@@ -69,7 +70,7 @@ export function BlogSidebarSection({ posts }: BlogSidebarSectionProps) {
                     </h4>
                     <div className="flex items-center gap-2 mt-1 text-xs text-gray-500">
                       <Calendar className="w-3 h-3" />
-                      <span>{new Date(post.date).toLocaleDateString()}</span>
+                      <span>{formatPostDate(post.date)}</span>
                     </div>
                   </div>
                 </div>

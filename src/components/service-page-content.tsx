@@ -5,11 +5,8 @@ import { ServiceBenefitsSection } from './service-benefits-section';
 import { RecentBlogSection } from './recent-blog-section';
 import { CallToActionSection } from './call-to-action-section';
 import { TechnologyPartnersSection } from './technology-partners-section';
-import { 
-  Server, Shield, Users, Zap, Monitor, Cloud, Database, Lock, Settings, Phone,
-  Clock, RefreshCw, TrendingUp, Headphones, Timer, RotateCcw, Scale, MessageCircle,
-  Download, HardDrive, Expand, ArrowUpRight, ShieldCheck, CalendarClock, PlayCircle
-} from 'lucide-react';
+import * as LucideIcons from 'lucide-react';
+import { Server } from 'lucide-react';
 import Image from 'next/image';
 
 interface RecentPost {
@@ -27,34 +24,28 @@ interface ServicePageContentProps {
   recentPosts: RecentPost[];
 }
 
-// Icon mapping for features
-const iconMap: { [key: string]: React.ComponentType<{ className?: string }> } = {
-  server: Server,
-  shield: Shield,
-  users: Users,
-  zap: Zap,
-  monitor: Monitor,
-  cloud: Cloud,
-  database: Database,
-  lock: Lock,
-  settings: Settings,
-  phone: Phone,
-  clock: Clock,
-  'refresh-cw': RefreshCw,
-  'trending-up': TrendingUp,
-  headphones: Headphones,
-  timer: Timer,
-  'rotate-ccw': RotateCcw,
-  scale: Scale,
-  'message-circle': MessageCircle,
-  download: Download,
-  'hard-drive': HardDrive,
-  expand: Expand,
-  'arrow-up-right': ArrowUpRight,
-  'shield-check': ShieldCheck,
-  'calendar-clock': CalendarClock,
-  'play-circle': PlayCircle
-};
+type IconComponent = React.ComponentType<{ className?: string }>;
+
+// The CMS invites editors to pick any icon from lucide.dev, which names icons in
+// kebab-case ("hard-drive"). lucide-react exports them in PascalCase (HardDrive),
+// so resolve by converting rather than maintaining a hand-written list — a fixed
+// list silently degrades every icon an editor picks that nobody remembered to add.
+function resolveIcon(name?: string): IconComponent {
+  if (!name) return Server;
+
+  const pascalCase = name
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+(.)?/g, (_, chr: string | undefined) => (chr ? chr.toUpperCase() : ''))
+    .replace(/^[a-z]/, (chr) => chr.toUpperCase());
+
+  const candidate = (LucideIcons as unknown as Record<string, unknown>)[pascalCase];
+
+  // Guard against non-component exports (createLucideIcon, icons, etc.)
+  return typeof candidate === 'function' || typeof candidate === 'object'
+    ? (candidate as IconComponent)
+    : Server;
+}
 
 export function ServicePageContent({ pageContent, recentPosts }: ServicePageContentProps) {
   // Check if we need to use legacy content parsing
@@ -94,7 +85,7 @@ export function ServicePageContent({ pageContent, recentPosts }: ServicePageCont
                 <div className="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
                   <div className="divide-y divide-gray-100">
                     {pageContent.features.map((feature, index) => {
-                      const IconComponent = iconMap[feature.icon || 'server'] || Server;
+                      const IconComponent = resolveIcon(feature.icon);
             return (
                         <div key={index} className="p-6 hover:bg-gray-50 transition-colors duration-200">
                           <div className="flex items-center space-x-4">

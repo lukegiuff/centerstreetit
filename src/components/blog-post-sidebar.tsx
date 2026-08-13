@@ -1,5 +1,6 @@
 'use client';
 
+import { formatPostDate } from '@/lib/format-date';
 import { motion } from 'framer-motion';
 import { User, Tag, TrendingUp, ArrowRight } from 'lucide-react';
 import { AnimatedCard } from './ui/animated-card';
@@ -128,7 +129,7 @@ export function BlogPostSidebar({ author, tags, relatedPosts }: BlogPostSidebarP
                     </p>
                     <div className="flex items-center justify-between">
                       <span className="text-xs text-gray-500">
-                        {new Date(post.date).toLocaleDateString()}
+                        {formatPostDate(post.date)}
                       </span>
                       <motion.span
                         className="text-xs font-medium flex items-center gap-1"

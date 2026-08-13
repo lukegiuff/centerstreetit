@@ -1,5 +1,6 @@
 'use client';
 
+import { formatPostDate } from '@/lib/format-date';
 import { motion } from 'framer-motion';
 import { Calendar, Clock, ArrowRight, Tag } from 'lucide-react';
 import { AnimatedCard } from './ui/animated-card';
@@ -66,7 +67,7 @@ export function BlogListingSection({ posts }: BlogListingSectionProps) {
                   <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500">
                     <div className="flex items-center gap-1">
                       <Calendar className="w-4 h-4" />
-                      <span>{new Date(featuredPost.date).toLocaleDateString()}</span>
+                      <span>{formatPostDate(featuredPost.date)}</span>
                     </div>
                     <div className="flex items-center gap-1">
                       <Clock className="w-4 h-4" />
@@ -170,7 +171,7 @@ export function BlogListingSection({ posts }: BlogListingSectionProps) {
                 <div className="flex items-center gap-4 text-sm text-gray-500">
                   <div className="flex items-center gap-1">
                     <Calendar className="w-4 h-4" />
-                    <span>{new Date(post.date).toLocaleDateString()}</span>
+                    <span>{formatPostDate(post.date)}</span>
                   </div>
                   <div className="flex items-center gap-1">
                     <Clock className="w-4 h-4" />
@@ -221,19 +222,8 @@ export function BlogListingSection({ posts }: BlogListingSectionProps) {
         </div>
       </div>
 
-      {/* Load More Button */}
-      {posts.length > 6 && (
-        <AnimatedText variant="slideUp" delay={0.8}>
-          <div className="text-center mt-12">
-            <button
-              className="px-8 py-4 text-white font-semibold rounded-full hover:shadow-lg transition-shadow"
-              style={{ backgroundColor: '#00C9AF' }}
-            >
-              Load More Articles
-            </button>
-          </div>
-        </AnimatedText>
-      )}
+      {/* No "Load More" control: every post is already rendered on this page.
+          The button that used to sit here had no click handler and did nothing. */}
     </section>
   );
 }

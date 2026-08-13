@@ -80,8 +80,8 @@ features:
       the documentation your customer's procurement team or your insurance
       carrier will ask to see — not just software running quietly in the
       background.
-  - icon: Backup and Disaster Recovery
-    title: database
+  - icon: database
+    title: Backup and Disaster Recovery
     description: Image-based backup for servers and workstations with off-site
       copies, plus separate cloud-to-cloud backup for Microsoft 365 and Google
       Workspace, which neither vendor protects for you. Restores get tested on a

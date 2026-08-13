@@ -74,11 +74,17 @@
 5. **Page Speed**: Optimized images and bundle splitting
 
 ### **Local SEO Elements**:
-- Business address: 8999 Kirby Dr Ste 220, Houston, TX 77054
+- Business location: Deer Park, TX (city and state only)
 - Phone number: (346) 877-9001
+- Fax: (346) 877-9002
 - Email: MoreInfo@CenterStreetIT.com
-- Service area: Houston metropolitan area
+- Service area: Deer Park, Pasadena and La Porte
 - Business hours: Structured data included
+
+> **Note:** This is a service-area business. No street address is published anywhere
+> on the site, in page copy, or in structured data. Do not reintroduce one. The
+> Houston targeting described elsewhere in this document is historical and was
+> replaced by the Deer Park repositioning.
 
 ## 📊 SEO Monitoring Recommendations
 

@@ -1,10 +1,9 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { BookOpen, Search } from 'lucide-react';
+import { BookOpen } from 'lucide-react';
 import { AnimatedText } from './ui/animated-text';
 import Link from 'next/link';
-import { useState } from 'react';
 
 interface BlogHeroSectionProps {
   title: string;
@@ -13,14 +12,6 @@ interface BlogHeroSectionProps {
 }
 
 export function BlogHeroSection({ title, subtitle, description }: BlogHeroSectionProps) {
-  const [searchQuery, setSearchQuery] = useState('');
-
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    // TODO: Implement search functionality
-    console.log('Search query:', searchQuery);
-  };
-
   return (
     <section className="relative pt-32 pb-16 bg-gradient-to-b from-black via-gray-900 to-gray-800 overflow-hidden">
       {/* Animated background */}
@@ -103,29 +94,9 @@ export function BlogHeroSection({ title, subtitle, description }: BlogHeroSectio
           </p>
         </AnimatedText>
 
-        {/* Search Bar */}
-        <AnimatedText variant="slideUp" delay={0.8}>
-          <form onSubmit={handleSearch} className="max-w-md mx-auto mb-8">
-            <div className="relative">
-              <input
-                type="text"
-                placeholder="Search articles..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full px-6 py-4 pr-12 bg-white/10 backdrop-blur-lg border border-white/20 rounded-full text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-gold focus:border-transparent"
-              />
-              <motion.button
-                type="submit"
-                className="absolute right-2 top-1/2 transform -translate-y-1/2 w-8 h-8 rounded-full flex items-center justify-center"
-                style={{ backgroundColor: '#00C9AF' }}
-                whileHover={{ scale: 1.1, backgroundColor: '#b78842' }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <Search className="w-4 h-4 text-white" />
-              </motion.button>
-            </div>
-          </form>
-        </AnimatedText>
+        {/* A search box used to sit here, but it was never implemented — submitting
+            it only logged the query to the console. Removed rather than left in
+            place looking functional. Reinstate it alongside real filtering. */}
 
         {/* Breadcrumb */}
         <AnimatedText variant="fadeIn" delay={1.0}>

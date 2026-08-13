@@ -139,6 +139,85 @@ collections:
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "list", default: ["general"]}
 
+  # Contact Page
+  - name: "contact_page"
+    label: "Contact Page"
+    files:
+      - file: "content/pages/contact.md"
+        label: "Contact Details"
+        name: "contact"
+        fields:
+          - {label: "Page Title", name: "title", widget: "string"}
+          - {label: "Meta Description", name: "description", widget: "text"}
+          - {label: "Hero Heading", name: "hero_title", widget: "string"}
+          - {label: "Hero Subheading", name: "hero_subtitle", widget: "string"}
+
+          - label: "Contact Details"
+            name: "contact_info"
+            widget: "object"
+            fields:
+              - {label: "Phone", name: "phone_primary", widget: "string"}
+              - {label: "Second Phone", name: "phone_secondary", widget: "string", required: false,
+                 hint: "Leave blank unless there is a genuinely different second number."}
+              - {label: "Fax", name: "fax", widget: "string", required: false}
+              - {label: "Email", name: "email", widget: "string"}
+              - {label: "City", name: "address", widget: "string",
+                 hint: "City and state only, e.g. 'Deer Park, TX'. No street address is published anywhere on the site."}
+              - {label: "Service Area", name: "service_area", widget: "string",
+                 hint: "e.g. 'Serving Deer Park, Pasadena & La Porte'. Also shown in the footer of every page."}
+
+          - label: "Business Hours"
+            name: "business_hours"
+            widget: "object"
+            fields:
+              - {label: "Monday to Friday", name: "monday_friday", widget: "string"}
+              - {label: "Saturday", name: "saturday", widget: "string"}
+              - {label: "Sunday", name: "sunday", widget: "string"}
+              - {label: "Emergency", name: "emergency", widget: "string"}
+
+          - label: "Reasons to Get in Touch"
+            name: "contact_reasons"
+            widget: "list"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+
+          - label: "Why Choose Us"
+            name: "why_choose_us"
+            widget: "object"
+            fields:
+              - label: "Satisfaction"
+                name: "satisfaction_metric"
+                widget: "object"
+                fields:
+                  - {label: "Title", name: "title", widget: "string"}
+                  - {label: "Description", name: "description", widget: "text"}
+              - label: "Agreements"
+                name: "agreements"
+                widget: "object"
+                fields:
+                  - {label: "Title", name: "title", widget: "string"}
+                  - {label: "Description", name: "description", widget: "text"}
+              - label: "Brand Power"
+                name: "brand_power"
+                widget: "object"
+                fields:
+                  - {label: "Title", name: "title", widget: "string"}
+                  - {label: "Description", name: "description", widget: "text"}
+              - label: "Leasing Programs"
+                name: "innovative_leasing"
+                widget: "object"
+                fields:
+                  - {label: "Title", name: "title", widget: "string"}
+                  - {label: "Description", name: "description", widget: "text"}
+
+          - label: "Closing Call to Action"
+            name: "call_to_action"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+
   # Legal Pages
   - name: "legal_pages"
     label: "Legal Pages"

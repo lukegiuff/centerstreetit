@@ -1,5 +1,6 @@
 'use client';
 
+import { formatPostDate } from '@/lib/format-date';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { AnimatedCard } from './ui/animated-card';
@@ -54,7 +55,7 @@ export function BlogPostNavigation({ previousPost, nextPost }: BlogPostNavigatio
                     {previousPost.excerpt}
                   </p>
                   <div className="flex items-center gap-2 mt-3 text-xs text-gray-500">
-                    <span>{new Date(previousPost.date).toLocaleDateString()}</span>
+                    <span>{formatPostDate(previousPost.date)}</span>
                     <span>•</span>
                     <span>{previousPost.readTime}</span>
                   </div>
@@ -103,7 +104,7 @@ export function BlogPostNavigation({ previousPost, nextPost }: BlogPostNavigatio
                     {nextPost.excerpt}
                   </p>
                   <div className="flex items-center justify-end gap-2 mt-3 text-xs text-gray-500">
-                    <span>{new Date(nextPost.date).toLocaleDateString()}</span>
+                    <span>{formatPostDate(nextPost.date)}</span>
                     <span>•</span>
                     <span>{nextPost.readTime}</span>
                   </div>

@@ -29,7 +29,7 @@ features:
       prevention, content filtering, application control, and VPN, you can rest
       assured that your network is secure.
     title: Comprehensive Protection
-    icon: sheild-ban
+    icon: shield-ban
   - description: Our certified engineers handle the configuration, monitoring, and
       management of your security environment. This ensures that your security
       measures are always up-to-date and effective against the latest threats.

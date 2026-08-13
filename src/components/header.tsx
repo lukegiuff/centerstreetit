@@ -30,143 +30,41 @@ interface HeaderProps {
 export function Header({ siteTitle, navigation }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
-  const [hoverTimeout, setHoverTimeout] = useState<NodeJS.Timeout | null>(null);
   const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Debug: Check if navigation prop is changing between renders
-  const navigationRef = useRef(navigation);
-  useEffect(() => {
-    if (navigationRef.current !== navigation) {
-      console.log(`⚠️ NAVIGATION PROP CHANGED - This could cause re-renders!`, {
-        oldNavigation: navigationRef.current,
-        newNavigation: navigation,
-        timestamp: Date.now()
-      });
-      navigationRef.current = navigation;
-    }
-  }, [navigation]);
-
-  // Debug: Log navigation structure on mount
-  useEffect(() => {
-    console.log(`📋 NAVIGATION STRUCTURE:`, {
-      siteTitle,
-      navigationItems: navigation.map(item => ({
-        label: item.label,
-        link: item.link,
-        hasSubmenu: !!item.submenu,
-        submenuSections: item.submenu?.length || 0,
-        submenuDetails: item.submenu?.map(section => ({
-          section: section.section,
-          itemCount: section.items?.length || 0
-        }))
-      }))
-    });
-  }, []);
-
-  // Debug: Log component re-renders
-  useEffect(() => {
-    console.log(`🔄 HEADER COMPONENT RE-RENDER`, {
-      timestamp: Date.now(),
-      hoveredItem,
-      hasTimeout: !!hoverTimeout,
-      navigationLength: navigation.length
-    });
-  });
-
-  // Debug: Log all state changes
-  useEffect(() => {
-    console.log(`🔄 STATE CHANGE: hoveredItem = "${hoveredItem}"`, {
-      timestamp: Date.now(),
-      hasTimeout: !!hoverTimeout
-    });
-  }, [hoveredItem]);
-
-  useEffect(() => {
-    console.log(`🔄 STATE CHANGE: hoverTimeout = ${hoverTimeout ? 'SET' : 'NULL'}`, {
-      timestamp: Date.now(),
-      hoveredItem
-    });
-  }, [hoverTimeout]);
-
   const handleMouseEnter = (itemLabel: string) => {
-    console.log(`🟢 MOUSE ENTER: ${itemLabel}`, {
-      currentHoveredItem: hoveredItem,
-      hasTimeout: !!hoverTimeout,
-      hasTimeoutRef: !!hoverTimeoutRef.current,
-      timestamp: Date.now()
-    });
-    
-    // Clear timeout using ref (immediate) and state (for consistency)
+    // Clear any pending hide timeout
     if (hoverTimeoutRef.current) {
-      console.log(`🔄 CLEARING TIMEOUT on enter: ${itemLabel}`, { timeoutId: hoverTimeoutRef.current });
       clearTimeout(hoverTimeoutRef.current);
       hoverTimeoutRef.current = null;
-      setHoverTimeout(null);
     }
     setHoveredItem(itemLabel);
   };
 
   const handleMouseLeave = () => {
-    console.log(`🔴 MOUSE LEAVE: nav item`, {
-      currentHoveredItem: hoveredItem,
-      hasTimeout: !!hoverTimeout,
-      hasTimeoutRef: !!hoverTimeoutRef.current,
-      timestamp: Date.now()
-    });
-    
     // Increased delay to provide better user experience when moving to dropdown
     const timeout = setTimeout(() => {
-      console.log(`⏰ TIMEOUT EXECUTED: hiding dropdown`, {
-        hoveredItem,
-        timestamp: Date.now()
-      });
       setHoveredItem(null);
       hoverTimeoutRef.current = null;
-      setHoverTimeout(null);
     }, 300);
     
     hoverTimeoutRef.current = timeout;
-    setHoverTimeout(timeout);
-    
-    console.log(`⏱️ TIMEOUT SET: 300ms delay`, { timeoutId: timeout });
   };
 
   const handleDropdownMouseEnter = () => {
-    console.log(`🟢 DROPDOWN ENTER`, {
-      currentHoveredItem: hoveredItem,
-      hasTimeout: !!hoverTimeout,
-      hasTimeoutRef: !!hoverTimeoutRef.current,
-      timeoutId: hoverTimeout,
-      timeoutRefId: hoverTimeoutRef.current,
-      timestamp: Date.now()
-    });
-    
     // Cancel any pending hide timeout when entering dropdown - use ref for immediate access
     if (hoverTimeoutRef.current) {
-      console.log(`🔄 CLEARING TIMEOUT on dropdown enter`, { timeoutId: hoverTimeoutRef.current });
       clearTimeout(hoverTimeoutRef.current);
       hoverTimeoutRef.current = null;
-      setHoverTimeout(null);
-    } else {
-      console.log(`⚠️ NO TIMEOUT TO CLEAR on dropdown enter`);
     }
   };
 
   const handleDropdownMouseLeave = () => {
-    console.log(`🔴 DROPDOWN LEAVE`, {
-      currentHoveredItem: hoveredItem,
-      hasTimeout: !!hoverTimeout,
-      hasTimeoutRef: !!hoverTimeoutRef.current,
-      timestamp: Date.now()
-    });
-    
     // Immediate hide when leaving dropdown
     setHoveredItem(null);
     if (hoverTimeoutRef.current) {
-      console.log(`🔄 CLEARING TIMEOUT on dropdown leave`, { timeoutId: hoverTimeoutRef.current });
       clearTimeout(hoverTimeoutRef.current);
       hoverTimeoutRef.current = null;
-      setHoverTimeout(null);
     }
   };
 
@@ -231,14 +129,8 @@ export function Header({ siteTitle, navigation }: HeaderProps) {
                   <>
                     <div
                       className="relative"
-                      onMouseEnter={() => {
-                        console.log(`🟢 WRAPPER MOUSE ENTER`, { item: item.label });
-                        handleMouseEnter(item.label);
-                      }}
-                      onMouseLeave={() => {
-                        console.log(`🔴 WRAPPER MOUSE LEAVE`, { item: item.label });
-                        handleMouseLeave();
-                      }}
+                      onMouseEnter={() => handleMouseEnter(item.label)}
+                      onMouseLeave={() => handleMouseLeave()}
                     >
                       <Link
                         href={item.link}
@@ -274,14 +166,8 @@ export function Header({ siteTitle, navigation }: HeaderProps) {
                         initial={{ opacity: 0, y: -5 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.15 }}
-                        onMouseEnter={() => {
-                          console.log(`🟢 DROPDOWN MOUSE ENTER (direct)`, { item: item.label });
-                          handleDropdownMouseEnter();
-                        }}
-                        onMouseLeave={() => {
-                          console.log(`🔴 DROPDOWN MOUSE LEAVE (direct)`, { item: item.label });
-                          handleDropdownMouseLeave();
-                        }}
+                        onMouseEnter={() => handleDropdownMouseEnter()}
+                        onMouseLeave={() => handleDropdownMouseLeave()}
                         style={{
                           marginTop: '-1px',
                           marginLeft: '0px',
