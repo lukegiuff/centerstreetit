@@ -20,7 +20,7 @@ benefits:
   - title: Enhanced Security
     description: Security is our top priority. We implement robust security
       measures, including encryption, multi-factor authentication, and regular
-      security audits, to protect your sensitive data. With Solomon Solutions,
+      security audits, to protect your sensitive data. With Center Street I.T.,
       you can rest assured that your information is safe and secure.
   - title: Cost Efficiency
     description: Reduce your IT costs with our cloud services. By moving to the
