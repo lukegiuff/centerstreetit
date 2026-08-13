@@ -5,7 +5,7 @@ nav_section: Cloud Services
 nav_subsection: Web
 hero_title: Domain Name Registration
 hero_subtitle: Unlock Your Online Potential with Domain Name Registration from
-  Solomon Solutions
+  Center Street I.T.
 hero_description: In the rapidly evolving digital landscape, having a solid
   online presence is no longer just an option—it's a necessity. The cornerstone
   of this presence begins with a strong and memorable domain name. At Center
