@@ -58,7 +58,7 @@ benefits:
       product, we will tell you, and we will tell you which of the things you
       are already paying for are not earning their keep.
     title: Straight Answers About What You Need
-show_features: false
+show_features: true
 features_title: Key Features
 features:
   - title: Managed IT and Help Desk
