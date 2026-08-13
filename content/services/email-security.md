@@ -4,7 +4,7 @@ slug: email-security
 nav_section: Cloud Services
 nav_subsection: Managed Cloud
 hero_title: Email Security
-hero_subtitle: Enhance Your Email Security with Trend Micro at Solomon Solutions
+hero_subtitle: Enhance Your Email Security with Trend Micro at Center Street I.T.
 hero_description: In today's digital age, email remains a primary communication
   tool for businesses, making it a prime target for cyber threats. At Center
   Street I.T., we understand the critical importance of securing your email
@@ -14,7 +14,7 @@ show_benefits: true
 benefits_title: Benefits of Partnering with Center Street I.T.
 benefits:
   - title: Expertise and Support
-    description: Our team at Solomon Solutions is dedicated to providing you with
+    description: Our team at Center Street I.T. is dedicated to providing you with
       the best cybersecurity solutions. We offer expert guidance and support to
       ensure your email security is always at its peak.
   - title: Tailored Solutions
@@ -22,7 +22,7 @@ benefits:
       closely with you to customize Trend Micro's email security solutions to
       fit your specific requirements.
   - title: Peace of Mind
-    description: With Trend Micro's advanced email security and Solomon Solutions'
+    description: With Trend Micro's advanced email security and Center Street I.T.'s
       dedicated support, you can focus on your core business activities without
       worrying about email threats.
 show_features: true
