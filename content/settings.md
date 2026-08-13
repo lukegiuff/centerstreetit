@@ -21,4 +21,7 @@ social:
   - platform: Twitter
     url: https://twitter.com/centerstreetit
     icon: Twitter
+  - platform: Instagram
+    icon: instagram
+    url: https://www.instagram.com/centerstreetit
 ---
