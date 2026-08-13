@@ -47,12 +47,14 @@ benefits:
       and we work directly with agents across the corridor who send clients our
       way for exactly this reason. Gaps get found in the review, not in the
       claim.
-  - title: One Person Who Knows Your Network
-    description: No rotating tier-one queue, no re-explaining your environment to
-      whoever picked up. You work with the owner, who has been in your server
-      room, knows which switch feeds the shop, and remembers what we changed
-      last quarter and why. After hours, the emergency line routes to a cell
-      phone that gets answered.
+  - title: We Deal With Your Software Vendors
+    description: Most Pasadena businesses run something that does not behave like
+      normal software — a shop floor package, a dispatch or routing system, an
+      old accounting or ERP install, a scale or scanner integration. When it
+      breaks, the vendor blames the network and the network guy blames the
+      vendor, and you end up on a three-way call refereeing. We take that call
+      instead. We get on with the vendor's support team, prove out what is
+      actually failing, and stay on it until it is closed.
   - title: We Will Tell You When You Do Not Need Something
     description: Plenty of providers grow by selling every client the same maximum
       stack. We would rather keep you for a decade. If a product does not fit
