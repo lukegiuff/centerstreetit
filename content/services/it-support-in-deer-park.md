@@ -4,7 +4,7 @@ slug: it-support-deer-park-tx
 nav_section: Locations
 nav_subsection: Service Areas
 hero_title: IT Support in Deer Park, Texas
-hero_subtitle: Owner-operated managed IT for industrial and trades businesses
+hero_subtitle: Managed IT and cybersecurity for industrial and trades businesses
   inside a 10-minute drive.
 hero_description: >-
   Center Street IT is based in Deer Park, and we built the business around a
@@ -16,7 +16,7 @@ hero_description: >-
   We work with the businesses that keep the Ship Channel running: industrial service contractors, machine and fab shops, electrical and instrumentation outfits, trades companies, and the professional offices that support them. Typically 10 to 50 users, one or two locations, no internal IT department, and a customer or an insurance carrier now asking for security controls nobody asked about three years ago.
 
 
-  You deal with the owner. Not a ticket queue, not a tier-one script, not a regional office in another city.
+  You get one engineer who knows your network — the same person every time. No ticket queue, no tier-one script, no handoff to a regional office in another city.
 show_benefits: true
 benefits_title: Why Deer Park Businesses Work With Us
 benefits:
@@ -48,11 +48,11 @@ benefits:
       sure what is on your application matches what is actually deployed on your
       network. If there is a gap, you find out from us before you sign, not from
       an adjuster afterward.
-  - title: After-Hours Line That Reaches a Person
-    description: Our after-hours emergency line routes directly to the owner's cell
-      phone. No overseas call center, no callback queue, no hold music while
-      your server is down at 6 a.m. on a Saturday. Small operation, direct
-      access — that is the trade you get.
+  - title: After-Hours Line That Reaches an Engineer
+    description: Our after-hours emergency line routes to a mobile phone, not a
+      queue. No overseas call center, no callback window, no hold music while
+      your server is down at 6 a.m. on a Saturday. The person who answers
+      already knows your environment.
   - description: Some IT providers grow by selling every client the largest possible
       stack. We would rather keep you for ten years. If you do not need a
       product, we will tell you, and we will tell you which of the things you
