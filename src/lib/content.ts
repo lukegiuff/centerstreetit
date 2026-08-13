@@ -56,6 +56,46 @@ export interface SiteSettings {
     url: string;
     icon: string;
   }>;
+  // Sitewide NAP block for the footer. Sourced from content/pages/contact.md so the
+  // footer and the contact page can never disagree about the phone number again.
+  contact: {
+    phone_primary: string;
+    fax?: string;
+    email: string;
+    locality: string;
+    service_area: string;
+  };
+}
+
+// Slim shape passed to the client-side blog components. Deliberately excludes
+// BlogPost.content — that is full rendered article HTML, and serialising it into
+// every page that shows the "Recent Posts" strip would add ~120KB per page.
+export interface RecentPost {
+  slug: string;
+  title: string;
+  excerpt: string;
+  date: string;
+  readTime: string;
+}
+
+export function getRecentPosts(limit = 3): RecentPost[] {
+  return getBlogPosts()
+    .slice(0, limit)
+    .map(({ slug, title, excerpt, date, readTime }) => ({
+      slug,
+      title,
+      excerpt,
+      // Pre-format on the server. Formatting in the client component would produce
+      // the build machine's locale at build time and the visitor's at hydration,
+      // which React reports as a hydration mismatch.
+      date: new Date(date).toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        timeZone: 'UTC',
+      }),
+      readTime,
+    }));
 }
 
 export interface ContactContent {
@@ -68,7 +108,10 @@ export interface ContactContent {
     phone_secondary: string;
     fax?: string;
     email: string;
+    // City and state only. This is a service-area business — no street address
+    // is published anywhere on the site by design.
     address: string;
+    service_area: string;
   };
   business_hours: {
     monday_friday: string;
@@ -85,7 +128,7 @@ export interface ContactContent {
       title: string;
       description: string;
     };
-    contract_free: {
+    agreements: {
       title: string;
       description: string;
     };
@@ -156,16 +199,17 @@ export function getSiteSettings(): SiteSettings {
     
     // Build dynamic navigation from service pages
     const serviceNavigation = buildNavigationFromServices();
-    
+
     // Merge static navigation with dynamic service navigation
     const combinedNavigation = [
       ...serviceNavigation,
       ...(data.navigation || [])
     ];
-    
+
     return {
       ...data,
-      navigation: combinedNavigation
+      navigation: combinedNavigation,
+      contact: getFooterContact()
     } as SiteSettings;
   } catch (error) {
     console.error('Error reading site settings:', error);
@@ -177,9 +221,22 @@ export function getSiteSettings(): SiteSettings {
         { label: "Blog", link: "/blog" },
         { label: "Contact", link: "/contact" }
       ],
-      social: []
+      social: [],
+      contact: getFooterContact()
     };
   }
+}
+
+// Single source of truth for the sitewide NAP shown in the footer.
+function getFooterContact(): SiteSettings['contact'] {
+  const contact = getContactContent().contact_info;
+  return {
+    phone_primary: contact.phone_primary,
+    fax: contact.fax,
+    email: contact.email,
+    locality: contact.address,
+    service_area: contact.service_area,
+  };
 }
 
 export function getContactContent(): ContactContent {
@@ -199,9 +256,11 @@ export function getContactContent(): ContactContent {
       hero_subtitle: "Ready to Transform Your IT Infrastructure?",
       contact_info: {
         phone_primary: "(346) 877-9001",
-        phone_secondary: "(346) 877-9001",
+        phone_secondary: "",
+        fax: "(346) 877-9002",
         email: "MoreInfo@CenterStreetIT.com",
-        address: "123 Center Street, Tech City, TC 12345"
+        address: "Deer Park, TX",
+        service_area: "Serving Deer Park, Pasadena & La Porte"
       },
       business_hours: {
         monday_friday: "8:30 AM - 5:00 PM",
@@ -224,9 +283,9 @@ export function getContactContent(): ContactContent {
           title: "Satisfaction is our only Metric",
           description: "We are only happy if you are happy and running well."
         },
-        contract_free: {
-          title: "Contract Free",
-          description: "We offer all of our services contract free."
+        agreements: {
+          title: "Straightforward Agreements",
+          description: "Clear terms, scoped in writing, with no surprises buried in the fine print."
         },
         brand_power: {
           title: "Brand Power",

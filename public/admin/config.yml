@@ -68,14 +68,23 @@ collections:
     label: "Service Pages"
     folder: "content/services"
     create: true
+    # identifier_field makes the "Page URL Slug" field below the real source of the
+    # filename. Without it, Decap resolves {{slug}} to the sanitised TITLE and the
+    # slug field is ignored entirely — which is why several existing pages have a
+    # slug field that does not match their live URL.
+    identifier_field: "slug"
     slug: "{{slug}}"
     summary: "{{title}} ({{slug}})"
     fields:
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Page URL Slug", name: "slug", widget: "string", 
+      - {label: "Page URL Slug", name: "slug", widget: "string",
          pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'Must be lowercase with hyphens only'],
-         hint: "URL: https://centerstreetit.com/{{slug}}"}
-      
+         hint: "Sets the page URL for NEW pages, e.g. 'managed-it-services' becomes https://centerstreetit.com/managed-it-services. Changing this on an existing page does NOT move the page — ask your developer, because the old URL needs a redirect."}
+
+      # SEO
+      - {label: "Meta Description", name: "description", widget: "text", required: false,
+         hint: "Optional. The description shown under this page's title in Google results. Aim for 150-160 characters. If left blank, a generic description is generated automatically."}
+
       # Navigation Settings
       - {label: "Header Menu Section", name: "nav_section", widget: "string",
          hint: "e.g., 'Managed IT', 'Cloud Services', 'Security'"}

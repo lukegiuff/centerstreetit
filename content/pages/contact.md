@@ -8,7 +8,8 @@ contact_info:
   phone_secondary: ""
   fax: "(346) 877-9002"
   email: "MoreInfo@CenterStreetIT.com"
-  address: "8999 Kirby Dr Ste 220, Houston, TX 77054"
+  address: "Deer Park, TX"
+  service_area: "Serving Deer Park, Pasadena & La Porte"
 business_hours:
   monday_friday: "8:30 AM - 5:00 PM"
   saturday: "Closed"
@@ -29,9 +30,9 @@ why_choose_us:
   satisfaction_metric:
     title: "Satisfaction is our only Metric"
     description: "While other providers talk about how many tickets they close or how much time they spend with you, these all lead to a negative experience. At Center Street IT, we are only happy if you are happy and running well."
-  contract_free:
-    title: "Contract Free"
-    description: "We are so sure that you'll be happy with us, we offer all of our services contract free."
+  agreements:
+    title: "Straightforward Agreements"
+    description: "A clear service agreement that spells out exactly what is covered, what it costs, and what happens when something goes wrong. No surprises buried in the fine print."
   brand_power:
     title: "Brand Power"
     description: "Only working with the biggest industry leaders such as Cisco, Microsoft, Google and Dell to ensure the solutions we deliver meet or exceed the test of time."

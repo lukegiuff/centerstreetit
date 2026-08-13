@@ -118,7 +118,7 @@ export function ServiceBenefitsSection({ title, benefits, serviceName }: Service
                 </div>
                 <div className="flex items-center space-x-3 text-sm text-gray-600">
                   <MapPin className="w-4 h-4 text-teal-600" />
-                  <span>Houston, TX</span>
+                  <span>Deer Park, TX &middot; Serving Deer Park, Pasadena &amp; La Porte</span>
                 </div>
               </div>
             </div>

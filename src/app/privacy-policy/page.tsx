@@ -50,6 +50,7 @@ export default function PrivacyPolicyPage() {
         social={siteSettings.social}
         navigation={siteSettings.navigation}
         servicePages={servicePages}
+        contact={siteSettings.contact}
       />
     </main>
   );

@@ -13,21 +13,65 @@ interface ServiceData {
 }
 
 interface StructuredDataProps {
-  type: 'organization' | 'localBusiness' | 'article' | 'service';
+  type: 'localBusiness' | 'article' | 'service';
   data?: ArticleData | ServiceData;
 }
+
+const SERVICE_CITIES = ['Deer Park', 'Pasadena', 'La Porte'];
+
+const AREA_SERVED = SERVICE_CITIES.map((name) => ({
+  "@type": "City",
+  "name": name,
+  "containedInPlace": {
+    "@type": "State",
+    "name": "Texas"
+  }
+}));
+
+// City and state only — no streetAddress, postalCode or geo. This is a
+// service-area business and the street address is not published anywhere.
+const BUSINESS_ADDRESS = {
+  "@type": "PostalAddress",
+  "addressLocality": "Deer Park",
+  "addressRegion": "TX",
+  "addressCountry": "US"
+};
 
 export function StructuredData({ type, data }: StructuredDataProps) {
   let structuredData;
 
   switch (type) {
-    case 'organization':
+    // Emitted on the homepage only. Uses LocalBusiness rather than
+    // ProfessionalService: schema.org records that the general
+    // ProfessionalService type "was deprecated due to confusion with Service".
+    case 'localBusiness':
       structuredData = {
         "@context": "https://schema.org",
-        "@type": "Organization",
+        "@type": "LocalBusiness",
+        "@id": "https://centerstreetit.com/#organization",
         "name": "Center Street IT",
+        "alternateName": "Solomon Solutions, LLC",
+        "description": "Managed IT support and cybersecurity for industrial, trades, and professional businesses in Deer Park, Pasadena, and La Porte, Texas.",
         "url": "https://centerstreetit.com",
         "logo": "https://centerstreetit.com/assets/Logo-WhiteText.png",
+        "image": "https://centerstreetit.com/assets/Logo-WhiteText.png",
+        "telephone": "+1-346-877-9001",
+        "faxNumber": "+1-346-877-9002",
+        "email": "MoreInfo@CenterStreetIT.com",
+        "priceRange": "$$",
+        "paymentAccepted": "Cash, Credit Card, Check",
+        "currenciesAccepted": "USD",
+        "address": BUSINESS_ADDRESS,
+        // areaServed, not serviceArea: schema.org marks serviceArea as superseded.
+        "areaServed": AREA_SERVED,
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "08:30",
+            "closes": "17:00"
+          }
+        ],
         "contactPoint": {
           "@type": "ContactPoint",
           "telephone": "+1-346-877-9001",
@@ -35,72 +79,12 @@ export function StructuredData({ type, data }: StructuredDataProps) {
           "email": "MoreInfo@CenterStreetIT.com",
           "availableLanguage": "English"
         },
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "8999 Kirby Dr Ste 220",
-          "addressLocality": "Houston",
-          "addressRegion": "TX",
-          "postalCode": "77054",
-          "addressCountry": "US"
-        },
+        // Must match the profiles actually linked in content/settings.md.
         "sameAs": [
           "https://facebook.com/centerstreetit",
           "https://twitter.com/centerstreetit",
-          "https://linkedin.com/company/centerstreetit"
+          "https://www.instagram.com/centerstreetit"
         ]
-      };
-      break;
-
-    case 'localBusiness':
-      structuredData = {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "@id": "https://centerstreetit.com",
-        "name": "Center Street IT",
-        "image": "https://centerstreetit.com/assets/Logo-WhiteText.png",
-        "description": "Premier IT support and managed services in Houston, TX. Expert technology solutions, cloud infrastructure, cybersecurity, and 24/7 IT support for businesses.",
-        "url": "https://centerstreetit.com",
-        "telephone": "+1-346-877-9001",
-        "email": "MoreInfo@CenterStreetIT.com",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "8999 Kirby Dr Ste 220",
-          "addressLocality": "Houston",
-          "addressRegion": "TX",
-          "postalCode": "77054",
-          "addressCountry": "US"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": "29.6516",
-          "longitude": "-95.4915"
-        },
-        "openingHoursSpecification": [
-          {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-            "opens": "08:00",
-            "closes": "18:00"
-          },
-          {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": "Saturday",
-            "opens": "09:00",
-            "closes": "14:00"
-          }
-        ],
-        "serviceArea": {
-          "@type": "GeoCircle",
-          "geoMidpoint": {
-            "@type": "GeoCoordinates",
-            "latitude": "29.6516",
-            "longitude": "-95.4915"
-          },
-          "geoRadius": "50000"
-        },
-        "priceRange": "$$",
-        "paymentAccepted": "Cash, Credit Card, Check",
-        "currenciesAccepted": "USD"
       };
       break;
 
@@ -144,25 +128,12 @@ export function StructuredData({ type, data }: StructuredDataProps) {
         "description": serviceData.description,
         "provider": {
           "@type": "LocalBusiness",
+          "@id": "https://centerstreetit.com/#organization",
           "name": "Center Street IT",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "8999 Kirby Dr Ste 220",
-            "addressLocality": "Houston",
-            "addressRegion": "TX",
-            "postalCode": "77054",
-            "addressCountry": "US"
-          },
+          "address": BUSINESS_ADDRESS,
           "telephone": "+1-346-877-9001"
         },
-        "areaServed": {
-          "@type": "City",
-          "name": "Houston",
-          "containedInPlace": {
-            "@type": "State",
-            "name": "Texas"
-          }
-        },
+        "areaServed": AREA_SERVED,
         "serviceType": "IT Support and Managed Services"
       };
       break;

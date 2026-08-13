@@ -12,6 +12,7 @@ interface ContactInfoSectionProps {
     fax?: string;
     email: string;
     address: string;
+    service_area: string;
   };
   businessHours: {
     monday_friday: string;
@@ -108,9 +109,11 @@ export function ContactInfoSection({ contactInfo, businessHours, contactReasons 
             >
               <MapPin className="w-8 h-8 text-white" />
             </motion.div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-4">Address</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-4">Service Area</h3>
             <p className="text-gray-600 leading-relaxed">
               {contactInfo.address}
+              <br />
+              {contactInfo.service_area}
             </p>
           </AnimatedCard>
         </div>

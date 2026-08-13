@@ -29,14 +29,24 @@ interface ServicePage {
   description: string;
 }
 
+interface ContactBlock {
+  phone_primary: string;
+  fax?: string;
+  email: string;
+  locality: string;
+  service_area: string;
+}
+
 interface FooterProps {
   siteTitle: string;
   social: SocialLink[];
   navigation: NavigationItem[];
   servicePages: ServicePage[];
+  contact: ContactBlock;
 }
 
-export function Footer({ siteTitle, social, navigation, servicePages }: FooterProps) {
+export function Footer({ siteTitle, social, navigation, servicePages, contact }: FooterProps) {
+  const telHref = (value: string) => `tel:+1${value.replace(/\D/g, '')}`;
   const getIcon = (iconName: string) => {
     const IconComponent = (LucideIcons as never)[iconName];
     return IconComponent ? IconComponent : LucideIcons.Link;
@@ -191,10 +201,32 @@ export function Footer({ siteTitle, social, navigation, servicePages }: FooterPr
           >
             <h4 className="text-lg font-semibold mb-4">Contact</h4>
             <div className="space-y-2 text-gray-400">
-              <p>MoreInfo@CenterStreetIT.com</p>
-              <p>(346) 877-9001</p>
-              <p>(346) 877-9001</p>
-              <p>8999 Kirby Dr Ste 220<br />Houston, TX 77054</p>
+              <p>
+                <a
+                  href={`mailto:${contact.email}`}
+                  className="hover:text-white transition-colors duration-200"
+                >
+                  {contact.email}
+                </a>
+              </p>
+              <p>
+                <a
+                  href={telHref(contact.phone_primary)}
+                  className="hover:text-white transition-colors duration-200"
+                >
+                  {contact.phone_primary}
+                </a>
+              </p>
+              {contact.fax && (
+                <p>
+                  {contact.fax} <span className="text-sm text-gray-500">(Fax)</span>
+                </p>
+              )}
+              <p className="pt-2">
+                {contact.locality}
+                <br />
+                {contact.service_area}
+              </p>
             </div>
           </motion.div>
         </div>
@@ -208,8 +240,11 @@ export function Footer({ siteTitle, social, navigation, servicePages }: FooterPr
           transition={{ duration: 0.6, delay: 0.6 }}
           viewport={{ once: true }}
         >
-          <p className="text-gray-400 text-sm mb-4 md:mb-0">
-            © 2024 {siteTitle}. All rights reserved.
+          {/* suppressHydrationWarning: this is a static export, so the year is baked at
+              build time and recomputed in the browser at hydration. On the rare build
+              that straddles New Year the client value wins, which is the correct one. */}
+          <p className="text-gray-400 text-sm mb-4 md:mb-0" suppressHydrationWarning>
+            © {new Date().getFullYear()} {siteTitle}. All rights reserved.
           </p>
           <div className="flex space-x-6 text-sm">
             <Link href="/privacy-policy" className="text-gray-400 hover:text-white transition-colors">

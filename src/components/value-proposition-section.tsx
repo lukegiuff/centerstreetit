@@ -19,8 +19,8 @@ export function ValuePropositionSection() {
     },
     {
       icon: Award,
-      title: "Contract Free",
-      description: "We are so sure that you'll be happy with us, we offer all of our services contract free."
+      title: "Straightforward Agreements",
+      description: "A clear service agreement that spells out exactly what is covered, what it costs, and what happens when something goes wrong. No surprises buried in the fine print."
     },
     {
       icon: Zap,

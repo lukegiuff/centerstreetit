@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Cinzel } from "next/font/google";
 import "./globals.css";
-import { StructuredData } from "@/components/structured-data";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 const geistSans = Geist({
@@ -22,21 +21,21 @@ const cinzel = Cinzel({
 
 export const metadata: Metadata = {
   title: {
-    default: "Center Street IT - Premier IT Support & Managed Services Houston",
+    default: "Center Street IT - Managed IT Support & Cybersecurity in Deer Park, TX",
     template: "%s | Center Street IT"
   },
-  description: "Premier IT support and managed services in Houston, TX. Expert technology solutions, cloud infrastructure, cybersecurity, and 24/7 IT support for businesses. Contract-free services.",
+  description: "Managed IT support and cybersecurity for industrial, trades and professional businesses in Deer Park, Pasadena and La Porte, Texas. 24/7 support, cloud solutions and security.",
   keywords: [
-    "IT support Houston", 
-    "managed IT services", 
-    "Houston IT company", 
-    "cloud infrastructure", 
-    "cybersecurity services", 
-    "network management", 
-    "IT consulting", 
+    "IT support Deer Park TX",
+    "managed IT services",
+    "IT support Pasadena TX",
+    "IT support La Porte TX",
+    "cloud infrastructure",
+    "cybersecurity services",
+    "network management",
+    "IT consulting",
     "business technology solutions",
-    "24/7 IT support",
-    "contract-free IT services"
+    "24/7 IT support"
   ],
   authors: [{ name: "Center Street IT" }],
   creator: "Center Street IT",
@@ -51,25 +50,29 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: "Center Street IT - Premier IT Support & Managed Services Houston",
-    description: "Expert IT support and managed services in Houston, TX. 24/7 support, cloud solutions, cybersecurity, and contract-free services for businesses.",
+    title: "Center Street IT - Managed IT Support & Cybersecurity in Deer Park, TX",
+    description: "Managed IT support and cybersecurity for businesses in Deer Park, Pasadena and La Porte, Texas. 24/7 support, cloud solutions and security.",
     url: 'https://centerstreetit.com',
     siteName: 'Center Street IT',
     locale: 'en_US',
     type: 'website',
     images: [
       {
+        // TODO: replace with a purpose-built 1200x630 social card on a solid
+        // background. This logo is white text on transparency, so the wordmark
+        // disappears on light preview panels. Dimensions below are the file's
+        // real size — previously mis-declared as 1200x630, which caused cropping.
         url: '/assets/Logo-WhiteText.png',
-        width: 1200,
-        height: 630,
-        alt: 'Center Street IT - Houston IT Support Services',
+        width: 1584,
+        height: 665,
+        alt: 'Center Street IT - Managed IT Support in Deer Park, Texas',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Center Street IT - Premier IT Support Houston",
-    description: "Expert IT support and managed services in Houston, TX. 24/7 support, cloud solutions, and cybersecurity.",
+    title: "Center Street IT - Managed IT Support in Deer Park, TX",
+    description: "Managed IT support and cybersecurity for businesses in Deer Park, Pasadena and La Porte, Texas.",
     images: ['/assets/Logo-WhiteText.png'],
     creator: '@centerstreetit',
   },
@@ -89,9 +92,10 @@ export const metadata: Metadata = {
     shortcut: "/assets/favicon.ico",
     apple: "/assets/favicon.ico",
   },
-  verification: {
-    google: 'your-google-verification-code', // Replace with actual verification code
-  },
+  // Google Search Console verification intentionally omitted. The previous value
+  // was an unreplaced placeholder string that was being published on every page.
+  // Add it back here only with a real token from Search Console:
+  //   verification: { google: '<token>' },
 };
 
 export default function RootLayout({
@@ -103,8 +107,8 @@ export default function RootLayout({
     <html lang="en" style={{ colorScheme: 'light' }}>
       <head>
         <meta name="color-scheme" content="light" />
-        <StructuredData type="organization" />
-        <StructuredData type="localBusiness" />
+        {/* Business-level JSON-LD is emitted on the homepage only (see src/app/page.tsx).
+            It used to be repeated in this layout, i.e. on every page of the site. */}
         <GoogleAnalytics />
       </head>
       <body

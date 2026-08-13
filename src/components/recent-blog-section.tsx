@@ -7,19 +7,24 @@ import { AnimatedText } from './ui/animated-text';
 import Link from 'next/link';
 
 
-export function RecentBlogSection() {
-  // Featured blog post - in a real app, this would come from your CMS
-  const recentPosts = [
-    {
-      id: 1,
-      title: "Understanding DLP Technology: Protecting Your Confidential Information",
-      excerpt: "In today's digital landscape, the sheer volume of sensitive data generated and stored by organizations is staggering. Learn how DLP technology effectively protects confidential information.",
-      date: "February 26, 2024",
-      image: "/assets/blog/dlp-technology.jpg",
-      slug: "2024-02-26-understanding-dlp-technology",
-      readTime: "5 min read"
-    }
-  ];
+interface RecentBlogSectionProps {
+  // Supplied by the server component that renders this section — this is a client
+  // component, so it cannot read the filesystem itself. Dates arrive pre-formatted.
+  posts: Array<{
+    slug: string;
+    title: string;
+    excerpt: string;
+    date: string;
+    readTime: string;
+  }>;
+}
+
+export function RecentBlogSection({ posts }: RecentBlogSectionProps) {
+  const recentPosts = posts;
+
+  if (recentPosts.length === 0) {
+    return null;
+  }
 
   return (
     <section className="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
@@ -73,7 +78,7 @@ export function RecentBlogSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {recentPosts.map((post, index) => (
-            <AnimatedCard key={post.id} delay={0.2 + index * 0.1} className="group overflow-hidden" hover={false}>
+            <AnimatedCard key={post.slug} delay={0.2 + index * 0.1} className="group overflow-hidden" hover={false}>
               {/* Blog Image Placeholder */}
               <div
                 className="w-full h-48 rounded-lg mb-6 overflow-hidden"

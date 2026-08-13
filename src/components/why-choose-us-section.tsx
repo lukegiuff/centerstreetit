@@ -11,7 +11,7 @@ interface WhyChooseUsSectionProps {
       title: string;
       description: string;
     };
-    contract_free: {
+    agreements: {
       title: string;
       description: string;
     };
@@ -35,8 +35,8 @@ export function WhyChooseUsSection({ whyChooseUs }: WhyChooseUsSectionProps) {
     },
     {
       icon: FileText,
-      title: whyChooseUs.contract_free.title,
-      description: whyChooseUs.contract_free.description,
+      title: whyChooseUs.agreements.title,
+      description: whyChooseUs.agreements.description,
     },
     {
       icon: Award,

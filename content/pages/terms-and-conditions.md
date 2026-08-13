@@ -64,7 +64,7 @@ We may update these Terms at any time. Continued use of our services after chang
 ## Contact Information
 
 **Center Street IT**\
-8990 Kirby Dr Ste 220, Houston, TX 77054\
+Deer Park, TX\
 Phone: (346) 877-9001\
 Fax: (346) 877-9002\
 Email: MoreInfo@CenterStreetIT.com

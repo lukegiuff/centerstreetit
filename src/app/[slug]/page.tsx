@@ -1,4 +1,4 @@
-import { getSiteSettings, getServicePageContent, getAllServicePages } from '@/lib/content';
+import { getSiteSettings, getServicePageContent, getAllServicePages, getRecentPosts } from '@/lib/content';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { ServicePageContent } from '@/components/service-page-content';
@@ -49,21 +49,28 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
   }
 
   const serviceKeywords = [
-    `${pageContent.title} Houston`,
-    'IT services Houston',
+    `${pageContent.title} Deer Park TX`,
+    'IT services Deer Park',
     'managed IT services',
     'business technology solutions',
-    'Houston IT support',
-    'enterprise IT services'
+    'IT support Pasadena TX',
+    'IT support La Porte TX'
   ];
 
+  // Per-page override comes from the "Meta Description" field in the CMS. The
+  // fallback is deliberately location-neutral — the location pages carry their
+  // own city in their title and their own description.
+  const description =
+    pageContent.description ||
+    `${pageContent.title} from Center Street IT — managed IT support and cybersecurity for businesses in Deer Park, Pasadena and La Porte, Texas.`;
+
   return {
-    title: `${pageContent.title} - Houston IT Services`,
-    description: pageContent.description || `Expert ${pageContent.title.toLowerCase()} services in Houston, TX. Professional IT solutions from Center Street IT with 24/7 support and contract-free options.`,
+    title: pageContent.title,
+    description,
     keywords: serviceKeywords,
     openGraph: {
-      title: `${pageContent.title} - Center Street IT Houston`,
-      description: pageContent.description || `Professional ${pageContent.title.toLowerCase()} services in Houston, TX.`,
+      title: `${pageContent.title} | Center Street IT`,
+      description,
       url: `https://centerstreetit.com/${slug}`,
       type: 'website',
       images: pageContent.hero_image ? [
@@ -104,12 +111,13 @@ export default async function ServicePage({ params }: ServicePageProps) {
         siteTitle={siteSettings.site_title}
         navigation={siteSettings.navigation}
       />
-      <ServicePageContent pageContent={pageContent} />
+      <ServicePageContent pageContent={pageContent} recentPosts={getRecentPosts(3)} />
       <Footer
         siteTitle={siteSettings.site_title}
         social={siteSettings.social}
         navigation={siteSettings.navigation}
         servicePages={servicePages}
+        contact={siteSettings.contact}
       />
     </main>
   );

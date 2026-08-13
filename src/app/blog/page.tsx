@@ -8,9 +8,9 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: "IT Blog - Technology Insights & Best Practices",
-  description: "Stay informed with Center Street IT's blog. Expert insights on cybersecurity, cloud computing, IT management, and technology best practices for Houston businesses.",
+  description: "Stay informed with Center Street IT's blog. Expert insights on cybersecurity, cloud computing, IT management, and technology best practices for Texas Gulf Coast businesses.",
   keywords: [
-    "IT blog Houston",
+    "IT blog Deer Park TX",
     "cybersecurity insights", 
     "cloud computing tips",
     "IT best practices",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "Center Street IT Blog - Technology Insights",
-    description: "Expert insights on cybersecurity, cloud computing, and IT management for Houston businesses.",
+    description: "Expert insights on cybersecurity, cloud computing, and IT management for Texas Gulf Coast businesses.",
     url: 'https://centerstreetit.com/blog',
     type: 'website',
   },
@@ -66,6 +66,7 @@ export default function BlogPage() {
         social={siteSettings.social}
         navigation={siteSettings.navigation}
         servicePages={servicePages}
+        contact={siteSettings.contact}
       />
     </main>
   );

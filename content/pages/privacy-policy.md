@@ -63,7 +63,7 @@ We may update this Privacy Policy from time to time. We will notify you of any m
 If you have any questions or concerns regarding this Privacy Policy, please contact us:
 
 **Center Street IT**  
-8999 Kirby Dr Ste 220, Houston, TX 77054  
+Deer Park, TX  
 Phone: (346) 877-9001  
 Email: MoreInfo@CenterStreetIT.com
 

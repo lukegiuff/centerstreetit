@@ -30,8 +30,8 @@ benefits:
     description: Allow your internal IT team to focus on revenue-generating projects
       by delegating time-consuming ticket resolution to us.
   - title: Top-Tier Expertise
-    description: Partner with a 'Top 100 MSP' to access IT experts and tools at a
-      fraction of the cost.
+    description: Get access to senior engineers and enterprise-grade tooling for a
+      fraction of what it costs to hire and equip that capability in-house.
 show_features: true
 features_title: Features
 features:

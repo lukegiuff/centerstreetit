@@ -12,8 +12,19 @@ import {
 } from 'lucide-react';
 import Image from 'next/image';
 
+interface RecentPost {
+  slug: string;
+  title: string;
+  excerpt: string;
+  date: string;
+  readTime: string;
+}
+
 interface ServicePageContentProps {
   pageContent: ServicePageContent;
+  // Passed down from the server route — this component is a client component and
+  // cannot load blog posts itself.
+  recentPosts: RecentPost[];
 }
 
 // Icon mapping for features
@@ -45,13 +56,13 @@ const iconMap: { [key: string]: React.ComponentType<{ className?: string }> } = 
   'play-circle': PlayCircle
 };
 
-export function ServicePageContent({ pageContent }: ServicePageContentProps) {
+export function ServicePageContent({ pageContent, recentPosts }: ServicePageContentProps) {
   // Check if we need to use legacy content parsing
   const hasStructuredData = pageContent.benefits || pageContent.features || pageContent.additional_sections;
   
   if (!hasStructuredData && pageContent.content) {
     // Fall back to legacy content parsing for backward compatibility
-    return <LegacyServicePageContent pageContent={pageContent} />;
+    return <LegacyServicePageContent pageContent={pageContent} recentPosts={recentPosts} />;
   }
 
   return (
@@ -145,13 +156,13 @@ export function ServicePageContent({ pageContent }: ServicePageContentProps) {
       <CallToActionSection />
 
       {/* Recent Blog Posts */}
-      <RecentBlogSection />
+      <RecentBlogSection posts={recentPosts} />
     </>
   );
 }
 
 // Legacy component for backward compatibility
-function LegacyServicePageContent({ pageContent }: ServicePageContentProps) {
+function LegacyServicePageContent({ pageContent, recentPosts }: ServicePageContentProps) {
   // Parse the content for different sections
   const sections = parseContent(pageContent.content || '');
   
@@ -213,7 +224,7 @@ function LegacyServicePageContent({ pageContent }: ServicePageContentProps) {
       <CallToActionSection />
 
       {/* Recent Blog Posts */}
-      <RecentBlogSection />
+      <RecentBlogSection posts={recentPosts} />
     </>
   );
 }

@@ -6,6 +6,7 @@ import { StatsSection } from '@/components/stats-section';
 import { ValuePropositionSection } from '@/components/value-proposition-section';
 import { TestimonialsSection } from '@/components/testimonials-section';
 import { Footer } from '@/components/footer';
+import { StructuredData } from '@/components/structured-data';
 
 export default function Home() {
   const homepageContent = getHomepageContent();
@@ -14,7 +15,10 @@ export default function Home() {
 
   return (
     <main className="min-h-screen">
-      <Header 
+      {/* Business-level JSON-LD, homepage only */}
+      <StructuredData type="localBusiness" />
+
+      <Header
         siteTitle={siteSettings.site_title}
         navigation={siteSettings.navigation}
       />
@@ -40,6 +44,7 @@ export default function Home() {
         social={siteSettings.social}
         navigation={siteSettings.navigation}
         servicePages={servicePages}
+        contact={siteSettings.contact}
       />
     </main>
   );

@@ -134,6 +134,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         social={siteSettings.social}
         navigation={siteSettings.navigation}
         servicePages={servicePages}
+        contact={siteSettings.contact}
       />
     </main>
   );
