@@ -1,12 +1,17 @@
 ---
-title: Managed Backup Services
+nav_subsection: Managed Infrastructure
+additional_sections:
+  - two_columns: false
+show_additional: false
+cta_title: Get Started Today
 slug: managed-backup-services
 nav_section: Managed IT
-nav_subsection: Managed Infrastructure
+show_cta: false
+title: Managed Backup Services
 hero_title: Managed Backup Services
 hero_subtitle: Protect Your Data, Secure Your Future
 hero_description: In today's digital age, data is the lifeblood of any business.
-  At Solomon Solutions, we understand the critical importance of safeguarding
+  At Center Street I.T., we understand the critical importance of safeguarding
   your valuable information. Our Managed Backup Services are designed to provide
   you with peace of mind, knowing that your data is protected, secure, and
   always accessible when you need it.
@@ -59,9 +64,4 @@ features:
   - icon: headphones
     title: 24/7 Support
     description: Our expert team is always available to assist you.
-show_additional: false
-additional_sections:
-  - two_columns: false
-show_cta: false
-cta_title: Get Started Today
 ---
