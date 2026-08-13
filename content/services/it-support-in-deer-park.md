@@ -20,13 +20,13 @@ hero_description: >-
 show_benefits: true
 benefits_title: Why Deer Park Businesses Work With Us
 benefits:
-  - title: Ten Minutes Away, Not Ten ExitsAway
+  - title: Based Here, Not Just Serving Here
     description: Every MSP within a hundred miles will tell you they serve Deer
       Park. Almost none of them are here. Our service area is deliberately tight
-      — Deer Park, Pasadena, and La Porte — because a thirty-mile dispatch is a
-      promise that falls apart the moment you actually need it. We commit to an
-      on-site technician within 24 hours, and in practice it is usually the same
-      morning.
+      — Deer Park, Pasadena, and La Porte — because a provider running a route
+      from the Galleria to the Ship Channel is making a promise that falls apart
+      the first time you actually need it. We commit to an on-site technician
+      within 24 hours, and in practice it is usually the same morning.
   - title: We Understand Turnaround Schedules
     description: When your crews are working a turnaround, "we'll look at it Monday"
       is not an answer. Downtime during a TAR costs real money and can put a
