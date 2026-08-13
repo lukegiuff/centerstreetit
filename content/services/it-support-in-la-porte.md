@@ -4,17 +4,8 @@ slug: it-support-la-porte-tx
 nav_section: Locations
 nav_subsection: Service Areas
 hero_title: IT Support in La Porte, Texas
-hero_subtitle: La Porte runs on freight and on the plants. Drayage and trucking
-  companies working Barbours Cut, transloading and warehouse operations off
-  Fairmont Parkway and along 146, marine and dock services, tank cleaning,
-  industrial contractors, and the brokerages, agencies, and professional offices
-  built around all of it.  None of that tolerates being offline. A dispatch
-  system down for an afternoon means trucks idling and appointment windows
-  missed. A network that cannot reach a customer's portal means loads that do
-  not get tendered.  Center Street IT is in Deer Park, a straight run down
-  Fairmont Parkway. We are on your side of the corridor, working the same three
-  cities every day — La Porte, Deer Park, and Pasadena — instead of driving out
-  from Houston when a gap opens in the schedule.
+hero_subtitle: Managed IT and cybersecurity for port, industrial, and logistics
+  businesses on the east side of the corridor.
 hero_description: >-
   La Porte runs on freight and on the plants. Drayage and trucking companies
   working Barbours Cut, transloading and warehouse operations off Fairmont
