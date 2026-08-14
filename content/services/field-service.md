@@ -1,6 +1,9 @@
 ---
 title: Field Service
 slug: field-service
+description: On-site IT help for hardware, network, and server problems at your
+  plant, shop, or office — dispatched locally, not routed to a distant call
+  center.
 nav_section: Service & Onsite
 nav_subsection: Field Support
 hero_title: Field Service
