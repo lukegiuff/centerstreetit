@@ -1,6 +1,9 @@
 ---
 title: IT Support in La Porte
 slug: it-support-la-porte-tx
+description: "IT support for La Porte, TX businesses: help desk, managed
+  security, monitored backups, and on-site visits measured in minutes, not
+  hours."
 nav_section: Locations
 nav_subsection: Service Areas
 hero_title: IT Support in La Porte, Texas
