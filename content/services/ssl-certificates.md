@@ -1,6 +1,8 @@
 ---
 title: SSL Certificates
 slug: ssl-certificates
+description: SSL/TLS certificate purchase, installation, and renewal monitoring
+  so your website and mail services never go down over an expired cert.
 nav_section: Cloud Services
 nav_subsection: Web
 hero_title: SSL Certificates
