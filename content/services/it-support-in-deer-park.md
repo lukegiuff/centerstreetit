@@ -1,6 +1,9 @@
 ---
 title: IT Support in Deer Park
 slug: it-support-deer-park-tx
+description: Local IT support in Deer Park, TX for industrial, trades, and
+  professional offices — help desk, security, backups, and fast on-site
+  response.
 nav_section: Locations
 nav_subsection: Service Areas
 hero_title: IT Support in Deer Park, Texas
