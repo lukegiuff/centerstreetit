@@ -1,6 +1,8 @@
 ---
 title: EDR/XDR Enhanced Detection
 slug: edr-xdr-enhanced-detection
+description: Managed EDR and XDR that detects ransomware behavior on endpoints
+  and servers, then isolates the machine before it spreads across your network.
 nav_section: Security
 nav_subsection: Detection and Response
 hero_title: EDR/XDR Enhanced Detection
