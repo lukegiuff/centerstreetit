@@ -1,6 +1,9 @@
 ---
 title: Security Awareness Training
 slug: security-awareness-training
+description: Short monthly security training and phishing simulations that
+  measurably cut click rates, with reporting for insurance and compliance
+  reviews.
 nav_section: Managed IT
 nav_subsection: Managed Security
 hero_title: Security Awareness Training
