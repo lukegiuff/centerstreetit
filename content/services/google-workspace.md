@@ -1,6 +1,8 @@
 ---
 title: Google Workspace
 slug: google-workspace
+description: Google Workspace setup, security hardening, and daily support —
+  plus independent backup and email protection that Google does not include.
 nav_section: Cloud Services
 nav_subsection: Applications
 hero_title: " Google Workspace"
