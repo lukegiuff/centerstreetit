@@ -1,6 +1,8 @@
 ---
 title: Managed Security
 slug: security-and-antivirus
+description: Managed antivirus and endpoint protection with active monitoring,
+  policy enforcement, and remediation — not software installed and forgotten.
 nav_section: Security
 nav_subsection: Managed Security
 hero_title: Security and Antivirus
