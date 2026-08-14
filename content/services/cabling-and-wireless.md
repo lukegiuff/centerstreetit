@@ -1,6 +1,8 @@
 ---
 title: Cabling and Wireless
 slug: cabling-and-wireless
+description: Structured cabling, Wi-Fi design, and access point installs for
+  shops, warehouses, and offices across Deer Park, La Porte, and Pasadena, TX.
 nav_section: Service & Onsite
 nav_subsection: Field Support
 hero_title: Cabling and Wireless
