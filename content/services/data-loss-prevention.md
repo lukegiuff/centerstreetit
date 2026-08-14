@@ -1,6 +1,8 @@
 ---
 title: Data Loss Prevention
 slug: data-loss-prevention
+description: Keep sensitive records, quotes, and drawings from leaving by email
+  or USB with DLP policies built for small industrial and trades businesses.
 nav_section: Security
 nav_subsection: Managed Security
 hero_title: Data Loss Prevention
