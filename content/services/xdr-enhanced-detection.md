@@ -1,6 +1,8 @@
 ---
 title: XDR Enhanced Detection
 slug: xdr-enhanced-detection
+description: Cross-layer detection that correlates endpoint, email, and cloud
+  identity signals into one investigation, turning scattered alerts into action.
 nav_section: Managed IT
 nav_subsection: Managed Security
 hero_title: XDR Enhanced Detection
