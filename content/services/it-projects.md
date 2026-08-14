@@ -1,6 +1,8 @@
 ---
 title: Network Assessment
 slug: network-assessment
+description: A documented review of your network, firewall, backups, and user
+  accounts, delivered as a plain-English risk report with prioritized fixes.
 nav_section: Service & Onsite
 nav_subsection: Projects & Consulting
 hero_title: Network Assessment
