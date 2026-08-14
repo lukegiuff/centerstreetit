@@ -1,6 +1,9 @@
 ---
 title: Managed Disaster Recovery
 slug: managed-disaster-recovery
+description: Recovery planning and tested failover for your servers and data,
+  with defined RTO and RPO targets so you know how fast you will be running
+  again.
 nav_section: Managed IT
 nav_subsection: Managed Infrastructure
 hero_title: " Managed Disaster Recovery"
