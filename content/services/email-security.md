@@ -1,6 +1,8 @@
 ---
 title: Email Security
 slug: email-security
+description: Block phishing, spoofing, and malicious attachments before delivery
+  with managed filtering plus SPF, DKIM, and DMARC configured correctly.
 nav_section: Cloud Services
 nav_subsection: Managed Cloud
 hero_title: Email Security
