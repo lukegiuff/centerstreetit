@@ -1,6 +1,9 @@
 ---
 title: Cloud App Security
 slug: cloud-app-security
+description: Protect Microsoft 365 and Google Workspace from account takeover,
+  risky third-party apps, and data leaks with managed monitoring and policy
+  control.
 nav_section: Managed IT
 nav_subsection: Managed Security
 hero_title: Cloud App Security
