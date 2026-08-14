@@ -1,6 +1,8 @@
 ---
 title: Email Signature Management
 slug: email-signature-management
+description: Standardize email signatures across every user and device, with
+  consistent branding, disclaimers, and campaign banners managed centrally.
 nav_section: Cloud Services
 nav_subsection: Managed Cloud
 hero_title: " Email Signature Management"
