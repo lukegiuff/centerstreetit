@@ -8,6 +8,8 @@ slug: managed-backup-services
 nav_section: Managed IT
 show_cta: false
 title: Managed Backup Services
+description: Automated, monitored backups for servers, PCs, and Microsoft 365,
+  with regular test restores so a failed drive or deleted file is a non-event.
 hero_title: Managed Backup Services
 hero_subtitle: Protect Your Data, Secure Your Future
 hero_description: In today's digital age, data is the lifeblood of any business.
