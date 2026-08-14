@@ -1,6 +1,8 @@
 ---
 title: Cloud Migration Services
 slug: cloud-migration-services
+description: Move email, files, and servers to Microsoft 365, Google Workspace,
+  or Azure with planned cutovers, verified data integrity, and minimal downtime.
 nav_section: Cloud Services
 nav_subsection: Consulting
 hero_title: Cloud Migration Services
