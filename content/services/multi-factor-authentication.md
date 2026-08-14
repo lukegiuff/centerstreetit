@@ -1,6 +1,8 @@
 ---
 title: Multifactor Authentication
 slug: multifactor-authentication
+description: Roll out MFA across email, VPN, and remote access with Duo, plus
+  the enforcement policies and documentation your cyber insurer asks about.
 nav_section: Cloud Services
 nav_subsection: Cloud Security
 hero_title: Multifactor Authentication
