@@ -1,6 +1,9 @@
 ---
 title: Penetration Testing
 slug: penetration-testing
+description: Penetration testing and vulnerability scanning that shows how an
+  attacker would actually get in, paired with a remediation plan you can
+  execute.
 nav_section: Security
 nav_subsection: Audits & Consulting
 hero_title: " Penetration Testing"
