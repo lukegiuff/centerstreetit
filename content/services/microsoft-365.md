@@ -1,6 +1,8 @@
 ---
 title: Microsoft 365
 slug: microsoft-365
+description: Microsoft 365 licensing, tenant setup, and ongoing management from
+  a Microsoft CSP partner, including security baselines, MFA, and onboarding.
 nav_section: Cloud Services
 nav_subsection: Applications
 hero_title: Microsoft 365
