@@ -1,6 +1,8 @@
 ---
 title: IT Support in Pasadena
 slug: it-support-pasadena-tx
+description: Managed IT support for Pasadena, TX shops, offices, and industrial
+  service firms — monitoring, security, and a responsive local help desk.
 nav_section: Locations
 nav_subsection: Service Areas
 hero_title: IT Support in Pasadena, Texas
