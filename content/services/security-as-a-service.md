@@ -1,6 +1,9 @@
 ---
 title: " Security as a Service"
 slug: security-as-a-service
+description: A full security stack — endpoint, email, identity, and user
+  training — delivered and managed monthly, with no capital outlay or in-house
+  SOC.
 nav_section: Managed IT
 nav_subsection: Managed Security
 hero_title: Security as a Service
