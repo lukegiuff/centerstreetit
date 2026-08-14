@@ -1,6 +1,9 @@
 ---
 title: IT Support
 slug: it-support
+description: Responsive help desk and remote support for Houston-area small
+  businesses, handled by the engineer who already knows how your systems are
+  built.
 nav_section: Service & Onsite
 nav_subsection: IT Service Desk
 hero_title: IT Support
