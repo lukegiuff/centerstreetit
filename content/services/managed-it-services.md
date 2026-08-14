@@ -8,6 +8,8 @@ slug: managed-it-services
 nav_section: Managed IT
 show_cta: false
 title: Managed IT Services
+description: "Flat-rate managed IT for Deer Park-area businesses: monitoring,
+  patching, security, backups, and help desk support under one monthly fee."
 hero_title: Managed IT Services
 hero_subtitle: Eliminate IT Issues with Premier Managed IT Services
 hero_description: Don't let the absence of in-house IT or project management
