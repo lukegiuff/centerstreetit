@@ -1,6 +1,8 @@
 ---
 title: Cloud Services
 slug: cloud-services
+description: Cloud email, file storage, virtual servers, and backup — designed,
+  licensed, and supported by one local team so nothing falls between vendors.
 nav_section: Cloud Services
 nav_subsection: Managed Cloud
 hero_title: Cloud Services
