@@ -1,6 +1,8 @@
 ---
 title: Domain Name Registration
 slug: domain-name-registration
+description: Domain registration and DNS management with renewal tracking and
+  email authentication handled for you — no lapsed domains, no broken mail flow.
 nav_section: Cloud Services
 nav_subsection: Web
 hero_title: Domain Name Registration
