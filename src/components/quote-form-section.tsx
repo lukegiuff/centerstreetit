@@ -37,7 +37,7 @@ export function QuoteFormSection({ serviceName }: QuoteFormSectionProps) {
           phone: formData.phone,
           message: formData.description,
           subject: `Quote Request for ${serviceName} from ${formData.name}`,
-          from_name: 'Center Street IT Website - Quote Request',
+          from_name: 'Center Street I.T. Website - Quote Request',
         }),
       });
 

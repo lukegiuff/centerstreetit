@@ -7,7 +7,7 @@ hero_title: Web Hosting
 hero_subtitle: Unlock the Power of the Web with Our Premier Hosting Services
 hero_description: In today's digital world, having a website is no longer a
   luxury; it’s a necessity. Every business, creator, and entrepreneur needs a
-  reliable online presence to connect with their audience. At Center Street IT,
+  reliable online presence to connect with their audience. At Center Street I.T.,
   we understand the critical role that quality web hosting plays in achieving
   this goal. That is why we offer industry-leading web hosting services designed
   to meet the needs of individuals, small businesses, and large enterprises
@@ -18,7 +18,7 @@ benefits:
   - description: High-quality web hosting ensures that your website performs
       optimally. Speed and reliability are crucial for user experience;
       slow-loading websites can lead to high bounce rates and lost customers.
-      With Center Street IT, you can feel confident that your site will load
+      With Center Street I.T., you can feel confident that your site will load
       quickly and maintain high performance, enhancing user satisfaction and
       retention.
     title: Website Performance
@@ -26,12 +26,12 @@ benefits:
       website needs to be protected. With the right web hosting service,
       essential security measures like SSL certificates, firewalls, and regular
       updates are incorporated, safeguarding your data and that of your users.
-      At Center Street IT, we prioritize your security with cutting-edge
+      At Center Street I.T., we prioritize your security with cutting-edge
       technology to combat cyber threats.
     title: Security
   - description: As your website grows, so do your hosting needs. A good web hosting
       service offers scalable solutions that allow you to upgrade your plan and
-      resources easily. At Center Street IT, you can start with a smaller
+      resources easily. At Center Street I.T., you can start with a smaller
       package and seamlessly transition to more robust hosting options as your
       traffic surges.
     title: Scalability

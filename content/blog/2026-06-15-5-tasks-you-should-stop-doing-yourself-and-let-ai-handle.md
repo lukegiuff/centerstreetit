@@ -1,7 +1,7 @@
 ---
 title: 5 Tasks You Should Stop Doing Yourself and Let AI Handle
 date: 2026-06-15T08:54:00.000-05:00
-author: Center Street IT Team
+author: Center Street I.T. Team
 featured_image: /images/mmk-vacation-ready-business-blog-3.jpg
 excerpt: For many business owners, the day disappears into small, repetitive
   tasks that feel urgent in the moment. You respond to basic emails, chase down

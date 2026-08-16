@@ -20,7 +20,7 @@ hero_description: >-
   None of that tolerates being offline. A dispatch system down for an afternoon means trucks idling and appointment windows missed. A network that cannot reach a customer's portal means loads that do not get tendered.
 
 
-  Center Street IT is in Deer Park, a straight run down Fairmont Parkway. We are on your side of the corridor, working the same three cities every day — La Porte, Deer Park, and Pasadena — instead of driving out from Houston when a gap opens in the schedule.
+  Center Street I.T. is in Deer Park, a straight run down Fairmont Parkway. We are on your side of the corridor, working the same three cities every day — La Porte, Deer Park, and Pasadena — instead of driving out from Houston when a gap opens in the schedule.
 show_benefits: true
 benefits_title: Built for How La Porte Businesses Operate
 benefits:

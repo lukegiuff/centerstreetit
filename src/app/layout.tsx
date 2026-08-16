@@ -21,8 +21,8 @@ const cinzel = Cinzel({
 
 export const metadata: Metadata = {
   title: {
-    default: "Center Street IT - Managed IT Support & Cybersecurity in Deer Park, TX",
-    template: "%s | Center Street IT"
+    default: "Center Street I.T. - Managed IT Support & Cybersecurity in Deer Park, TX",
+    template: "%s | Center Street I.T."
   },
   description: "Managed IT support and cybersecurity for industrial, trades and professional businesses in Deer Park, Pasadena and La Porte, Texas. 24/7 support, cloud solutions and security.",
   keywords: [
@@ -37,9 +37,9 @@ export const metadata: Metadata = {
     "business technology solutions",
     "24/7 IT support"
   ],
-  authors: [{ name: "Center Street IT" }],
-  creator: "Center Street IT",
-  publisher: "Center Street IT",
+  authors: [{ name: "Center Street I.T." }],
+  creator: "Center Street I.T.",
+  publisher: "Center Street I.T.",
   formatDetection: {
     email: false,
     address: false,
@@ -50,30 +50,31 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: "Center Street IT - Managed IT Support & Cybersecurity in Deer Park, TX",
+    title: "Center Street I.T. - Managed IT Support & Cybersecurity in Deer Park, TX",
     description: "Managed IT support and cybersecurity for businesses in Deer Park, Pasadena and La Porte, Texas. 24/7 support, cloud solutions and security.",
     url: 'https://centerstreetit.com',
-    siteName: 'Center Street IT',
+    siteName: 'Center Street I.T.',
     locale: 'en_US',
     type: 'website',
     images: [
       {
-        // TODO: replace with a purpose-built 1200x630 social card on a solid
-        // background. This logo is white text on transparency, so the wordmark
-        // disappears on light preview panels. Dimensions below are the file's
-        // real size — previously mis-declared as 1200x630, which caused cropping.
-        url: '/assets/Logo-WhiteText.png',
+        // Dark-text logo: social preview panels are overwhelmingly light, and the
+        // white-text version rendered as an invisible wordmark on them. Dimensions
+        // are the file's real size (previously mis-declared as 1200x630, which
+        // caused cropping). Still 2.38:1 rather than the ideal 1.91:1, so a
+        // purpose-built 1200x630 card on a solid background remains the best fix.
+        url: '/images/logo_light.png',
         width: 1584,
         height: 665,
-        alt: 'Center Street IT - Managed IT Support in Deer Park, Texas',
+        alt: 'Center Street I.T. - Managed IT Support in Deer Park, Texas',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Center Street IT - Managed IT Support in Deer Park, TX",
+    title: "Center Street I.T. - Managed IT Support in Deer Park, TX",
     description: "Managed IT support and cybersecurity for businesses in Deer Park, Pasadena and La Porte, Texas.",
-    images: ['/assets/Logo-WhiteText.png'],
+    images: ['/images/logo_light.png'],
     creator: '@centerstreetit',
   },
   robots: {

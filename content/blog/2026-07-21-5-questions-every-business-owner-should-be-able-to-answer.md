@@ -1,7 +1,7 @@
 ---
 title: 5 Questions Every Business Owner Should Be Able to Answer
 date: 2026-07-21T16:49:00.000-05:00
-author: Center Street IT Team
+author: Center Street I.T. Team
 featured_image: /images/mmk-midyear_review-blog_3.jpg
 excerpt: >
   You don't have to be an IT person to run your company well, but there are a

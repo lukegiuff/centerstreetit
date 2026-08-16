@@ -1,7 +1,7 @@
 ---
 title: Getting Back to Work Matters More Than Avoiding Every Problem
 date: 2026-03-13T07:51:00.000-05:00
-author: Center Street IT Team
+author: Center Street I.T. Team
 featured_image: /images/mmk-backup-and-recovery-blog-3.jpg
 excerpt: It won’t wait for a slow afternoon or a quiet moment. It’ll happen on
   an ordinary day—right in the middle of normal operations, when everything

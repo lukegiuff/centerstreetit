@@ -1,7 +1,7 @@
 ---
 title: Automation Shortcuts That Protect Time and the Bottom Line
 date: 2026-04-30T09:41:00.000-05:00
-author: Center Street IT Team
+author: Center Street I.T. Team
 featured_image: /images/mmk-spring-cleaning-blog-4.jpg
 excerpt: >-
   A partner at a mid-sized accounting firm spotted something unusual while

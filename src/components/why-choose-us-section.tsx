@@ -84,7 +84,7 @@ export function WhyChooseUsSection({ whyChooseUs }: WhyChooseUsSectionProps) {
         <AnimatedText variant="slideUp" delay={0.1}>
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-[family-name:var(--font-cinzel)]">
-              Why Choose Center Street IT?
+              Why Choose Center Street I.T.?
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               We&apos;re not just another IT company. Here&apos;s what sets us apart from the competition.
@@ -149,7 +149,7 @@ export function WhyChooseUsSection({ whyChooseUs }: WhyChooseUsSectionProps) {
               animate={{ opacity: 1 }}
               transition={{ delay: 1 }}
             >
-              Ready to experience the Center Street IT difference?
+              Ready to experience the Center Street I.T. difference?
             </motion.p>
             <motion.button
               className="px-8 py-4 text-white font-semibold rounded-full hover:shadow-lg transition-shadow"

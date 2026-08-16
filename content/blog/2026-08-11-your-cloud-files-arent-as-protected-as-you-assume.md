@@ -1,7 +1,7 @@
 ---
 title: Your Cloud Files Aren't as Protected as You Assume
 date: 2026-08-11T18:35:00.000-05:00
-author: Center Street IT Team
+author: Center Street I.T. Team
 featured_image: /images/mmk-test-your-safety-net-blog-2.jpg
 excerpt: >-
   Plenty of businesses keep everything in Microsoft 365 or Google Workspace and

@@ -178,7 +178,7 @@ export function getHomepageContent(): HomepageContent {
     console.error('Error reading homepage content:', error);
     // Return default content if file doesn't exist
     return {
-      title: "Welcome to Center Street IT",
+      title: "Welcome to Center Street I.T.",
       subtitle: "Innovative Technology Solutions",
       hero_text: "We deliver cutting-edge technology solutions for modern businesses.",
       cta_text: "Get Started",
@@ -215,7 +215,7 @@ export function getSiteSettings(): SiteSettings {
     console.error('Error reading site settings:', error);
     // Return default settings if file doesn't exist
     return {
-      site_title: "Center Street IT",
+      site_title: "Center Street I.T.",
       site_description: "Technology Solutions Provider",
       navigation: [
         { label: "Blog", link: "/blog" },
@@ -250,7 +250,7 @@ export function getContactContent(): ContactContent {
     console.error('Error reading contact content:', error);
     // Return default content if file doesn't exist
     return {
-      title: "Contact Center Street IT",
+      title: "Contact Center Street I.T.",
       description: "Get in touch with our IT experts",
       hero_title: "Contact Us",
       hero_subtitle: "Ready to Transform Your IT Infrastructure?",
@@ -297,7 +297,7 @@ export function getContactContent(): ContactContent {
         }
       },
       call_to_action: {
-        title: "IT Support and Management with Center Street IT is your SUCCESS",
+        title: "IT Support and Management with Center Street I.T. is your SUCCESS",
         description: "Let us provide you with a network assessment."
       }
     };
@@ -355,7 +355,7 @@ export function getBlogPosts(): BlogPost[] {
           slug,
           title: data.title || 'Untitled',
           date: data.date || new Date().toISOString(),
-          author: data.author || 'Center Street IT Team',
+          author: data.author || 'Center Street I.T. Team',
           featured_image: data.featured_image,
           excerpt: data.excerpt || content.substring(0, 150) + '...',
           content: decodeHtmlEntities(marked(content) as string),
@@ -469,7 +469,7 @@ export function getServicePageContent(slug: string): ServicePageContent | null {
       show_cta: data.show_cta !== false, // Default to true
       
       // Benefits section
-      benefits_title: data.benefits_title || 'Benefits of Center Street IT\'s Services:',
+      benefits_title: data.benefits_title || 'Benefits of Center Street I.T.\'s Services:',
       benefits: data.benefits || [],
       
       // Features section
@@ -611,7 +611,7 @@ DLP technology plays an indispensable role in protecting confidential informatio
       slug: '2024-02-26-understanding-dlp-technology',
       title: 'Understanding DLP Technology: Protecting Your Confidential Information',
       date: '2024-02-26',
-      author: 'Center Street IT Team',
+      author: 'Center Street I.T. Team',
       excerpt: 'In today\'s digital landscape, the sheer volume of sensitive data generated and stored by organizations is staggering. Learn how DLP technology effectively protects confidential information.',
       content: decodeHtmlEntities(marked(markdownContent) as string),
       tags: ['cybersecurity', 'data-protection', 'compliance'],

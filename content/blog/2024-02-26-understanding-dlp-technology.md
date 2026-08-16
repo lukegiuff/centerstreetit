@@ -5,7 +5,7 @@ excerpt: In today's digital landscape, the sheer volume of sensitive data
 draft: false
 title: "Understanding DLP Technology: Protecting Your Confidential Information"
 date: 2024-02-26
-author: Center Street IT Team
+author: Center Street I.T. Team
 featured_image: ""
 seo_keywords: DLP, data loss prevention, cybersecurity, business data protection, compliance
 tags:

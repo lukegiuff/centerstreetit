@@ -1,6 +1,6 @@
 ---
 title: "Privacy Policy"
-description: "Privacy Policy for Center Street IT - Learn how we collect, use, and protect your personal information."
+description: "Privacy Policy for Center Street I.T. - Learn how we collect, use, and protect your personal information."
 slug: "privacy-policy"
 last_updated: "2024-11-12T00:00:00.000Z"
 ---
@@ -36,7 +36,7 @@ These websites may collect data about you, use cookies, embed additional third-p
 
 No mobile information will be shared with third parties/affiliates for marketing/promotional purposes. All the above categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties.
 
-By providing your phone number to Center Street IT, you agree and acknowledge that Center Street IT may send text messages to your wireless phone number for any purpose. Message and data rates may apply. Message frequency will vary, and you will be able to opt-out by replying "STOP". For more information on how your data will be handled, please contact us directly.
+By providing your phone number to Center Street I.T., you agree and acknowledge that Center Street I.T. may send text messages to your wireless phone number for any purpose. Message and data rates may apply. Message frequency will vary, and you will be able to opt-out by replying "STOP". For more information on how your data will be handled, please contact us directly.
 
 ## Data Security
 
@@ -62,7 +62,7 @@ We may update this Privacy Policy from time to time. We will notify you of any m
 
 If you have any questions or concerns regarding this Privacy Policy, please contact us:
 
-**Center Street IT**  
+**Center Street I.T.**  
 Deer Park, TX  
 Phone: (346) 877-9001  
 Email: MoreInfo@CenterStreetIT.com

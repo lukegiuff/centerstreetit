@@ -1,7 +1,7 @@
 ---
 title: Having IT Covered Isn’t the Same as Being Supported
 date: 2026-06-24T08:05:00.000-05:00
-author: Center Street IT Team
+author: Center Street I.T. Team
 featured_image: /images/mmk-vacation-ready-business-blog-4.jpg
 excerpt: >-
   “We’ve got our IT handled.” It’s a line plenty of business owners repeat —

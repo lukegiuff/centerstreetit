@@ -1,7 +1,7 @@
 ---
 title: The Real Price of One Hour of Downtime
 date: 2026-06-30T23:06:00.000-05:00
-author: Center Street IT Team
+author: Center Street I.T. Team
 featured_image: /images/mmk-midyear_review-blog_1_7a1b8535-e50e-468e-ba28-eb2b9ffeaa89.jpg
 excerpt: Picture your systems going dark for a single hour tomorrow morning. No
   email, no line-of-business app, no phones tied to your network. What's that

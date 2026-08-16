@@ -15,10 +15,10 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 
   return {
-    title: `${pageContent.title} - Center Street IT`,
+    title: `${pageContent.title} - Center Street I.T.`,
     description: pageContent.description,
     openGraph: {
-      title: `${pageContent.title} - Center Street IT`,
+      title: `${pageContent.title} - Center Street I.T.`,
       description: pageContent.description,
       url: 'https://centerstreetit.com/privacy-policy',
       type: 'website',

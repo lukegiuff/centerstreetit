@@ -1,7 +1,7 @@
 ---
 title: Peace of Mind Is a Practical Business Asset
 date: 2026-03-23T14:35:00.000-05:00
-author: Center Street IT Team
+author: Center Street I.T. Team
 featured_image: /images/mmk-backup-and-recovery-blog-4.jpg
 excerpt: >-
   Most owners carry a low‑level pressure they rarely talk about.

@@ -13,7 +13,7 @@ hero_description: In today's digital age, safeguarding your business from cyber
   comprehensive penetration testing services to help you identify and address
   vulnerabilities before they can be exploited by malicious actors.
 show_benefits: true
-benefits_title: "Benefits of Center Street IT's Services:"
+benefits_title: "Benefits of Center Street I.T.'s Services:"
 benefits:
   - title: Identify Weaknesses
     description: Discover and address security gaps before they can be exploited by

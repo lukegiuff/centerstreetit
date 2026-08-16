@@ -13,10 +13,10 @@ This guide will help you set up the Decap CMS with GitHub OAuth authentication u
 
 1. Go to [GitHub OAuth Apps](https://github.com/settings/applications/new)
 2. Fill in the application details:
-   - **Application name**: `Center Street IT CMS`
+   - **Application name**: `Center Street I.T. CMS`
    - **Homepage URL**: `https://your-domain.com` (your actual website URL)
    - **Authorization callback URL**: `https://centerstreetit-cms-oauth.your-subdomain.workers.dev/callback`
-   - **Application description**: `Content management for Center Street IT website`
+   - **Application description**: `Content management for Center Street I.T. website`
 
 3. Click "Register application"
 4. **Important**: Save the **Client ID** and **Client Secret** - you'll need these for the Cloudflare Worker

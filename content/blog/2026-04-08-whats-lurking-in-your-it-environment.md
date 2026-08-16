@@ -1,7 +1,7 @@
 ---
 title: Whats Lurking in Your IT Environment
 date: 2026-04-08T10:07:00.000-05:00
-author: Center Street IT Team
+author: Center Street I.T. Team
 featured_image: /images/mmk-spring-cleaning-blog-1.jpg
 excerpt: >-
   When was the last time you opened that one storage spot you prefer not to

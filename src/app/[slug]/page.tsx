@@ -62,14 +62,14 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
   // own city in their title and their own description.
   const description =
     pageContent.description ||
-    `${pageContent.title} from Center Street IT — managed IT support and cybersecurity for businesses in Deer Park, Pasadena and La Porte, Texas.`;
+    `${pageContent.title} from Center Street I.T. — managed IT support and cybersecurity for businesses in Deer Park, Pasadena and La Porte, Texas.`;
 
   return {
     title: pageContent.title,
     description,
     keywords: serviceKeywords,
     openGraph: {
-      title: `${pageContent.title} | Center Street IT`,
+      title: `${pageContent.title} | Center Street I.T.`,
       description,
       url: `https://centerstreetit.com/${slug}`,
       type: 'website',

@@ -1,7 +1,7 @@
 ---
 title: 5 Things Every Business Owner Should Be Able to Tune Out on Vacation
 date: 2026-06-01T19:41:00.000-05:00
-author: Center Street IT Team
+author: Center Street I.T. Team
 featured_image: /images/mmk-vacation-ready-business-blog-1.jpg
 excerpt: A colleague came back from a week in Lisbon recently. Amazing city, she
   said — the kind of trip you plan for months. When you asked how it went, there

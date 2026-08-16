@@ -12,7 +12,7 @@ hero_description: In today's digital landscape, the importance of robust
   we are dedicated to providing cutting-edge protection to keep your data safe
   and your systems secure.
 show_benefits: true
-benefits_title: "Benefits of Center Street IT's Services:"
+benefits_title: "Benefits of Center Street I.T.'s Services:"
 benefits:
   - title: Advanced Threat Detection
     description: Our state-of-the-art antivirus software utilizes advanced

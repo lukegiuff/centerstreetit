@@ -32,7 +32,7 @@ export function BlogPostSidebar({ author, tags, relatedPosts }: BlogPostSidebarP
             {author}
           </h3>
           <p className="text-gray-600 mb-4">
-            IT Solutions Expert at Center Street IT
+            IT Solutions Expert at Center Street I.T.
           </p>
           
           <motion.button

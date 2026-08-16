@@ -8,7 +8,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: "IT Blog - Technology Insights & Best Practices",
-  description: "Stay informed with Center Street IT's blog. Expert insights on cybersecurity, cloud computing, IT management, and technology best practices for Texas Gulf Coast businesses.",
+  description: "Stay informed with Center Street I.T.'s blog. Expert insights on cybersecurity, cloud computing, IT management, and technology best practices for Texas Gulf Coast businesses.",
   keywords: [
     "IT blog Deer Park TX",
     "cybersecurity insights", 
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     "network security blog"
   ],
   openGraph: {
-    title: "Center Street IT Blog - Technology Insights",
+    title: "Center Street I.T. Blog - Technology Insights",
     description: "Expert insights on cybersecurity, cloud computing, and IT management for Texas Gulf Coast businesses.",
     url: 'https://centerstreetit.com/blog',
     type: 'website',

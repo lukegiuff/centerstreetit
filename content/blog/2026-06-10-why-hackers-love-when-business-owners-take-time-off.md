@@ -1,7 +1,7 @@
 ---
 title: Why Hackers Love When Business Owners Take Time Off
 date: 2026-06-10T10:08:00.000-05:00
-author: Center Street IT Team
+author: Center Street I.T. Team
 featured_image: /images/mmk-vacation-ready-business-blog-2.jpg
 excerpt: There's a pattern most small business owners don't notice until it
   hurts. When you step away — whether for a vacation, a week of travel, or just

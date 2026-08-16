@@ -1,13 +1,13 @@
 ---
 title: Terms and Conditions
-description: Terms and Conditions for Center Street IT services - Review our
+description: Terms and Conditions for Center Street I.T. services - Review our
   service agreement terms and conditions.
 slug: terms-and-conditions
 last_updated: 2024-11-12T00:00:00.000Z
 ---
 ## Services
 
-Center Street IT provides managed IT services including IT support, network management, cloud services, cybersecurity, consulting, and on-site field support.
+Center Street I.T. provides managed IT services including IT support, network management, cloud services, cybersecurity, consulting, and on-site field support.
 
 These Terms apply to customers who do not have a signed Master Services Agreement with Center Street I.T. Where a signed Master Services Agreement exists, that agreement controls in its entirety, and only the Hourly Service Rates table below is incorporated into it.
 ## Hourly Service Rates
@@ -63,7 +63,7 @@ We may update these Terms at any time. Continued use of our services after chang
 
 ## Contact Information
 
-**Center Street IT**\
+**Center Street I.T.**\
 Deer Park, TX\
 Phone: (346) 877-9001\
 Fax: (346) 877-9002\

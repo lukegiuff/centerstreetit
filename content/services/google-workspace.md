@@ -13,7 +13,7 @@ hero_description: "In today's fast-paced, digital world, seamless collaboration
   providing a comprehensive suite of productivity tools. Here's why Google
   Workspace is the perfect solution for your organization:"
 show_benefits: true
-benefits_title: "Benefits of Center Street IT's Services:"
+benefits_title: "Benefits of Center Street I.T.'s Services:"
 benefits:
   - title: User-Friendly Interface
     description: Intuitive and easy to use, reducing the learning curve for new users.

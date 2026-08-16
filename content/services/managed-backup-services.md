@@ -19,7 +19,7 @@ hero_description: In today's digital age, data is the lifeblood of any business.
   always accessible when you need it.
 hero_image: /images/1526.jpg
 show_benefits: true
-benefits_title: "Benefits of Center Street IT's Services:"
+benefits_title: "Benefits of Center Street I.T.'s Services:"
 benefits:
   - title: Comprehensive Data Protection
     description: Our Managed Backup Services offer comprehensive protection for all

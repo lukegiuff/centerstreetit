@@ -100,7 +100,7 @@ collections:
       # Benefits Section
       - {label: "Show Benefits Section", name: "show_benefits", widget: "boolean", default: false}
       - {label: "Benefits Section Title", name: "benefits_title", widget: "string", 
-         default: "Benefits of Center Street IT's Services:", required: false}
+         default: "Benefits of Center Street I.T.'s Services:", required: false}
       - label: "Benefits"
         name: "benefits"
         widget: "list"
@@ -133,7 +133,7 @@ collections:
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Date", name: "date", widget: "datetime"}
-      - {label: "Author", name: "author", widget: "string", default: "Center Street IT Team"}
+      - {label: "Author", name: "author", widget: "string", default: "Center Street I.T. Team"}
       - {label: "Featured Image", name: "featured_image", widget: "image", required: false}
       - {label: "Excerpt", name: "excerpt", widget: "text"}
       - {label: "Body", name: "body", widget: "markdown"}

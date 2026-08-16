@@ -13,7 +13,7 @@ hero_description: At Center Street I.T., we understand that a robust and
   unique needs of your organization, ensuring seamless connectivity and optimal
   performance.
 show_benefits: true
-benefits_title: "Benefits of Center Street IT's Services:"
+benefits_title: "Benefits of Center Street I.T.'s Services:"
 benefits:
   - title: Structured Cabling Services
     description: Our structured cabling services provide a solid foundation for your

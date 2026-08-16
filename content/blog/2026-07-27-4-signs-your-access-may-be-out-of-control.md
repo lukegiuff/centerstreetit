@@ -1,7 +1,7 @@
 ---
 title: 4 Signs Your Access May Be Out of Control
 date: 2026-07-26T20:18:00.000-05:00
-author: Center Street IT Team
+author: Center Street I.T. Team
 featured_image: /images/mmk-midyear_review-blog_4.jpg
 excerpt: >-
   When a business grows, systems access grows right along with it.

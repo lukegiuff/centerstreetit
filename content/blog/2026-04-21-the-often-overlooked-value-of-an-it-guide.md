@@ -1,7 +1,7 @@
 ---
 title: The Often-Overlooked Value of an IT Guide
 date: 2026-04-21T15:36:00.000-05:00
-author: Center Street IT Team
+author: Center Street I.T. Team
 featured_image: /images/mmk-spring-cleaning-blog-3.jpg
 excerpt: >-
   Most business leaders have a sense that their IT environment could use some

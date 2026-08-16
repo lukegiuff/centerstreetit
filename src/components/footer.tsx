@@ -99,7 +99,7 @@ export function Footer({ siteTitle, social, navigation, servicePages, contact }:
               />
             </div>
             <p className="text-gray-400 mb-6">
-                                 At Center Street IT, we&apos;re proud to offer IT Support Management Infrastructure and Consulting that delivers truly transformative results. Unlike the traditional Managed Services model which only addresses surface-level issues, we tackle the root cause of your challenges to provide a permanent solution. Say goodbye to recurring problems and hello to a seamless experience!
+                                 At Center Street I.T., we&apos;re proud to offer IT Support Management Infrastructure and Consulting that delivers truly transformative results. Unlike the traditional Managed Services model which only addresses surface-level issues, we tackle the root cause of your challenges to provide a permanent solution. Say goodbye to recurring problems and hello to a seamless experience!
             </p>
             <div className="flex space-x-4">
               {social.map((link, index) => {

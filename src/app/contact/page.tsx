@@ -10,7 +10,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: "Contact Us - Managed IT Support & Consultation",
-  description: "Contact Center Street IT for managed IT support across Deer Park, Pasadena and La Porte, TX. Free consultation and network assessment. Call (346) 877-9001.",
+  description: "Contact Center Street I.T. for managed IT support across Deer Park, Pasadena and La Porte, TX. Free consultation and network assessment. Call (346) 877-9001.",
   keywords: [
     "contact IT support Deer Park TX",
     "IT consultation Deer Park",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     "IT help desk Deer Park"
   ],
   openGraph: {
-    title: "Contact Center Street IT",
+    title: "Contact Center Street I.T.",
     description: "Managed IT support across Deer Park, Pasadena and La Porte, TX. Free consultation and network assessment. Call (346) 877-9001.",
     url: 'https://centerstreetit.com/contact',
     type: 'website',

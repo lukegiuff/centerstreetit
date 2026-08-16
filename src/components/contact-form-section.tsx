@@ -36,7 +36,7 @@ export function ContactFormSection() {
           phone: formData.phone,
           message: formData.message,
           subject: `New Contact Form Submission from ${formData.name}`,
-          from_name: 'Center Street IT Website',
+          from_name: 'Center Street I.T. Website',
         }),
       });
 
@@ -312,7 +312,7 @@ export function ContactFormSection() {
                 className="pt-6 border-t border-gray-200"
               >
                 <p className="text-sm text-gray-500 leading-relaxed">
-                  <strong>By providing my phone number to &quot;Center Street IT&quot;</strong>, I agree and acknowledge that &quot;Center Street IT&quot; may send text messages to my wireless phone number for any purpose. Message and data rates may apply. Message frequency will vary, and you will be able to Opt-out by replying &quot;STOP&quot;. For more information on how your data will be handled please visit our privacy policy.
+                  <strong>By providing my phone number to &quot;Center Street I.T.&quot;</strong>, I agree and acknowledge that &quot;Center Street I.T.&quot; may send text messages to my wireless phone number for any purpose. Message and data rates may apply. Message frequency will vary, and you will be able to Opt-out by replying &quot;STOP&quot;. For more information on how your data will be handled please visit our privacy policy.
                 </p>
               </motion.div>
 

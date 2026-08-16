@@ -1,5 +1,5 @@
 ---
-site_title: Center Street IT
+site_title: Center Street I.T.
 site_description: Premier IT Support Management Infrastructure and Consulting
   services tailored to meet the unique needs of your business. Where innovation
   meets excellence.

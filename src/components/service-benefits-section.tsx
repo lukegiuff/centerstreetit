@@ -45,7 +45,7 @@ export function ServiceBenefitsSection({ title, benefits, serviceName }: Service
           phone: formData.phone,
           message: formData.message,
           subject: `Consultation Request for ${serviceName} from ${formData.name}`,
-          from_name: 'Center Street IT Website - Consultation Request',
+          from_name: 'Center Street I.T. Website - Consultation Request',
         }),
       });
 

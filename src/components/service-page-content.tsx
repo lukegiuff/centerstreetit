@@ -69,7 +69,7 @@ export function ServicePageContent({ pageContent, recentPosts }: ServicePageCont
             {pageContent.show_benefits && pageContent.benefits && pageContent.benefits.length > 0 && (
               <div className="mb-8">
                 <ServiceBenefitsSection
-                  title={pageContent.benefits_title || 'Benefits of Center Street IT\'s Services:'}
+                  title={pageContent.benefits_title || 'Benefits of Center Street I.T.\'s Services:'}
                   benefits={pageContent.benefits}
                   serviceName={extractServiceName(pageContent.hero_title)}
                 />

@@ -49,12 +49,15 @@ export function StructuredData({ type, data }: StructuredDataProps) {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "@id": "https://centerstreetit.com/#organization",
-        "name": "Center Street IT",
-        "alternateName": "Solomon Solutions, LLC",
+        "name": "Center Street I.T.",
+        // "name" should match the Google Business Profile listing exactly. The
+        // undotted form is kept here so the entity still resolves for anyone (or
+        // anything) citing the business without the periods.
+        "alternateName": ["Center Street IT", "Solomon Solutions, LLC"],
         "description": "Managed IT support and cybersecurity for industrial, trades, and professional businesses in Deer Park, Pasadena, and La Porte, Texas.",
         "url": "https://centerstreetit.com",
-        "logo": "https://centerstreetit.com/assets/Logo-WhiteText.png",
-        "image": "https://centerstreetit.com/assets/Logo-WhiteText.png",
+        "logo": "https://centerstreetit.com/images/logo_light.png",
+        "image": "https://centerstreetit.com/images/logo_light.png",
         "telephone": "+1-346-877-9001",
         "faxNumber": "+1-346-877-9002",
         "email": "MoreInfo@CenterStreetIT.com",
@@ -96,17 +99,17 @@ export function StructuredData({ type, data }: StructuredDataProps) {
         "@type": "Article",
         "headline": articleData.title,
         "description": articleData.excerpt,
-        "image": articleData.featured_image || "https://centerstreetit.com/assets/Logo-WhiteText.png",
+        "image": articleData.featured_image || "https://centerstreetit.com/images/logo_light.png",
         "author": {
           "@type": "Person",
           "name": articleData.author
         },
         "publisher": {
           "@type": "Organization",
-          "name": "Center Street IT",
+          "name": "Center Street I.T.",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://centerstreetit.com/assets/Logo-WhiteText.png"
+            "url": "https://centerstreetit.com/images/logo_light.png"
           }
         },
         "datePublished": articleData.date,
@@ -129,7 +132,7 @@ export function StructuredData({ type, data }: StructuredDataProps) {
         "provider": {
           "@type": "LocalBusiness",
           "@id": "https://centerstreetit.com/#organization",
-          "name": "Center Street IT",
+          "name": "Center Street I.T.",
           "address": BUSINESS_ADDRESS,
           "telephone": "+1-346-877-9001"
         },

@@ -10,12 +10,12 @@ export function ValuePropositionSection() {
     {
       icon: CheckCircle,
       title: "Satisfaction is our only Metric",
-      description: "While other providers talk about how many tickets they close or how much time they spend with you, these all lead to a negative experience. At Center Street IT, we are only happy if you are happy and running well."
+      description: "While other providers talk about how many tickets they close or how much time they spend with you, these all lead to a negative experience. At Center Street I.T., we are only happy if you are happy and running well."
     },
     {
       icon: Shield,
       title: "Worry-Free",
-      description: "We know that problems mean money. That's why at Center Street IT our focus is proactively ensuring that technical challenges never slow you down."
+      description: "We know that problems mean money. That's why at Center Street I.T. our focus is proactively ensuring that technical challenges never slow you down."
     },
     {
       icon: Award,
@@ -51,7 +51,7 @@ export function ValuePropositionSection() {
         <AnimatedText variant="slideUp" delay={0.1}>
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-[family-name:var(--font-cinzel)]">
-              Why Center Street IT is Different
+              Why Center Street I.T. is Different
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               We don&apos;t just fix problems - we prevent them. Our unique approach focuses on long-term solutions and your complete satisfaction.
@@ -114,7 +114,7 @@ export function ValuePropositionSection() {
         <AnimatedText variant="slideUp" delay={0.8}>
           <div className="text-center mt-16">
             <h3 className="text-3xl font-bold text-gray-900 mb-4 font-[family-name:var(--font-cinzel)]">
-              IT Support and Management with Center Street IT is your SUCCESS
+              IT Support and Management with Center Street I.T. is your SUCCESS
             </h3>
             <motion.button
               className="px-8 py-4 text-white font-semibold rounded-full hover:shadow-lg transition-shadow"

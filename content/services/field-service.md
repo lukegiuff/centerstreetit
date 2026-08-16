@@ -14,7 +14,7 @@ hero_description: At Center Street I.T., we understand that some IT challenges
   technicians are ready to provide prompt and effective on-site support,
   addressing any IT issues you may encounter.
 show_benefits: true
-benefits_title: "Benefits of Center Street IT's Services:"
+benefits_title: "Benefits of Center Street I.T.'s Services:"
 benefits:
   - title: Rapid Response Time
     description: We know that time is of the essence when it comes to IT problems.

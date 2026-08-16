@@ -10,7 +10,7 @@ hero_title: IT Support in Deer Park, Texas
 hero_subtitle: Managed IT and cybersecurity for industrial and trades businesses
   inside a 10-minute drive.
 hero_description: >-
-  Center Street IT is based in Deer Park, and we built the business around a
+  Center Street I.T. is based in Deer Park, and we built the business around a
   deliberately small service radius. Most of our clients are within ten minutes
   of us — which means when something breaks, we are on site the same day, and
   never later than the next.

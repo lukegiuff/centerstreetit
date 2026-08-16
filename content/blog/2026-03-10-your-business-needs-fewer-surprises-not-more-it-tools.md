@@ -1,7 +1,7 @@
 ---
 title: Your Business Needs Fewer Surprises, Not More IT Tools
 date: 2026-03-09T19:50:00.000-05:00
-author: Center Street IT Team
+author: Center Street I.T. Team
 featured_image: /images/mmk-backup-and-recovery-blog-2.jpg
 excerpt: Picture a busy morning. A proposal is nearly finished, a customer is
   waiting, and everything feels like it’s moving smoothly. Then someone can’t

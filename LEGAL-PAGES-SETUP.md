@@ -2,7 +2,7 @@
 
 ## Summary
 
-Successfully added Privacy Policy and Terms & Conditions pages to the Center Street IT website. Both pages are fully editable via the DecapCMS admin panel.
+Successfully added Privacy Policy and Terms & Conditions pages to the Center Street I.T. website. Both pages are fully editable via the DecapCMS admin panel.
 
 ## What Was Added
 
@@ -107,7 +107,7 @@ Successfully added Privacy Policy and Terms & Conditions pages to the Center Str
 ## Notes
 
 - Both pages include comprehensive legal content appropriate for an IT services company
-- Content is customized with Center Street IT's contact information
+- Content is customized with Center Street I.T.'s contact information
 - Pages follow the same design language as the rest of the site
 - Content can be updated at any time via the CMS without code changes
 - The broken links issue (`/privacy` and `/terms`) has been resolved by creating these pages

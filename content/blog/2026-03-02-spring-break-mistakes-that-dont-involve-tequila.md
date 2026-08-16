@@ -1,7 +1,7 @@
 ---
 title: Spring Break Mistakes That Don't Involve Tequila
 date: 2026-03-02T17:27:00.000-06:00
-author: Center Street IT Team
+author: Center Street I.T. Team
 excerpt: >
   Spring break gets a bad reputation.
 

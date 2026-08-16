@@ -46,7 +46,7 @@
 - ✅ Form clears after successful submission
 - ✅ Proper error handling
 - ✅ Subject line: "New Contact Form Submission from [Name]"
-- ✅ From name: "Center Street IT Website"
+- ✅ From name: "Center Street I.T. Website"
 
 **Fields Submitted:**
 - Name
@@ -67,7 +67,7 @@
 - ✅ Form clears after successful submission
 - ✅ Proper error handling
 - ✅ Subject line: "Quote Request for [Service Name] from [Name]"
-- ✅ From name: "Center Street IT Website - Quote Request"
+- ✅ From name: "Center Street I.T. Website - Quote Request"
 
 **Fields Submitted:**
 - Name

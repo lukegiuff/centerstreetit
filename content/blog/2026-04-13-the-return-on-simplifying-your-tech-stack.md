@@ -1,7 +1,7 @@
 ---
 title: The Return on Simplifying Your Tech Stack
 date: 2026-04-13T12:13:00.000-05:00
-author: Center Street IT Team
+author: Center Street I.T. Team
 featured_image: /images/mmk-spring-cleaning-blog-2.jpg
 excerpt: >
   Imagine you’re getting ready for a party and reach for the jacket that always

@@ -48,7 +48,7 @@ The contact form collects:
 ## Email Configuration
 Form submissions will be sent with:
 - **Subject**: "New Contact Form Submission from [Name]"
-- **From Name**: "Center Street IT Website"
+- **From Name**: "Center Street I.T. Website"
 - **Reply-To**: The submitter's email address
 
 ## Security

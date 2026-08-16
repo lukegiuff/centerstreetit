@@ -1,7 +1,7 @@
 ---
 title: Is Your IT Setup Built to Handle What's Coming Next?
 date: 2026-05-27T17:48:00.000-05:00
-author: Center Street IT Team
+author: Center Street I.T. Team
 featured_image: /images/mmk-planting-for-success-blog-4.jpg
 excerpt: Growth is the goal — but the wrong technology foundation turns every
   new win into a new headache. Here's how to make sure your IT infrastructure is

@@ -1,7 +1,7 @@
 ---
 title: "Your Premier IT Support Provider"
 subtitle: "Where Innovation Meets Excellence"
-hero_text: "Welcome to Center Street IT, where innovation meets excellence. We specialize in providing cutting-edge IT Support Management Infrastructure and Consulting services tailored to meet the unique needs of your business. Our team of experts is dedicated to delivering customized solutions that drive growth, enhance efficiency, and ensure your success in an ever-evolving digital landscape. Partner with us to unlock your business's full potential and stay ahead of the competition."
+hero_text: "Welcome to Center Street I.T., where innovation meets excellence. We specialize in providing cutting-edge IT Support Management Infrastructure and Consulting services tailored to meet the unique needs of your business. Our team of experts is dedicated to delivering customized solutions that drive growth, enhance efficiency, and ensure your success in an ever-evolving digital landscape. Partner with us to unlock your business's full potential and stay ahead of the competition."
 cta_text: "Contact Us"
 cta_link: "/contact"
 features:
@@ -22,7 +22,7 @@ features:
     description: "Our engineers are the best in the business. We can get you to the right answer, right away."
   - icon: "Heart"
     title: "Worry-Free"
-    description: "We know that problems mean money. That's why at Center Street IT our focus is proactively ensuring that technical challenges never slow you down."
+    description: "We know that problems mean money. That's why at Center Street I.T. our focus is proactively ensuring that technical challenges never slow you down."
 stats:
   - number: "100%"
     label: "Satisfaction Focused"
@@ -35,11 +35,11 @@ stats:
 testimonials:
   - name: "William"
     role: "Business Owner"
-    quote: "Center Street IT has been a great help for us in all of our IT and networking needs. The communication is always quick and concise, and they have gone above and beyond more than once when we were under a time crunch."
+    quote: "Center Street I.T. has been a great help for us in all of our IT and networking needs. The communication is always quick and concise, and they have gone above and beyond more than once when we were under a time crunch."
   - name: "Karen Weiss"
     role: "Client"
     quote: "They work on all my computer needs, I wouldn't use anyone else."
   - name: "Ed Kangas"
     role: "Business Owner"
-    quote: "Center Street IT is truly wonderful to deal with... They have the knowledge and the experience to give their clients the best possible solutions for their I.T. endeavors - They are our go-to team for our business!"
+    quote: "Center Street I.T. is truly wonderful to deal with... They have the knowledge and the experience to give their clients the best possible solutions for their I.T. endeavors - They are our go-to team for our business!"
 ---

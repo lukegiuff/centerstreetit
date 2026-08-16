@@ -16,7 +16,7 @@ hero_description: In an era where online interactions are a part of everyday
   SSL certificates designed to protect your website, enhance your credibility,
   and ensure a secure exchange of information between you and your users.
 show_benefits: true
-benefits_title: "Benefits of Center Street IT's Services:"
+benefits_title: "Benefits of Center Street I.T.'s Services:"
 benefits:
   - title: Secure Data Transmission
     description: When you use an SSL certificate, the data exchanged between your
