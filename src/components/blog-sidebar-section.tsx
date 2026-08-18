@@ -118,48 +118,12 @@ export function BlogSidebarSection({ posts }: BlogSidebarSectionProps) {
         </div>
       </AnimatedCard>
 
-      {/* Categories */}
-      <AnimatedCard delay={0.3} hover={false}>
-        <h3 className="text-lg font-bold text-gray-900 mb-4 font-[family-name:var(--font-cinzel)]">
-          Categories
-        </h3>
-        
-        <div className="space-y-2">
-          {[
-            { name: 'IT Solutions', count: 12, color: '#b78842' },
-            { name: 'Cybersecurity', count: 8, color: '#00C9AF' },
-            { name: 'Cloud Computing', count: 6, color: '#b78842' },
-            { name: 'Network Management', count: 5, color: '#00C9AF' },
-            { name: 'Business Tips', count: 4, color: '#b78842' }
-          ].map((category, index) => (
-            <motion.div
-              key={category.name}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.5 + index * 0.1 }}
-              viewport={{ once: true }}
-            >
-              <Link 
-                href={`/blog/category/${category.name.toLowerCase().replace(' ', '-')}`}
-                className="flex items-center justify-between p-2 rounded-lg hover:bg-gray-50 transition-colors group"
-              >
-                <div className="flex items-center space-x-3">
-                  <div 
-                    className="w-3 h-3 rounded-full" 
-                    style={{ backgroundColor: category.color }}
-                  />
-                  <span className="text-gray-700 group-hover:text-gray-900 transition-colors">
-                    {category.name}
-                  </span>
-                </div>
-                <span className="text-sm text-gray-500">
-                  ({category.count})
-                </span>
-              </Link>
-            </motion.div>
-          ))}
-        </div>
-      </AnimatedCard>
+      {/* A "Categories" panel used to sit here listing IT Solutions, Cybersecurity,
+          Cloud Computing, Network Management and Business Tips with hardcoded post
+          counts. None of those categories existed, the counts were invented, and all
+          five linked to /blog/category/* routes that were never built, so every click
+          produced a 404. The Tags panel above shows the real tags with real counts.
+          Reinstate this only alongside actual tag archive pages. */}
     </div>
   );
 }
