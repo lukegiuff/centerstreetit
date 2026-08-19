@@ -21,6 +21,20 @@ function contentModified(...segments: string[]): Date {
   }
 }
 
+/**
+ * Canonical URL for a route.
+ *
+ * next.config.ts sets `trailingSlash: true`, so every page is served at "/foo/" and
+ * its canonical tag is written with the trailing slash. The sitemap previously
+ * emitted "/foo" without one. Google treats those as two different URLs, so the
+ * canonical version of every page appeared in no sitemap at all, which is what
+ * Search Console reports as "no referring sitemaps".
+ */
+function url(basePath: string, ...segments: string[]): string {
+  const path = segments.filter(Boolean).join('/');
+  return path ? `${basePath}/${path}/` : `${basePath}/`;
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://centerstreetit.com';
 
@@ -30,31 +44,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Static pages
   const staticPages = [
     {
-      url: baseUrl,
+      url: url(baseUrl),
       lastModified: contentModified('homepage.md'),
       changeFrequency: 'weekly' as const,
       priority: 1,
     },
     {
-      url: `${baseUrl}/contact`,
+      url: url(baseUrl, 'contact'),
       lastModified: contentModified('pages', 'contact.md'),
       changeFrequency: 'monthly' as const,
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/blog`,
+      url: url(baseUrl, 'blog'),
       lastModified: blogPosts.length ? new Date(blogPosts[0].date) : new Date(),
       changeFrequency: 'weekly' as const,
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/privacy-policy`,
+      url: url(baseUrl, 'privacy-policy'),
       lastModified: contentModified('pages', 'privacy-policy.md'),
       changeFrequency: 'yearly' as const,
       priority: 0.5,
     },
     {
-      url: `${baseUrl}/terms-and-conditions`,
+      url: url(baseUrl, 'terms-and-conditions'),
       lastModified: contentModified('pages', 'terms-and-conditions.md'),
       changeFrequency: 'yearly' as const,
       priority: 0.5,
@@ -64,7 +78,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Service pages
   const servicePages = getAllServicePages();
   const serviceUrls = servicePages.map((service) => ({
-    url: `${baseUrl}/${service.slug}`,
+    url: url(baseUrl, service.slug),
     lastModified: contentModified('services', `${service.slug}.md`),
     changeFrequency: 'monthly' as const,
     priority: 0.8,
@@ -72,7 +86,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Blog posts
   const blogUrls = blogPosts.map((post) => ({
-    url: `${baseUrl}/blog/${post.slug}`,
+    url: url(baseUrl, "blog", post.slug),
     lastModified: new Date(post.date),
     changeFrequency: 'monthly' as const,
     priority: 0.6,
