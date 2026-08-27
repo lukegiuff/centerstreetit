@@ -1,3 +1,4 @@
+import { socialMeta } from '@/lib/metadata';
 import { getLegalPageContent, getSiteSettings, getAllServicePages } from '@/lib/content';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
@@ -17,12 +18,11 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: `${pageContent.title} - Center Street I.T.`,
     description: pageContent.description,
-    openGraph: {
+    ...socialMeta({
       title: `${pageContent.title} - Center Street I.T.`,
       description: pageContent.description,
-      url: 'https://centerstreetit.com/privacy-policy',
-      type: 'website',
-    },
+      path: '/privacy-policy',
+    }),
     alternates: {
       canonical: '/privacy-policy',
     },

@@ -143,7 +143,7 @@ export function RecentBlogSection({ posts }: RecentBlogSectionProps) {
         {/* View All Posts Button */}
         <AnimatedText variant="slideUp" delay={0.6}>
           <div className="text-center">
-            <Link href="/blog">
+            <Link href="/blog/">
               <button
                 className="px-8 py-4 text-white font-semibold rounded-full hover:shadow-lg transition-shadow"
                 style={{ backgroundColor: '#00C9AF' }}

@@ -121,7 +121,7 @@ export function BlogPostNavigation({ previousPost, nextPost }: BlogPostNavigatio
 
       {/* Back to Blog */}
       <div className="text-center mt-8 pt-6 border-t border-gray-200">
-        <Link href="/blog">
+        <Link href="/blog/">
           <motion.button
             className="px-6 py-3 text-white font-semibold rounded-lg transition-colors"
             style={{ backgroundColor: '#b78842' }}

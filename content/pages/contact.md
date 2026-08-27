@@ -35,7 +35,7 @@ why_choose_us:
     description: "A clear service agreement that spells out exactly what is covered, what it costs, and what happens when something goes wrong. No surprises buried in the fine print."
   brand_power:
     title: "Brand Power"
-    description: "Only working with the biggest industry leaders such as Cisco, Microsoft, Google and Dell to ensure the solutions we deliver meet or exceed the test of time."
+    description: "Only working with the biggest industry leaders such as Microsoft, Dell, SonicWall and Trend Micro to ensure the solutions we deliver meet or exceed the test of time."
   innovative_leasing:
     title: "Innovative Leasing Programs"
     description: "Through partnerships with leading financial services firms to provide the equipment you need along with a payment that won't break the bank. Often times we can outfit/refresh your entire office for what you currently pay for just copiers."

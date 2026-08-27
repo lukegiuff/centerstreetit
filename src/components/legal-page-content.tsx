@@ -47,7 +47,7 @@ export function LegalPageContentComponent({ pageContent }: LegalPageContentProps
             Our team is here to help answer any questions you may have.
           </p>
           <Link
-            href="/contact"
+            href="/contact/"
             className="inline-flex items-center px-8 py-4 text-lg font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
           >
             Contact Us

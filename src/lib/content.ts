@@ -21,12 +21,31 @@ function decodeHtmlEntities(html: string): string {
     .replace(/&gt;/g, '>');
 }
 
+interface HomepageSection {
+  title: string;
+  body: string;
+}
+
 export interface HomepageContent {
   title: string;
   subtitle: string;
   hero_text: string;
   cta_text: string;
   cta_link: string;
+  cta_secondary_text?: string;
+  cta_secondary_link?: string;
+  meta_description?: string;
+  proximity?: HomepageSection;
+  differentiator?: HomepageSection;
+  features_title?: string;
+  features_intro?: string;
+  how_we_work?: HomepageSection;
+  closing_cta?: {
+    title: string;
+    body: string;
+    button_text: string;
+    button_link: string;
+  };
   features: Array<{
     icon: string;
     title: string;
@@ -218,8 +237,8 @@ export function getSiteSettings(): SiteSettings {
       site_title: "Center Street I.T.",
       site_description: "Technology Solutions Provider",
       navigation: [
-        { label: "Blog", link: "/blog" },
-        { label: "Contact", link: "/contact" }
+        { label: "Blog", link: "/blog/" },
+        { label: "Contact", link: "/contact/" }
       ],
       social: [],
       contact: getFooterContact()
@@ -526,6 +545,12 @@ export function getAllServicePages(): Array<{slug: string, title: string, descri
   }
 }
 
+// Top-level nav sections that have a real hub page behind them. Anything not
+// listed here renders as a non-clickable dropdown trigger rather than a dead link.
+const NAV_SECTION_LINKS: Record<string, string> = {
+  Locations: '/locations',
+};
+
 export function buildNavigationFromServices() {
   const services = getAllServicePages();
   const navigationMap: Record<string, { label: string; link: string; submenu: Record<string, { section: string; items: Array<{ label: string; link: string }> }> }> = {};
@@ -536,7 +561,9 @@ export function buildNavigationFromServices() {
       if (!navigationMap[service.nav_section]) {
         navigationMap[service.nav_section] = {
           label: service.nav_section,
-          link: '#',
+          // Empty string means "no destination, render as a dropdown trigger".
+          // These used to be href="#", which is a real, crawlable dead link.
+          link: NAV_SECTION_LINKS[service.nav_section] ?? '',
           submenu: {}
         };
       }
@@ -551,7 +578,7 @@ export function buildNavigationFromServices() {
         }
         navigationMap[service.nav_section].submenu[service.nav_subsection].items.push({
           label: service.title,
-          link: `/${service.slug}`
+          link: `/${service.slug}/`
         });
       } else {
         // Add directly to main section (no subsection heading)
@@ -563,7 +590,7 @@ export function buildNavigationFromServices() {
         }
         navigationMap[service.nav_section].submenu['direct'].items.push({
           label: service.title,
-          link: `/${service.slug}`
+          link: `/${service.slug}/`
         });
       }
     }

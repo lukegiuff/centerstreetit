@@ -55,7 +55,7 @@ Ensure your network runs smoothly with Center Street I.T.'s Network Monitoring &
 
 ## Technology Partners
 
-Center Street I.T. partners with industry leaders including Microsoft, Dell, Cisco, Google Cloud, and other top-tier technology providers to ensure you get the best solutions for your business needs.
+Center Street I.T. partners with industry leaders including Microsoft, Dell, SonicWall, Trend Micro, and other technology providers to ensure you get the best solutions for your business needs.
 
 ## Why Choose Center Street I.T.?
 

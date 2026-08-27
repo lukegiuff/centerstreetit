@@ -183,7 +183,7 @@ export function BlogPostSidebar({ author, tags, relatedPosts }: BlogPostSidebarP
             </div>
           </motion.button>
 
-          <Link href="/contact">
+          <Link href="/contact/">
             <motion.div
               className="w-full px-4 py-3 text-left rounded-lg border hover:bg-gray-50 transition-colors"
               style={{ borderColor: 'rgba(183, 136, 66, 0.2)' }}

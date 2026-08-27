@@ -132,10 +132,29 @@ export function Header({ siteTitle, navigation }: HeaderProps) {
                       onMouseEnter={() => handleMouseEnter(item.label)}
                       onMouseLeave={() => handleMouseLeave()}
                     >
-                      <Link
-                        href={item.link}
-                        className="px-4 py-4 text-white/90 hover:text-white transition-colors duration-200 font-medium flex items-center gap-1"
-                      >
+                      {(() => {
+                        const triggerClass =
+                          'px-4 py-4 text-white/90 hover:text-white transition-colors duration-200 font-medium flex items-center gap-1';
+                        // Sections with no hub page render as a button, not a link.
+                        const Trigger = ({ children }: { children: React.ReactNode }) =>
+                          item.link ? (
+                            <Link href={item.link} className={triggerClass}>
+                              {children}
+                            </Link>
+                          ) : (
+                            <button
+                              type="button"
+                              aria-expanded={hoveredItem === item.label}
+                              onClick={() =>
+                                setHoveredItem(hoveredItem === item.label ? null : item.label)
+                              }
+                              className={`${triggerClass} cursor-default`}
+                            >
+                              {children}
+                            </button>
+                          );
+                        return (
+                      <Trigger>
                         {item.label}
                         {item.submenu && (
                           <motion.div
@@ -148,8 +167,10 @@ export function Header({ siteTitle, navigation }: HeaderProps) {
                             <ChevronDown className="w-4 h-4" />
                           </motion.div>
                         )}
-                      </Link>
-                      
+                      </Trigger>
+                        );
+                      })()}
+
                       {/* Invisible bridge to prevent flickering */}
                       {item.submenu && hoveredItem === item.label && (
                         <div 
@@ -246,17 +267,24 @@ export function Header({ siteTitle, navigation }: HeaderProps) {
                   </div>
                 ) : (
                   <div>
-                    <Link
-                      href={item.link}
-                      className="flex items-center justify-between text-white/90 hover:text-white transition-colors duration-200 font-medium py-2"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      <span>{item.label}</span>
-                      {item.submenu && (
-                        <ChevronDown className="w-4 h-4" />
-                      )}
-                    </Link>
-                    
+                    {item.link ? (
+                      <Link
+                        href={item.link}
+                        className="flex items-center justify-between text-white/90 hover:text-white transition-colors duration-200 font-medium py-2"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        <span>{item.label}</span>
+                        {item.submenu && <ChevronDown className="w-4 h-4" />}
+                      </Link>
+                    ) : (
+                      // Section heading with no hub page. Rendered as plain text so
+                      // the submenu below it is the only thing that navigates.
+                      <div className="flex items-center justify-between text-white/90 font-medium py-2">
+                        <span>{item.label}</span>
+                        {item.submenu && <ChevronDown className="w-4 h-4" />}
+                      </div>
+                    )}
+
                     {/* Mobile Submenu */}
                     {item.submenu && (
                       <div className="ml-4 mt-2 space-y-3">

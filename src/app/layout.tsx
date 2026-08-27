@@ -58,15 +58,12 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        // Dark-text logo: social preview panels are overwhelmingly light, and the
-        // white-text version rendered as an invisible wordmark on them. Dimensions
-        // are the file's real size (previously mis-declared as 1200x630, which
-        // caused cropping). Still 2.38:1 rather than the ideal 1.91:1, so a
-        // purpose-built 1200x630 card on a solid background remains the best fix.
-        url: '/images/logo_light.png',
-        width: 1584,
-        height: 665,
-        alt: 'Center Street I.T. - Managed IT Support in Deer Park, Texas',
+        // Purpose-built social card: solid ground, no transparency, and the
+        // declared dimensions match the file exactly.
+        url: '/assets/og-card.png',
+        width: 1200,
+        height: 630,
+        alt: 'Center Street I.T. - managed IT support and cybersecurity in Deer Park, Texas',
       },
     ],
   },
@@ -74,7 +71,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Center Street I.T. - Managed IT Support in Deer Park, TX",
     description: "Managed IT support and cybersecurity for businesses in Deer Park, Pasadena and La Porte, Texas.",
-    images: ['/images/logo_light.png'],
+    images: ['/assets/og-card.png'],
     creator: '@centerstreetit',
   },
   robots: {

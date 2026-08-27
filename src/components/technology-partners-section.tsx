@@ -4,20 +4,21 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 export function TechnologyPartnersSection() {
+  // Order is fixed by the client. Cisco, ESET, QNAP, APC, ARRIS and Ergotron were
+  // removed deliberately, and Cisco.png was deleted from /assets entirely because
+  // the partnership ended and the right to display the mark ended with it.
+  //
+  // Four slots are intentionally absent until the artwork is supplied: Google
+  // Workspace, Extreme Networks, Aruba Instant On and Acronis. The old Google
+  // Cloud mark is not a stand-in for Google Workspace — different product, so it
+  // was pulled rather than left misrepresenting what is actually sold.
   const partners = [
     { name: 'Microsoft', logo: '/assets/Microsoft.png' },
-    { name: 'Google Cloud', logo: '/assets/GoogleCloud.png' },
     { name: 'Dell', logo: '/assets/Dell.png' },
     { name: 'HP', logo: '/assets/HP.png' },
-    { name: 'Cisco', logo: '/assets/Cisco.png' },
-    { name: 'Trend Micro', logo: '/assets/Trend_Micro.png' },
-    { name: 'ESET', logo: '/assets/ESET.png' },
-    { name: 'SonicWall', logo: '/assets/SonicWall.png' },
-    { name: 'QNAP', logo: '/assets/QNAP.jpg' },
-    { name: 'APC', logo: '/assets/APC.png' },
-    { name: 'ARRIS', logo: '/assets/ARRIS.png' },
     { name: 'Lenovo', logo: '/assets/Lenovo.png' },
-    { name: 'Ergotron', logo: '/assets/Ergotron.png' },
+    { name: 'SonicWall', logo: '/assets/SonicWall.png' },
+    { name: 'Trend Micro', logo: '/assets/Trend_Micro.png' },
   ];
 
   return (

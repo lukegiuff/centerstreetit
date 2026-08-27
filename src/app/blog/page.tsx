@@ -1,3 +1,4 @@
+import { socialMeta } from '@/lib/metadata';
 import { getBlogPosts, getSiteSettings, getAllServicePages } from '@/lib/content';
 import { Header } from '@/components/header';
 import { BlogHeroSection } from '@/components/blog-hero-section';
@@ -18,12 +19,12 @@ export const metadata: Metadata = {
     "business IT advice",
     "network security blog"
   ],
-  openGraph: {
-    title: "Center Street I.T. Blog - Technology Insights",
-    description: "Expert insights on cybersecurity, cloud computing, and IT management for Texas Gulf Coast businesses.",
-    url: 'https://centerstreetit.com/blog',
-    type: 'website',
-  },
+  ...socialMeta({
+    title: 'Center Street I.T. Blog - Technology Insights',
+    description:
+      'Expert insights on cybersecurity, cloud computing, and IT management for Texas Gulf Coast businesses.',
+    path: '/blog',
+  }),
   alternates: {
     canonical: '/blog',
   },

@@ -56,6 +56,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: url(baseUrl, 'locations'),
+      lastModified: contentModified('services', 'it-support-in-deer-park.md'),
+      changeFrequency: 'monthly' as const,
+      priority: 0.9,
+    },
+    {
       url: url(baseUrl, 'blog'),
       lastModified: blogPosts.length ? new Date(blogPosts[0].date) : new Date(),
       changeFrequency: 'weekly' as const,

@@ -29,22 +29,70 @@ collections:
         label: "Homepage"
         name: "homepage"
         fields:
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Subtitle", name: "subtitle", widget: "string"}
-          - {label: "Hero Text", name: "hero_text", widget: "text"}
+          - {label: "Page Heading (H1)", name: "title", widget: "string"}
+          - {label: "Hero Subtitle", name: "subtitle", widget: "string"}
+          - {label: "Hero Text", name: "hero_text", widget: "text",
+             hint: "Leave a blank line between paragraphs and each one renders separately."}
+          - {label: "Meta Description", name: "meta_description", widget: "text", required: false,
+             hint: "Shown under the homepage title in Google results. Aim for 150-160 characters."}
           - {label: "CTA Button Text", name: "cta_text", widget: "string"}
           - {label: "CTA Button Link", name: "cta_link", widget: "string"}
-          
+          - {label: "Second CTA Text", name: "cta_secondary_text", widget: "string", required: false}
+          - {label: "Second CTA Link", name: "cta_secondary_link", widget: "string", required: false,
+             hint: "Use tel:+13468779001 for a click-to-call button."}
+
+          # Proximity section
+          - label: "Section: Proximity"
+            name: "proximity"
+            widget: "object"
+            required: false
+            fields:
+              - {label: "Heading", name: "title", widget: "string"}
+              - {label: "Body", name: "body", widget: "text",
+                 hint: "Blank line between paragraphs."}
+
+          # Differentiator section
+          - label: "Section: Who We Build For"
+            name: "differentiator"
+            widget: "object"
+            required: false
+            fields:
+              - {label: "Heading", name: "title", widget: "string"}
+              - {label: "Body", name: "body", widget: "text",
+                 hint: "Blank line between paragraphs. This section references contractor prequalification requirements and is worded deliberately - do not add wording that implies a certification or accreditation."}
+
           # Features Section
+          - {label: "Services Heading", name: "features_title", widget: "string", required: false}
+          - {label: "Services Intro Line", name: "features_intro", widget: "text", required: false}
           - label: "Features"
             name: "features"
             widget: "list"
             fields:
-              - {label: "Icon", name: "icon", widget: "string", 
-                 hint: "Lucide icon name (e.g., Shield, Server, Users, Settings, Brain, Heart, Cloud, Monitor, Database, Lock). Browse all icons at lucide.dev"}
+              - {label: "Icon", name: "icon", widget: "string",
+                 hint: "Lucide icon name in lowercase-with-hyphens, e.g. shield-check, database-backup, hard-drive. Browse all icons at lucide.dev"}
               - {label: "Title", name: "title", widget: "string"}
               - {label: "Description", name: "description", widget: "text"}
-          
+
+          # How we work
+          - label: "Section: How We Work"
+            name: "how_we_work"
+            widget: "object"
+            required: false
+            fields:
+              - {label: "Heading", name: "title", widget: "string"}
+              - {label: "Body", name: "body", widget: "text"}
+
+          # Closing CTA
+          - label: "Section: Closing Call to Action"
+            name: "closing_cta"
+            widget: "object"
+            required: false
+            fields:
+              - {label: "Heading", name: "title", widget: "string"}
+              - {label: "Body", name: "body", widget: "text"}
+              - {label: "Button Text", name: "button_text", widget: "string"}
+              - {label: "Button Link", name: "button_link", widget: "string"}
+
           # Stats Section  
           - label: "Stats"
             name: "stats"

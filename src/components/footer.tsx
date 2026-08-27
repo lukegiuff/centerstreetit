@@ -189,7 +189,7 @@ export function Footer({ siteTitle, social, navigation, servicePages, contact }:
                   viewport={{ once: true }}
                 >
                   <Link 
-                    href={`/${service.slug}`}
+                    href={`/${service.slug}/`}
                     className="text-gray-400 hover:text-white transition-colors duration-200"
                   >
                     {service.title}
@@ -213,7 +213,7 @@ export function Footer({ siteTitle, social, navigation, servicePages, contact }:
                   {locationPages.map((page) => (
                     <li key={page.slug}>
                       <Link
-                        href={`/${page.slug}`}
+                        href={`/${page.slug}/`}
                         className="text-gray-400 hover:text-white transition-colors duration-200"
                       >
                         {page.title}
@@ -272,10 +272,10 @@ export function Footer({ siteTitle, social, navigation, servicePages, contact }:
             © {new Date().getFullYear()} {siteTitle}. All rights reserved.
           </p>
           <div className="flex space-x-6 text-sm">
-            <Link href="/privacy-policy" className="text-gray-400 hover:text-white transition-colors">
+            <Link href="/privacy-policy/" className="text-gray-400 hover:text-white transition-colors">
               Privacy Policy
             </Link>
-            <Link href="/terms-and-conditions" className="text-gray-400 hover:text-white transition-colors">
+            <Link href="/terms-and-conditions/" className="text-gray-400 hover:text-white transition-colors">
               Terms and Conditions
             </Link>
           </div>

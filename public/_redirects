@@ -1,0 +1,14 @@
+# Cloudflare Pages redirect map.
+#
+# This file is copied verbatim into the static export, so it is the only place a
+# 301 can live on this site — Next.js `redirects()` does not run under
+# `output: 'export'`. Anything that changes a live URL needs an entry here.
+#
+# Format: <from> <to> <status>
+# Rules are matched top to bottom. Keep the list ordered oldest-first so newer
+# rules cannot be shadowed by a broader older one.
+
+# 2026-08 — page renamed so the URL matches its title and nav label
+# ("Network Assessment" was living at /it-projects).
+/it-projects   /network-assessment/   301
+/it-projects/  /network-assessment/   301

@@ -1,3 +1,4 @@
+import { socialMeta } from '@/lib/metadata';
 import { getBlogPost, getBlogPosts, getSiteSettings, getAllServicePages } from '@/lib/content';
 import { Header } from '@/components/header';
 import { BlogPostHero } from '@/components/blog-post-hero';
@@ -38,29 +39,13 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     description: post.excerpt,
     keywords: post.tags,
     authors: [{ name: post.author }],
-    openGraph: {
+    ...socialMeta({
       title: post.title,
       description: post.excerpt,
-      url: `https://centerstreetit.com/blog/${slug}`,
+      path: `/blog/${slug}`,
+      image: post.featured_image,
       type: 'article',
-      publishedTime: post.date,
-      authors: [post.author],
-      tags: post.tags,
-      images: post.featured_image ? [
-        {
-          url: post.featured_image,
-          width: 1200,
-          height: 630,
-          alt: post.title,
-        }
-      ] : undefined,
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: post.title,
-      description: post.excerpt,
-      images: post.featured_image ? [post.featured_image] : undefined,
-    },
+    }),
     alternates: {
       canonical: `/blog/${slug}`,
     },

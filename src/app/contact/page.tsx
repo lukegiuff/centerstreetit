@@ -1,3 +1,4 @@
+import { socialMeta } from '@/lib/metadata';
 import { getContactContent, getSiteSettings, getAllServicePages, getRecentPosts } from '@/lib/content';
 import { Header } from '@/components/header';
 import { ContactHeroSection } from '@/components/contact-hero-section';
@@ -19,12 +20,12 @@ export const metadata: Metadata = {
     "network assessment La Porte TX",
     "IT help desk Deer Park"
   ],
-  openGraph: {
-    title: "Contact Center Street I.T.",
-    description: "Managed IT support across Deer Park, Pasadena and La Porte, TX. Free consultation and network assessment. Call (346) 877-9001.",
-    url: 'https://centerstreetit.com/contact',
-    type: 'website',
-  },
+  ...socialMeta({
+    title: 'Contact Center Street I.T.',
+    description:
+      'Managed IT support across Deer Park, Pasadena and La Porte, TX. Free consultation and network assessment. Call (346) 877-9001.',
+    path: '/contact',
+  }),
   alternates: {
     canonical: '/contact',
   },

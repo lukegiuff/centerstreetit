@@ -5,9 +5,9 @@ site_description: Premier IT Support Management Infrastructure and Consulting
   meets excellence.
 navigation:
   - label: Blog
-    link: /blog
+    link: /blog/
   - label: Contact
-    link: /contact
+    link: /contact/
 social:
   - platform: Phone
     url: tel:+13468779001

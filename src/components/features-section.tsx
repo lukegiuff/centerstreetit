@@ -13,12 +13,24 @@ interface Feature {
 
 interface FeaturesSectionProps {
   features: Feature[];
+  title?: string;
+  intro?: string;
 }
 
-export function FeaturesSection({ features }: FeaturesSectionProps) {
+export function FeaturesSection({ features, title, intro }: FeaturesSectionProps) {
+  // lucide.dev names icons in kebab-case ("shield-check"); lucide-react exports
+  // them PascalCase. Convert rather than requiring editors to know the difference.
   const getIcon = (iconName: string) => {
-    const IconComponent = (LucideIcons as never)[iconName];
-    return IconComponent ? IconComponent : LucideIcons.Star;
+    if (!iconName) return LucideIcons.Star;
+    const pascalCase = iconName
+      .trim()
+      .toLowerCase()
+      .replace(/[^a-z0-9]+(.)?/g, (_, chr: string | undefined) => (chr ? chr.toUpperCase() : ''))
+      .replace(/^[a-z]/, (chr) => chr.toUpperCase());
+    const candidate = (LucideIcons as unknown as Record<string, unknown>)[pascalCase];
+    return typeof candidate === 'function' || typeof candidate === 'object'
+      ? (candidate as React.ComponentType<{ className?: string }>)
+      : LucideIcons.Star;
   };
 
   return (
@@ -27,10 +39,11 @@ export function FeaturesSection({ features }: FeaturesSectionProps) {
         <AnimatedText variant="slideUp" delay={0.1}>
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-[family-name:var(--font-cinzel)]">
-              Why Choose Us?
+              {title || 'Why Choose Us?'}
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We combine cutting-edge technology with exceptional service to deliver solutions that drive real results.
+              {intro ||
+                'We combine cutting-edge technology with exceptional service to deliver solutions that drive real results.'}
             </p>
           </div>
         </AnimatedText>

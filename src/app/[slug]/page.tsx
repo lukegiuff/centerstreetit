@@ -1,4 +1,5 @@
 import { getSiteSettings, getServicePageContent, getAllServicePages, getRecentPosts } from '@/lib/content';
+import { socialMeta } from '@/lib/metadata';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { ServicePageContent } from '@/components/service-page-content';
@@ -68,20 +69,12 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
     title: pageContent.title,
     description,
     keywords: serviceKeywords,
-    openGraph: {
+    ...socialMeta({
       title: `${pageContent.title} | Center Street I.T.`,
       description,
-      url: `https://centerstreetit.com/${slug}`,
-      type: 'website',
-      images: pageContent.hero_image ? [
-        {
-          url: pageContent.hero_image,
-          width: 1200,
-          height: 630,
-          alt: pageContent.title,
-        }
-      ] : undefined,
-    },
+      path: `/${slug}`,
+      image: pageContent.hero_image,
+    }),
     alternates: {
       canonical: `/${slug}`,
     },

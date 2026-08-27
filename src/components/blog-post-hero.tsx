@@ -85,7 +85,7 @@ export function BlogPostHero({
               </li>
               <li>»</li>
               <li>
-                <Link href="/blog" className="hover:text-white transition-colors" style={{ color: '#b78842' }}>
+                <Link href="/blog/" className="hover:text-white transition-colors" style={{ color: '#b78842' }}>
                   Blog
                 </Link>
               </li>

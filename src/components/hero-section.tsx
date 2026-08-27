@@ -13,9 +13,24 @@ interface HeroSectionProps {
   heroText: string;
   ctaText: string;
   ctaLink: string;
+  ctaSecondaryText?: string;
+  ctaSecondaryLink?: string;
 }
 
-export function HeroSection({ title, subtitle, heroText, ctaText, ctaLink }: HeroSectionProps) {
+export function HeroSection({
+  title,
+  subtitle,
+  heroText,
+  ctaText,
+  ctaLink,
+  ctaSecondaryText,
+  ctaSecondaryLink,
+}: HeroSectionProps) {
+  // Hero copy arrives from the CMS as blank-line-separated paragraphs.
+  const paragraphs = heroText
+    .split(/\n\s*\n/)
+    .map((p) => p.trim())
+    .filter(Boolean);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-12">
@@ -126,12 +141,17 @@ export function HeroSection({ title, subtitle, heroText, ctaText, ctaLink }: Her
         </AnimatedText>
 
         <AnimatedText variant="fadeIn" delay={0.6}>
-          <p className="text-base text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-            {heroText}
-          </p>
+          <div className="mb-12 max-w-3xl mx-auto space-y-4">
+            {paragraphs.map((paragraph, index) => (
+              <p key={index} className="text-base text-gray-300 leading-relaxed">
+                {paragraph}
+              </p>
+            ))}
+          </div>
         </AnimatedText>
 
         <motion.div
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
@@ -156,6 +176,16 @@ export function HeroSection({ title, subtitle, heroText, ctaText, ctaLink }: Her
               </span>
             </motion.button>
           </Link>
+
+          {ctaSecondaryText && ctaSecondaryLink && (
+            <a
+              href={ctaSecondaryLink}
+              className="px-8 py-4 font-semibold rounded-full text-lg border-2 transition-colors hover:bg-white/5"
+              style={{ borderColor: '#b78842', color: '#b78842' }}
+            >
+              {ctaSecondaryText}
+            </a>
+          )}
         </motion.div>
       </div>
 
