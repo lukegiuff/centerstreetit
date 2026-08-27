@@ -85,11 +85,14 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  icons: {
-    icon: "/assets/favicon.ico",
-    shortcut: "/assets/favicon.ico",
-    apple: "/assets/favicon.ico",
-  },
+  // Icons are deliberately NOT declared here. They come from the App Router file
+  // conventions instead: src/app/favicon.ico, src/app/icon.png (512x512) and
+  // src/app/apple-icon.png (180x180).
+  //
+  // This block used to point all three at /assets/favicon.ico, which produced four
+  // competing <link rel="icon"> tags across two different files. Google needs one
+  // unambiguous square icon of at least 48px, so it fell back to a generic
+  // placeholder in search results instead of the logo.
   // Google Search Console verification intentionally omitted. The previous value
   // was an unreplaced placeholder string that was being published on every page.
   // Add it back here only with a real token from Search Console:
