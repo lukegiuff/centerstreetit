@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GKK &middot; PLSR 2026 BBQ Fundraiser &middot; Spend Report (DRAFT)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Public+Sans:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EDE5D5; --paper2:#E3D9C4; --ink:#221E18; --ash:#7C7565;
+  --rule:#C3B79C; --rust:#A2371A; --ember:#C9631F; --moss:#3E6B4B; --char:#15130F;
+  --disp:"Oswald","DejaVu Sans Condensed","Arial Narrow",sans-serif;
+  --body:"Public Sans","DejaVu Sans",Helvetica,Arial,sans-serif;
+  --mono:"IBM Plex Mono","DejaVu Sans Mono",Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--char);font-family:var(--body);color:var(--ink);
+  -webkit-font-smoothing:antialiased}
+.sheet{max-width:940px;margin:0 auto;background:var(--paper);
+  background-image:radial-gradient(var(--rule) .5px,transparent .5px),
+    radial-gradient(var(--rule) .5px,transparent .5px);
+  background-size:7px 7px,11px 11px;background-position:0 0,3px 5px;
+  padding:0 34px 0}
+.mast{background:var(--char);color:var(--paper);margin:0 -34px;padding:26px 34px 20px;position:relative}
+.perf{height:12px;margin:0 -34px;background:var(--char);
+  -webkit-mask-image:repeating-radial-gradient(circle at 12px 6px,#000 0 5px,transparent 5px 12px);
+  mask-image:repeating-radial-gradient(circle at 12px 6px,#000 0 5px,transparent 5px 12px)}
+.eyebrow{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--rust)}
+.mast .eyebrow{color:var(--ember)}
+h1{font-family:var(--disp);font-weight:700;text-transform:uppercase;letter-spacing:.03em;
+  font-size:37px;line-height:1.02;margin:7px 0 4px}
+h1 .yr{color:var(--ember)}
+.strip{font-family:var(--mono);font-size:11px;color:var(--rule);margin-top:9px;line-height:1.8}
+.strip b{color:var(--paper);font-weight:400}
+.draft{position:absolute;top:22px;right:34px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.2em;color:var(--paper);border:1.5px solid var(--rust);
+  background:var(--rust);padding:5px 9px}
+.tickets{display:flex;border-bottom:1px solid var(--rule);margin:0 -34px;padding:18px 34px 20px}
+.tk{flex:1;padding:0 15px;border-left:1px dashed var(--rule)}
+.tk:first-child{border-left:0;padding-left:0}
+.tk .k{font-family:var(--mono);font-size:9.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--ash)}
+.tk .v{font-family:var(--mono);font-size:25px;font-weight:500;margin-top:5px;letter-spacing:-.01em}
+.tk .s{font-family:var(--mono);font-size:10px;color:var(--ash);margin-top:3px}
+.tk.hero .v{color:var(--rust)}
+section{padding:26px 0 22px;border-bottom:1px solid var(--rule)}
+h2{font-family:var(--disp);font-weight:500;text-transform:uppercase;letter-spacing:.05em;
+  font-size:22px;margin:6px 0 7px}
+.lede{max-width:66ch;font-size:13.5px;line-height:1.62;color:#443E34;margin:0 0 17px}
+.fam{font-family:var(--mono);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--ash);margin:15px 0 7px;border-bottom:1px solid var(--rule);padding-bottom:3px}
+.barrow{display:flex;align-items:center;height:25px;margin-bottom:4px;position:relative}
+.bar{height:25px;display:flex;align-items:center;justify-content:space-between;padding:0 9px;min-width:3px}
+.bl{font-family:var(--body);font-size:11.5px;font-weight:600}
+.bv{font-family:var(--mono);font-size:11.5px}
+.in{color:var(--paper)}
+.out{color:var(--ink);margin-left:8px}
+.bv.out{color:var(--ash)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ash);text-align:left;border-bottom:1px solid var(--rule);padding:5px 7px 5px 0;font-weight:400}
+td{padding:6px 7px 6px 0;border-bottom:1px solid rgba(195,183,156,.5);vertical-align:top}
+td.m,th.r{font-family:var(--mono);font-size:11.5px}
+td.r,th.r{text-align:right}
+td.b{font-weight:500}
+tr.est td{background:rgba(162,55,26,.09)}
+.railwrap{overflow-x:auto}
+.gauge{display:flex;height:34px;margin:12px 0 9px}
+.gseg{display:flex;align-items:center;justify-content:center;font-family:var(--mono);
+  font-size:11px;color:var(--paper);min-width:2px}
+.glegend{font-family:var(--mono);font-size:10.5px;color:var(--ash);line-height:1.9}
+.sw{display:inline-block;width:9px;height:9px;margin-right:5px}
+.read{background:var(--paper2);border-left:3px solid var(--ink);padding:13px 16px;margin:15px 0;
+  font-size:13px;line-height:1.62;max-width:70ch}
+.read b{display:block;margin-bottom:5px;font-size:13.5px}
+.chip{display:inline-block;font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;
+  border:1px solid var(--rule);padding:2px 6px;margin-right:5px;text-transform:uppercase}
+.chip.s{color:var(--ember);border-color:var(--ember)}
+.chip.k{color:var(--moss);border-color:var(--moss)}
+.chip.up{color:var(--rust);border-color:var(--rust)}
+.oi{background:var(--paper2);border-left:3px solid var(--rust);padding:11px 14px;margin-bottom:10px}
+.oih{font-family:var(--mono);font-size:11px;font-weight:500;margin-bottom:5px}
+.oi p{margin:0;font-size:12.5px;line-height:1.58;color:#443E34}
+footer{background:var(--char);color:var(--rule);margin:0 -34px;padding:22px 34px 26px;
+  font-family:var(--mono);font-size:10.5px;line-height:1.85}
+footer b{color:var(--ember);font-weight:400}
+@media(max-width:840px){.tickets{flex-wrap:wrap}.tk{flex:0 0 50%;margin-bottom:14px}
+  .tk:nth-child(odd){border-left:0;padding-left:0}}
+@media(max-width:780px){.two{grid-template-columns:1fr}h1{font-size:27px}.sheet{padding:0 18px}
+  .mast,.perf,.tickets,footer{margin-left:-18px;margin-right:-18px}
+  .mast,.tickets,footer{padding-left:18px;padding-right:18px}.draft{right:18px}}
+@media print{
+  body{background:var(--paper);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .sheet{max-width:none;animation:none}
+  section{padding:26px 0 22px}
+  .read,.railwrap,.gauge,.tickets,.oi,.bar,.fam,tr,svg,footer{break-inside:avoid}
+  h2,.eyebrow,.fam,.mast,.lede{break-after:avoid}
+}
+</style></head><body>
+<div class="sheet">
+
+<div class="mast">
+  <div class="draft">DRAFT</div>
+  <div class="eyebrow">Ghetto Kitchen Kookers &middot; Sub-event spend report</div>
+  <h1>BBQ Fundraiser <span class="yr">2026</span></h1>
+  <div class="strip">
+    Held <b>29 Aug 2026</b> (assumed, not confirmed) &middot; purchases <b>26&ndash;29 Aug 2026</b><br>
+    Parent event <b>Pasadena Livestock Show &amp; Rodeo Cook Off 2026</b>, 11&ndash;12 Sep<br>
+    subevent_id <b>2026-08-plsr-bbq-fundraiser</b> &middot; 6 spend records, 3 income records
+  </div>
+</div>
+<div class="perf"></div>
+
+<div class="tickets">
+  <div class="tk hero"><div class="k">Raised, gross</div><div class="v">813.93</div>
+    <div class="s">500.00 cash + 313.93 card</div></div>
+  <div class="tk"><div class="k">Spent</div><div class="v">337.56</div>
+    <div class="s">8.75 of it sales tax</div></div>
+  <div class="tk"><div class="k">Net kept</div><div class="v">443.38</div>
+    <div class="s">after tax, fees and spend</div></div>
+  <div class="tk"><div class="k">Plates</div><div class="v">42</div>
+    <div class="s">18 card, 24 cash</div></div>
+  <div class="tk"><div class="k">Tips</div><div class="v">140.00</div>
+    <div class="s">all cash, 39% of cash plates</div></div>
+  <div class="tk"><div class="k">Unevidenced</div><div class="v">175.00</div>
+    <div class="s">52% of spend, no receipt</div></div>
+  <div class="tk"><div class="k">Tax exposure</div><div class="v">29.70</div>
+    <div class="s">uncollected on cash plates</div></div>
+</div>
+
+<section>
+  <div class="eyebrow">Section 01</div>
+  <h2>Where it went</h2>
+  <p class="lede">Pre-tax, by line item. Sales tax of 8.75 sits outside this view and is
+  shown separately in the register. Bar widths are proportional to the largest single category,
+  <b>Food</b> at 176.36, not to the total.
+  Categories with no spend are omitted.</p>
+  <div class="fam">Competition inputs</div>
+<div class="barrow"><div class="bar" style="width:16.2%;background:var(--rust)"></div><span class="bl out">Wrap, foil, pans</span><span class="bv out">28.64</span></div>
+<div class="fam">Fundraising and resale</div>
+<div class="barrow"><div class="bar" style="width:20.9%;background:var(--ember)"></div><span class="bl out">Fundraiser protein</span><span class="bv out">36.87</span></div>
+<div class="fam">Site and operations</div>
+<div class="barrow"><div class="bar" style="width:6.3%;background:var(--ink)"></div><span class="bl out">Ice</span><span class="bv out">11.16</span></div>
+<div class="barrow"><div class="bar" style="width:5.1%;background:var(--ink)"></div><span class="bl out">Durable equipment</span><span class="bv out">9.00</span></div>
+<div class="barrow"><div class="bar" style="width:2.5%;background:var(--ink)"></div><span class="bl out">Disposables, sanitation</span><span class="bv out">4.39</span></div>
+<div class="fam">Food and beverage</div>
+<div class="barrow"><div class="bar" style="width:100.0%;background:var(--moss)"><span class="bl in">Food</span><span class="bv in">176.36</span></div></div>
+<div class="barrow"><div class="bar" style="width:33.1%;background:var(--moss)"></div><span class="bl out">Beverage, non-alcoholic</span><span class="bv out">58.41</span></div>
+<div class="fam">Event and administrative</div>
+<div class="barrow"><div class="bar" style="width:2.3%;background:var(--ash)"></div><span class="bl out">Uncategorised</span><span class="bv out">3.98</span></div>
+  <div class="read">
+    <b>One category accounts for 54% of everything spent.</b>
+    Food at 176.36 is
+    99% the Restaurant Depot run (175.00), the one
+    purchase in this event with no receipt behind it; the remaining
+    1.36 is 3 onions, 1.77 lb between them. The
+    Food and beverage family totals 234.77 across
+    2 categories. Until that ticket is
+    recovered, every proportion on this chart is an estimate wearing a precise number.
+  </div>
+</section>
+
+<section>
+  <div class="two">
+    <div>
+      <div class="eyebrow">Section 02</div>
+      <h2>Whose money</h2>
+      <p class="lede">Two axes: who supplied the funds, and whether the money moved through
+      the team account.</p>
+      <table><thead><tr><th>Source</th><th>Channel</th><th class="r">Rcpts</th><th class="r">Total</th></tr></thead><tbody>
+      <tr><td>Team funds</td><td class="m">team account</td><td class="m r">4</td><td class="m r b">121.18</td></tr>
+      <tr><td>Member contribution</td><td class="m">out of pocket</td><td class="m r">2</td><td class="m r b">216.38</td></tr>
+      </tbody></table>
+      <table style="margin-top:16px"><thead><tr><th>Contributor</th><th class="r">Total</th></tr></thead><tbody>
+      <tr><td>Daniel Molina</td><td class="m r b">216.38</td></tr>
+      </tbody></table>
+      <p class="lede" style="margin-top:13px">Nothing is owed. All member spend is recorded as a
+      contribution, not an advance, so no reimbursement is outstanding.</p>
+    </div>
+    <div>
+      <div class="eyebrow">Section 03</div>
+      <h2>Who we fed</h2>
+      <p class="lede">Food and beverage only, 234.77 of the 328.81 pre-tax
+      total. Resale stock is held apart from crew and guest consumption on purpose.</p>
+      <div class="gauge">
+        <div class="gseg" style="flex:230.82999999999998;background:var(--ember)">98%</div>
+        <div class="gseg" style="flex:3.94;background:var(--moss)"></div>
+      </div>
+      <div class="glegend">
+        <span class="sw" style="background:var(--ember)"></span>Resale &mdash; 230.83<br>
+        <span class="sw" style="background:var(--moss)"></span>Crew &mdash; 3.94<br>
+        <span class="sw" style="background:var(--ash)"></span>Hospitality &mdash; 0.00
+      </div>
+      <div class="read" style="margin-top:14px">
+        <b>Almost none of this was consumption. It was inventory.</b>
+        98.3% of food and beverage spend was stock bought to sell.
+        Crew consumption was 3.94 &mdash; two energy drinks. Hospitality was
+        0.00, because nothing at this event was given away. That makes the sponsor-facing
+        hospitality figure zero for this sub-event, which is correct and should not be
+        confused with a reporting gap.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">Section 04</div>
+  <h2>Receipt register</h2>
+  <p class="lede">Chronological. &#9679; marks a record with an archived source document;
+  &#9675; marks one built from a stated figure. Shaded rows are unevidenced.</p>
+  <div class="railwrap">
+  <table><thead><tr><th>Record</th><th>Date</th><th>Vendor</th><th>Funding</th>
+  <th class="r">Subtotal</th><th class="r">Tax</th><th class="r">Total</th></tr></thead><tbody>
+  <tr><td class="m">&#9679; RCT-2026-0008</td><td class="m">2026-08-26</td><td>Joe V's Smart Shop</td><td class="m">team funds</td><td class="m r">36.87</td><td class="m r">0.00</td><td class="m r b">36.87</td></tr><tr><td class="m">&#9679; RCT-2026-0004</td><td class="m">2026-08-29</td><td>Food Town</td><td class="m">member contribution</td><td class="m r">38.23</td><td class="m r">3.15</td><td class="m r b">41.38</td></tr><tr><td class="m">&#9679; RCT-2026-0005</td><td class="m">2026-08-29</td><td>Kroger</td><td class="m">team funds</td><td class="m r">44.96</td><td class="m r">3.71</td><td class="m r b">48.67</td></tr><tr><td class="m">&#9679; RCT-2026-0006</td><td class="m">2026-08-29</td><td>Joe V's Smart Shop</td><td class="m">team funds</td><td class="m r">20.81</td><td class="m r">0.82</td><td class="m r b">21.63</td></tr><tr><td class="m">&#9679; RCT-2026-0007</td><td class="m">2026-08-29</td><td>Joe V's Smart Shop</td><td class="m">team funds</td><td class="m r">12.94</td><td class="m r">1.07</td><td class="m r b">14.01</td></tr><tr class="est"><td class="m">&#9675; RCT-2026-0009</td><td class="m">&mdash;</td><td>Restaurant Depot</td><td class="m">member contribution</td><td class="m r">175.00</td><td class="m r">0.00</td><td class="m r b">175.00</td></tr>
+  <tr><td class="m b" colspan="4">TOTAL &mdash; 6 records</td>
+  <td class="m r b">328.81</td><td class="m r b">8.75</td>
+  <td class="m r b">337.56</td></tr>
+  </tbody></table></div>
+</section>
+
+<section>
+  <div class="eyebrow">Section 05</div>
+  <h2>What came in</h2>
+  <p class="lede">Two channels, behaving differently. Card sales carried Texas sales tax and no
+  tips; cash sales carried tips and no tax. The card side is evidenced by Square; the cash side
+  is a stated count.</p>
+  <div class="railwrap">
+  <table><thead><tr><th>Channel</th><th class="r">Plates</th><th class="r">Plate sales</th>
+  <th class="r">Tax</th><th class="r">Tips</th><th class="r">Collected</th></tr></thead><tbody>
+  <tr><td>Cash</td><td class="m r">24</td><td class="m r">360.00</td>
+    <td class="m r">0.00</td><td class="m r">140.00</td>
+    <td class="m r b">500.00</td></tr>
+  <tr><td>Card, plates</td><td class="m r">18</td><td class="m r">270.00</td>
+    <td class="m r">22.28</td><td class="m r">0.00</td>
+    <td class="m r b">292.28</td></tr>
+  <tr><td>Card, donation</td><td class="m r">&mdash;</td><td class="m r">20.00</td>
+    <td class="m r">1.65</td><td class="m r">&mdash;</td>
+    <td class="m r b">21.65</td></tr>
+  <tr><td class="b">Total</td><td class="m r b">42</td><td class="m r b">650.00</td>
+    <td class="m r b">23.93</td><td class="m r b">140.00</td>
+    <td class="m r b">813.93</td></tr>
+  </tbody></table></div>
+
+  <div class="fam">Net position</div>
+  <div class="railwrap">
+  <table><tbody>
+  <tr><td>Gross receipts</td><td class="m r b">813.93</td></tr>
+  <tr><td>Less sales tax collected &mdash; owed to the state, never the team's money</td><td class="m r">(23.93)</td></tr>
+  <tr><td>Less Square processing, 6 tickets at 2.6% + 0.15</td><td class="m r">(9.06)</td></tr>
+  <tr><td>Less spend</td><td class="m r">(337.56)</td></tr>
+  <tr><td class="b">Net retained</td><td class="m r b">443.38</td></tr>
+  </tbody></table></div>
+
+  <div class="read">
+    <b>All of the tipping was cash. None of it was card.</b>
+    Square's daily summary reports tips of 0.00 for the day, and every card ticket
+    was an exact multiple of the taxed plate price, so the 140.00 in tips came entirely
+    from cash customers &mdash; 39% on 360.00 of cash plate sales. Cash
+    buyers paid 500.00 for 360.00 of food. That is the single most
+    striking number in this report and it has nothing to do with cost control.
+  </div>
+
+  <div class="read" style="border-left-color:var(--rust)">
+    <b>29.70 of sales tax was not collected on the 24 cash plates.</b>
+    Card plates rang at 16.24 with tax; cash plates went out at
+    15.00 flat. Texas generally holds the seller liable for the tax on a taxable
+    sale whether or not it was collected at the counter, which would make this
+    29.70 payable out of the 443.38 above, bringing it to
+    413.68. Whether it is owed at all turns on entity status, and Ghetto Kitchen LLC
+    is an LLC rather than a qualified nonprofit, so the tax-free sale day provisions that apply
+    to charitable organisations most likely do not reach it.
+    <span class="chip up" style="margin-top:8px;display:inline-block">Not tax advice</span>
+    This needs a look from whoever files for the LLC, ideally before the September cook repeats
+    the same pattern at a larger scale.
+  </div>
+
+  <div class="read">
+    <b>Every 1.00 spent returned 2.41 in gross receipts.</b>
+    Cost of goods ran 41.5% of takings. The 443.38 kept offsets
+    28.9% of the 1,533.61 the Pasadena Livestock
+    Show &amp; Rodeo cook has cost so far.
+  </div>
+
+  <div class="read" style="border-left-color:var(--rust)">
+    <b>The income records in the ledger are wrong and are superseded by this section.</b>
+    INC-2026-0002 records 300.00 of card income, stated from memory before the Square
+    evidence arrived. The card side was 313.93 &mdash; not a missing fee but a bad
+    principal, out by 13.93. That record should be voided under
+    _INSTRUCTIONS.md section 8 and replaced by three: 292.28 of plate sales,
+    21.65 of support, and the 150.00 sponsorship against the
+    parent event. INC-2026-0001, the 500.00 in cash, still stands &mdash;
+    uncorroborated, but nothing contradicts it. The write could not be made; see Section 08.
+    <span class="chip up" style="margin-top:8px;display:inline-block">Schema gap</span>
+    Income records carry no tax field, so 23.93 owed to the state
+    currently sits inside gross_amount as though it were the team's.
+  </div>
+
+  <div class="read">
+    <b>A 150.00 sponsorship was taken on the same Square account on the same day
+    and is deliberately excluded from every figure in this report.</b>
+    It belongs to the parent event, not to the fundraiser. Its Square fee was
+    4.05, netting 145.95. Including it here would
+    overstate the fundraiser by 34% of what it actually
+    kept. Square's day total of 463.93 therefore will not match the card figures
+    above, and that is correct.
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">Section 06</div>
+  <h2>How it ran</h2>
+  <p class="lede">Plates at 15.00 each. 18 are evidenced on Square,
+  where every ticket was an exact multiple of the taxed plate price. The remaining
+  24 are derived from chips &mdash; every plate went out with a bag, and 42 of a
+  50-bag box were used.</p>
+
+  <div class="two">
+    <div>
+      <table><thead><tr><th>Sales</th><th class="r">Amount</th></tr></thead><tbody>
+      <tr><td>Plates sold</td><td class="m r b">42</td></tr>
+      <tr><td>Plate revenue at 15.00</td><td class="m r">630.00</td></tr>
+      <tr><td>Tips</td><td class="m r b">140.00</td></tr>
+      <tr><td>Total collected</td><td class="m r b">813.93</td></tr>
+      </tbody></table>
+      <p class="lede" style="margin-top:12px">Tips ran 39% of cash plate revenue.
+      Square reports 0.00 in tips for the whole day &mdash; every card ticket was an
+      exact plate multiple, so all tipping was cash.</p>
+    </div>
+    <div>
+      <table><thead><tr><th>Per plate</th><th class="r">Amount</th></tr></thead><tbody>
+      <tr><td>Menu price</td><td class="m r">15.00</td></tr>
+      <tr><td>Cost of goods bought</td><td class="m r">8.04</td></tr>
+      <tr><td>Contribution</td><td class="m r b">6.96 &nbsp;<span style="color:var(--ash)">46%</span></td></tr>
+      <tr><td>Sales tax added</td><td class="m r">1.24 card / 0.00 cash</td></tr>
+      <tr><td>Net kept</td><td class="m r b">10.56</td></tr>
+      </tbody></table>
+      <p class="lede" style="margin-top:12px">Cost per plate counts goods <b>bought</b>,
+      not goods <b>consumed</b>. See the read block below.</p>
+    </div>
+  </div>
+
+  <div class="read">
+    <b>The plate count is corroborated by the money, not just by the chips.</b>
+    A taxed plate rang at 16.24 on Square, and every card
+    ticket that day was an exact multiple of it &mdash; 1, 2, 3, 4, 8
+    plates. That fixes the card side at 18 plates without any inference. The chip
+    count fixes the total at 42. The difference, 24, is the cash side, and
+    360.00 of untaxed cash plates against 500.00
+    collected leaves 140.00 in tips.
+  </div>
+
+  <div class="fam">Labour &mdash; recorded, not costed</div>
+  <div class="railwrap">
+  <table><thead><tr><th>Shift</th><th class="r">People</th><th class="r">Hours each</th>
+  <th class="r">Hours</th></tr></thead><tbody>
+  <tr><td>Overnight cook, smoking the meat</td><td class="m r">2</td>
+    <td class="m r">7</td><td class="m r b">14</td></tr>
+  <tr><td>Day of, 08:00&ndash;15:00</td><td class="m r">5</td>
+    <td class="m r">7</td><td class="m r b">35</td></tr>
+  <tr><td class="b">Total</td><td class="m r"></td><td class="m r"></td>
+    <td class="m r b">49</td></tr>
+  </tbody></table></div>
+
+  <div class="read">
+    <b>GKK treats crew time as contributed, not as a cost. These hours are priced at zero
+    everywhere in this report, deliberately.</b>
+    They are recorded anyway, because the count is what shows the slack. 49 hours went
+    into 42 plates, 1.17 hours per plate. The day-of shift alone was
+    35 of those hours, and the crew's own assessment is that 3 people
+    could have covered it &mdash; 35 hours total, 0.83 per plate. The
+    difference is 14 hours, 29% of the labour that went in.
+    <span class="chip k" style="margin-top:8px;display:inline-block">Zero-cost by convention</span>
+    Nothing above is a dollar figure. The gap is a scheduling observation, not a loss.
+  </div>
+
+  <div class="fam">What was left at close</div>
+  <div class="railwrap">
+  <table><thead><tr><th>Item</th><th>Left over</th><th class="r">Would have bound at</th></tr></thead><tbody>
+  <tr><td>Meat</td><td>10-15 plates</td><td class="m r">~52&ndash;57 plates</td></tr>
+  <tr><td>Onion</td><td>10-15 plates</td><td class="m r">~52&ndash;57 plates</td></tr>
+  <tr><td>Buns</td><td>4 of 10 packs</td><td class="m r">~80 plates</td></tr>
+  <tr><td>Chips</td><td>58 bags</td><td class="m r">~92 plates</td></tr>
+  <tr><td>Pickles, jalapenos</td><td>three quarters of a jar each</td><td class="m r">far beyond</td></tr>
+  </tbody></table></div>
+
+  <div class="read" style="border-left-color:var(--ember)">
+    <b>Nothing physical ran out. The constraint was demand.</b>
+    Every input had headroom at close &mdash; the tightest was meat and onion at roughly
+    52 to 57 plates, and even buns would have carried
+    80. 42 plates sold against 80 buns
+    bought is a 6-bun overage on the
+    48 opened, which is an independent check on the
+    plate count that does not depend on chips or on Square. The event stopped because the
+    queue did, not because the tent did.
+  </div>
+
+  <div class="read">
+    <b>The 10&ndash;15 plates of unsold capacity were worth
+    150.00&ndash;225.00, and the goods were already
+    paid for.</b>
+    Selling them would have cost nothing at the margin and, with 14 hours of crew
+    slack already in the day, no extra labour either. Net retained would have run
+    593.38 to 668.38
+    instead of 443.38 &mdash; a
+    34 to 51%
+    uplift for no additional spend. This is the largest single lever in the event, and it is a
+    marketing and pre-sale problem, not a purchasing one.
+  </div>
+
+  <div class="read">
+    <b>A large share of the 175.00 Restaurant Depot line is inventory, not cost of
+    goods sold.</b>
+    One unopened box of 50 chips, 4 packs of buns, three quarters of
+    a jar each of pickles and jalapenos, most of a half-gallon of sauce, and leftover clamshells
+    all carry forward to the September cook. They are paid for and they are real value on the
+    books. Cost per plate of 8.04 therefore overstates what a plate actually
+    consumed, and the overstatement cannot be quantified until the Restaurant Depot ticket is
+    recovered. Leftover cooked meat is the exception: it was split among the four owners, which
+    is a distribution rather than an asset.
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">Section 07</div>
+  <h2>Open items</h2>
+  <p class="lede">Every flag carries its reason verbatim from the record. Nothing was silently
+  adjusted to make a total tie, and no reconciliation failure was corrected by editing a line.
+  All 6 spend records reconcile against their printed totals.
+  The income flags below are current as of the 2026-08-29 rewrite against the Square evidence.</p>
+  <div class="oi"><div class="oih">RCT-2026-0006 &middot; Joe V's Smart Shop &middot; 21.63</div><p>Line 4, dog biscuits, has no category on the closed list and reads as a personal item rather than team spend. Categorised 'other'. Recommend excluding 3.98 plus its 0.33 tax from the fundraiser cost of goods — say so and it becomes a correction.</p></div><div class="oi"><div class="oih">RCT-2026-0007 &middot; Joe V's Smart Shop &middot; 14.01</div><p>'TRAMONTINA PRO LINE 4CT' is categorised equipment_durable on the assumption it is a 4-piece knife or utensil set. The tape carries no further description. If it was a pan or tray set it belongs in wrap_foil_paper_pans instead.</p></div><div class="oi"><div class="oih">RCT-2026-0009 &middot; Restaurant Depot &middot; 175.00</div><p>NO SOURCE DOCUMENT. Amount is stated by Solomon from memory as 175.00 at Restaurant Depot for this fundraiser. No receipt, no date, no itemisation, no tax split. Contents are partially recalled: two boxes of chips, pickles, jalapenos, styrofoam clamshell boxes, and an unknown remainder. Solomon directed on 2026-08-29 to lump the whole amount as supplies for now, so it sits on one food_service / resale line — which is wrong in detail, because the styrofoam clamshells are packaging and belong in wrap_foil_paper_pans. The split is unknown. Restaurant Depot's Texas tickets also separate taxable supplies from exempt food, so carrying the full 175.00 as subtotal with zero tax is almost certainly wrong. Reconciled is true only in the trivial sense that a one-line record sums to itself — it is not an independent check.</p></div><div class="oi"><div class="oih">INC-2026-0001 &middot; cash income &middot; 500.00</div><p>Cash with no source document — the amount is Solomon's stated count and nothing corroborates it. received_date is assumed to be 2026-08-29 from the receipt dates in this batch; the actual fundraiser date was not stated. deposited is false because no deposit has been confirmed, not because one is known not to have happened.</p></div><div class="oi"><div class="oih">INC-2026-0005 &middot; card income &middot; 21.65</div><p>1) SALES TAX WAS CHARGED ON A NON-SALE. The Square item 'Support - Donation' rang 20.00 plus 1.65 of Texas sales tax. A voluntary support payment is not a taxable retail sale, so this 1.65 was most likely collected in error and the Square catalogue item is misconfigured with tax enabled. Small money, but it repeats every time that button is pressed and should be fixed before the September cook. Not tax advice - confirm with whoever files for Ghetto Kitchen LLC. 2) income_type is 'other' because the closed list in income/_README.md has no value that fits. It is not sponsorship_cash: no tier, no counterparty, no deliverable. It is not fundraiser_sales: nothing was sold. The Square item calls it a donation, but _INSTRUCTIONS.md section 5 deliberately keeps that word out of the schema because GKK is not a 501(c)(3) and a CPA would have to unwind the mischaracterisation. A value such as 'public_support' would fit; adding one is a schema change and needs Solomon's yes.</p></div>
+  <div class="read">
+    <b>What this report cannot answer.</b>
+    It does not know what 175.00 at Restaurant Depot actually bought, so the category
+    split in Section 01 is partly assumption. It cannot separate the cost of goods sold from the cost of goods bought, because
+    nobody counted what was left over beyond the chips. It cannot corroborate the
+    500.00 in cash &mdash; no one counted it twice and nothing was deposited yet,
+    so the 140.00 tip figure rests entirely on that single count. It cannot tell you
+    whether the 29.70 is actually owed. And it covers a single fundraiser with nothing to compare
+    against &mdash; every ratio here is a first observation, not a benchmark.
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">Section 08</div>
+  <h2>Provenance</h2>
+  <p class="lede">Where each figure in this report came from, so a later reader can tell
+  evidence from recollection.</p>
+  <div class="railwrap">
+  <table><thead><tr><th>Figure</th><th>Basis</th><th>Status</th></tr></thead><tbody>
+  <tr><td>162.56 of spend</td><td>Five archived receipts, all reconciling to the cent</td><td class="m">Evidenced</td></tr>
+  <tr><td>175.00 Restaurant Depot</td><td>Stated from memory, no ticket</td><td class="m">Unevidenced</td></tr>
+  <tr><td>313.93 card</td><td>Square transaction list and daily summary, reconciling to 463.93</td><td class="m">Evidenced</td></tr>
+  <tr><td>500.00 cash</td><td>Stated count, nothing corroborates it</td><td class="m">Stated</td></tr>
+  <tr><td>9.06 Square fees</td><td>2.6% + 0.15 per ticket; method verified against a sampled receipt</td><td class="m">Computed</td></tr>
+  <tr><td>23.93 tax collected</td><td>Square daily summary</td><td class="m">Evidenced</td></tr>
+  <tr><td>42 plates</td><td>18 evidenced on Square; 24 derived from the chip count</td><td class="m">Part evidenced</td></tr>
+  <tr><td>140.00 tips</td><td>Cash collected less cash plates at menu price; card tips were zero per Square</td><td class="m">Derived</td></tr>
+  <tr><td>49 labour hours</td><td>Stated crew sizes and shift lengths</td><td class="m">Stated</td></tr>
+  <tr><td>Headroom at close</td><td>Recalled after the event; no count was taken on the day</td><td class="m">Recalled</td></tr>
+  <tr><td>Restaurant Depot contents</td><td>Recalled in pieces across several conversations</td><td class="m">Recalled</td></tr>
+  <tr><td>Leftover meat</td><td>Split among the four owners; a distribution, not a cost</td><td class="m">Stated</td></tr>
+  </tbody></table></div>
+  <div class="read">
+    <b>The ledger now matches this report.</b>
+    INC-2026-0002, which recorded 300.00 of card income stated from memory, is voided and
+    replaced by INC-2026-0004 (292.28 of plate sales), INC-2026-0005
+    (21.65 of public support) and INC-2026-0003 (150.00
+    sponsorship, parent event only). Income records gained sales_tax_collected, net_of_tax,
+    units_sold, unit_price and tips. The onion line on RCT-2026-0006 is corrected to
+    3. Plate count, price, crew hours, headroom and the zero-cost labour convention
+    are recorded on the sub-event in reference/events.md. Two schema gaps remain open: there is
+    no field anywhere for a tax liability, so the 29.70 lives only in prose,
+    and income_type has no honest value for a public support payment.
+    <span class="chip up" style="margin-top:8px;display:inline-block">Pending Monday</span>
+    The Restaurant Depot ticket is expected on Monday. RCT-2026-0009 should then be ingested as
+    a real record and the 175.00 placeholder voided rather than corrected &mdash;
+    every further recollection about that basket has made the lump less defensible, not more.
+  </div>
+</section>
+
+<footer>
+  <b>DRAFT &mdash; not a filed record.</b> Generated 29 Aug 2026 from the GKK receipt ledger.<br>
+  Every row here comes from the ledger; nothing is illustrative or placeholder data.
+  6 spend records and 3 income records, of which
+  1 spend record (175.00, 52% of the total) has no source
+  document and rests on a stated figure.<br>
+  RCT-2026-0010, an estimate of 60.00 for pork later found on RCT-2026-0008, is voided
+  and excluded from every figure here.<br>
+  Operating figures &mdash; 42 plates, 15.00 price, 49 crew hours,
+  headroom at close &mdash; are stated or recalled, not yet written to the ledger. Crew time is
+  priced at zero by team convention, not omitted by oversight. The 175.00 Restaurant
+  Depot line is a placeholder awaiting the real ticket.<br>
+  Square fees of 9.06 and sales tax of 23.93 are deducted throughout;
+  29.70 of tax on cash plates may also be owed and is NOT deducted from the
+  net figure.
+  Ghetto Kitchen Kookers is not a 501(c)(3); money from outside parties is income, and money
+  from founders is a capital contribution.
+</footer>
+
+</div></body></html>
