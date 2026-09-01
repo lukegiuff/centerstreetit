@@ -59,11 +59,11 @@ People need something they can follow while their pulse is up. Keep it short eno
 
 The actions worth writing down:
 
-* * Isolate the affected machine from the network rather than wiping or rebuilding it. Rebuilding destroys the evidence your carrier and any investigator will ask for.
-  * Stop the spread. Pull the network cable, turn off the wireless, disconnect the backup target if it's still mounted.
-  * Call the carrier, then call us.
-  * Write down what you saw and when you saw it. Times matter later.
-  * Don't pay anything, don't reply to anything, and don't negotiate. That decision belongs to the carrier and to counsel.
+* Isolate the affected machine from the network rather than wiping or rebuilding it. Rebuilding destroys the evidence your carrier and any investigator will ask for.
+* Stop the spread. Pull the network cable, turn off the wireless, disconnect the backup target if it's still mounted.
+* Call the carrier, then call us.
+* Write down what you saw and when you saw it. Times matter later.
+* Don't pay anything, don't reply to anything, and don't negotiate. That decision belongs to the carrier and to counsel.
 
 None of that requires technical skill. It requires knowing it in advance.
 
