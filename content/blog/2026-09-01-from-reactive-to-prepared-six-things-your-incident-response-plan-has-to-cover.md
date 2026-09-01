@@ -3,6 +3,7 @@ title: "From Reactive to Prepared: Six Things Your Incident Response Plan Has to
   Cover"
 date: 2026-09-01T16:59:00.000-05:00
 author: Center Street I.T. Team
+featured_image: /images/mmk-from-reactive-to-prepared-blog-1.jpg
 excerpt: >-
   Most incident response plans fail for a boring reason. The plan is a Word file
   on the server that just went down.
