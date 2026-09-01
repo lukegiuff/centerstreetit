@@ -12,7 +12,7 @@ excerpt: >-
 
   Monitoring is good at spotting trouble — unusual activity, a failed backup, a server that stopped responding, and getting the right person notified fast. What it can't do is restore your data, rebuild the system, or get your crew back to work. That's a different job, and it has to be done before the alert ever fires.
 tags:
-  - general
+  - TestYourSafteyNet
 ---
 ## Test Your Safety Net: What AI Monitoring Can't Do When Your Systems Go Down
 
