@@ -22,13 +22,10 @@ The first twenty minutes of an outage get spent figuring out who's in charge, un
 
 Four decisions need an owner by name, not by department:
 
-* * Who decides whether to shut systems down
-
-  * Who calls the insurance carrier
-
-  * Who talks to employees
-
-  * Who talks to customers and vendor.
+* Who decides whether to shut systems down
+* Who calls the insurance carrier
+* Who talks to employees
+* Who talks to customers and vendor.
 
 Name the person and name a backup. "The office manager" is not an owner when the office manager is on vacation. When two people think they own the same call, you get duplicate effort in one place and silence in another.
 
@@ -63,13 +60,9 @@ People need something they can follow while their pulse is up. Keep it short eno
 The actions worth writing down:
 
 * * Isolate the affected machine from the network rather than wiping or rebuilding it. Rebuilding destroys the evidence your carrier and any investigator will ask for.
-
   * Stop the spread. Pull the network cable, turn off the wireless, disconnect the backup target if it's still mounted.
-
   * Call the carrier, then call us.
-
   * Write down what you saw and when you saw it. Times matter later.
-
   * Don't pay anything, don't reply to anything, and don't negotiate. That decision belongs to the carrier and to counsel.
 
 None of that requires technical skill. It requires knowing it in advance.
