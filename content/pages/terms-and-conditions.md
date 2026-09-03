@@ -3,7 +3,7 @@ title: Terms and Conditions
 description: Terms and Conditions for Center Street I.T. services - Review our
   service agreement terms and conditions.
 slug: terms-and-conditions
-last_updated: 2024-11-12T00:00:00.000Z
+last_updated: 2026-09-02T20:01:00.000-05:00
 ---
 # Terms and Conditions
 
