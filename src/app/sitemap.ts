@@ -79,6 +79,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'yearly' as const,
       priority: 0.5,
     },
+    {
+      url: url(baseUrl, 'subprocessors'),
+      lastModified: contentModified('pages', 'subprocessors.md'),
+      changeFrequency: 'monthly' as const,
+      priority: 0.5,
+    },
   ];
 
   // Service pages

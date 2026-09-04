@@ -271,12 +271,15 @@ export function Footer({ siteTitle, social, navigation, servicePages, contact }:
           <p className="text-gray-400 text-sm mb-4 md:mb-0" suppressHydrationWarning>
             © {new Date().getFullYear()} {siteTitle}. All rights reserved.
           </p>
-          <div className="flex space-x-6 text-sm">
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
             <Link href="/privacy-policy/" className="text-gray-400 hover:text-white transition-colors">
               Privacy Policy
             </Link>
             <Link href="/terms-and-conditions/" className="text-gray-400 hover:text-white transition-colors">
               Terms and Conditions
+            </Link>
+            <Link href="/subprocessors/" className="text-gray-400 hover:text-white transition-colors">
+              Subprocessors
             </Link>
           </div>
         </motion.div>

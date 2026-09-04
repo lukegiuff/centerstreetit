@@ -290,6 +290,16 @@ collections:
           - {label: "Last Updated", name: "last_updated", widget: "datetime"}
           - {label: "Content", name: "body", widget: "markdown"}
 
+      - file: "content/pages/subprocessors.md"
+        label: "Subprocessors and AI Tools"
+        name: "subprocessors"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "text"}
+          - {label: "Page URL Slug", name: "slug", widget: "string", default: "subprocessors"}
+          - {label: "Last Updated", name: "last_updated", widget: "datetime"}
+          - {label: "Content", name: "body", widget: "markdown"}
+
   # Site Settings with Full Configuration
   - name: "settings"
     label: "Site Settings"

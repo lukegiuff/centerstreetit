@@ -1,0 +1,57 @@
+import { socialMeta } from '@/lib/metadata';
+import { getLegalPageContent, getSiteSettings, getAllServicePages } from '@/lib/content';
+import { Header } from '@/components/header';
+import { Footer } from '@/components/footer';
+import { LegalPageContentComponent } from '@/components/legal-page-content';
+import { notFound } from 'next/navigation';
+import type { Metadata } from 'next';
+
+export async function generateMetadata(): Promise<Metadata> {
+  const pageContent = getLegalPageContent('subprocessors');
+
+  if (!pageContent) {
+    return {
+      title: 'Subprocessors Not Found',
+    };
+  }
+
+  return {
+    title: `${pageContent.title} - Center Street I.T.`,
+    description: pageContent.description,
+    ...socialMeta({
+      title: `${pageContent.title} - Center Street I.T.`,
+      description: pageContent.description,
+      path: '/subprocessors',
+    }),
+    alternates: {
+      canonical: '/subprocessors',
+    },
+  };
+}
+
+export default function SubprocessorsPage() {
+  const siteSettings = getSiteSettings();
+  const pageContent = getLegalPageContent('subprocessors');
+  const servicePages = getAllServicePages();
+
+  if (!pageContent) {
+    notFound();
+  }
+
+  return (
+    <main className="min-h-screen">
+      <Header
+        siteTitle={siteSettings.site_title}
+        navigation={siteSettings.navigation}
+      />
+      <LegalPageContentComponent pageContent={pageContent} />
+      <Footer
+        siteTitle={siteSettings.site_title}
+        social={siteSettings.social}
+        navigation={siteSettings.navigation}
+        servicePages={servicePages}
+        contact={siteSettings.contact}
+      />
+    </main>
+  );
+}
